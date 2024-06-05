@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-icon>menu</mat-icon>
+  <button mat-button [matMenuTriggerFor]="menuUsuarios">Usuarios</button>  
+</mat-toolbar>
+
+<mat-menu #menuUsuarios="matMenu">
+  <button mat-menu-item routerLink="/usuarios">Listar</button>
+  <button mat-menu-item routerLink="/usuarios/nuevo">Registrar</button>
+</mat-menu>
+
+<router-outlet></router-outlet>
