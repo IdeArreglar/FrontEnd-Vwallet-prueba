@@ -1,0 +1,25 @@
+<div>
+  <form [formGroup]="form" (submit)="aceptar()">
+    <mat-form-field *ngIf="edicion">
+      <mat-label>Código</mat-label>
+      <input matInput formControlName="codigo_bib" readonly />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field>
+      <mat-label>Sede</mat-label>
+
+      <mat-select matInput formControlName="sede_bib">
+        <mat-error *ngIf="form.get('sede_bib')?.hasError('required')"
+          >La Sede es obligatorio.</mat-error
+        >
+        <mat-option *ngFor="let g of listaSedes" [value]="g.value">
+          {{ g.viewValue }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <br />
+
+    <button mat-raised-button color="accent">Aceptar</button>
+  </form>
+</div>
