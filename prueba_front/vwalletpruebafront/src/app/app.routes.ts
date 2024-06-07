@@ -3,6 +3,8 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
 import { CreaeditausuarioComponent } from './components/usuario/creaeditausuario/creaeditausuario.component';
 import { BibliotecaComponent } from './components/biblioteca/biblioteca.component';
 import { CreaeditabibliotecaComponent } from './components/biblioteca/creaeditabiblioteca/creaeditabiblioteca.component';
+import { CafeteriaComponent } from './components/cafeteria/cafeteria.component';
+import { CreaeditacafeteriaComponent } from './components/cafeteria/creaeditacafeteria/creaeditacafeteria.component';
 
 export const routes: Routes = [
     {
@@ -28,6 +30,18 @@ export const routes: Routes = [
             }
 
         ]
-    }
+    },
+    {
+        path:'cafeteria',component:CafeteriaComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditacafeteriaComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditacafeteriaComponent
+            }
+
+        ]
+    },
     
 ];
