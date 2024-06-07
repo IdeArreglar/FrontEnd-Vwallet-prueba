@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './listarusuario.component.css'
 })
 export class ListarusuarioComponent implements OnInit {
-  displayedColumns: string[] = ['codigo', 'email', 'nombre','password','accion01'];
+  displayedColumns: string[] = ['codigo', 'email', 'nombre','password','accion01','accion02'];
   dataSource:MatTableDataSource<Usuario>=new MatTableDataSource()
 
   constructor(private uS:UsuarioService){}
@@ -24,6 +24,14 @@ export class ListarusuarioComponent implements OnInit {
     this.uS.getList().subscribe((data)=>{
       this.dataSource=new MatTableDataSource(data)
     })
+  }
+  deletes(id:number)
+  {
+    this.uS.delete(id).subscribe((data)=>{
+      this.uS.list().subscribe((data)=>{
+        this.uS.setList(data)
+      })
+    });
   }
 
 }
