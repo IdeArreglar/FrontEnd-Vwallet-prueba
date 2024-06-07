@@ -31,4 +31,8 @@ export class BibliotecaService {
   update(m:Biblioteca){
     return this.http.put(this.url,m);
   }
+  delete(id:number)
+  {
+    return this.http.delete(`${this.url}/${id}`)
+  }
 }

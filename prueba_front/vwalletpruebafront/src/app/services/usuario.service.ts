@@ -33,4 +33,8 @@ export class UsuarioService {
   update(m:Usuario){
     return this.http.put(this.url,m);
   }
+  delete(id:number)
+  {
+    return this.http.delete(`${this.url}/${id}`)
+  }
 }

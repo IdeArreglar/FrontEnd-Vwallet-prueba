@@ -1,7 +1,8 @@
 <mat-toolbar color="primary">
   <mat-icon>menu</mat-icon>
   <button mat-button [matMenuTriggerFor]="menuUsuarios">Usuarios</button> 
-  <button mat-button [matMenuTriggerFor]="menuBiblioteca">Biblioteca</button>   
+  <button mat-button [matMenuTriggerFor]="menuBiblioteca">Biblioteca</button> 
+  <button mat-button [matMenuTriggerFor]="menuCafeteria">Cafeteria</button>  
 </mat-toolbar>
 
 <mat-menu #menuUsuarios="matMenu">
@@ -13,5 +14,11 @@
   <button mat-menu-item routerLink="/biblioteca">Listar</button>
   <button mat-menu-item routerLink="/biblioteca/nuevo">Registrar</button>
 </mat-menu>
+
+<mat-menu #menuCafeteria="matMenu">
+  <button mat-menu-item routerLink="/cafeteria">Listar</button>
+  <button mat-menu-item routerLink="/cafeteria/nuevo">Registrar</button>
+</mat-menu>
+
 
 <router-outlet></router-outlet>

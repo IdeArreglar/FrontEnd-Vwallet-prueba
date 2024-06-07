@@ -13,12 +13,11 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
-import { Biblioteca } from '../../../models/Biblioteca';
-import { BibliotecaService } from '../../../services/biblioteca.service';
+import { Cafeteria } from '../../../models/Cafeteria';
+import { CafeteriaService } from '../../../services/cafeteria.service';
 
 @Component({
-  selector: 'app-creaeditabiblioteca',
+  selector: 'app-creaeditacafeteria',
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -27,14 +26,14 @@ import { BibliotecaService } from '../../../services/biblioteca.service';
     CommonModule,
     MatInputModule,
     MatButtonModule,
-    MatDatepickerModule,
-  ],
-  templateUrl: './creaeditabiblioteca.component.html',
-  styleUrl: './creaeditabiblioteca.component.css'
+    MatDatepickerModule,],
+  templateUrl: './creaeditacafeteria.component.html',
+  styleUrl: './creaeditacafeteria.component.css'
 })
-export class CreaeditabibliotecaComponent implements OnInit {
+export class CreaeditacafeteriaComponent implements OnInit{
+
   form: FormGroup = new FormGroup({});
-  biblioteca: Biblioteca = new Biblioteca();
+  cafeteria: Cafeteria = new Cafeteria();
   id: number = 0;
   edicion: boolean = false;
 
@@ -47,7 +46,7 @@ export class CreaeditabibliotecaComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private bS: BibliotecaService,
+    private cS: CafeteriaService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -60,40 +59,39 @@ export class CreaeditabibliotecaComponent implements OnInit {
     });
 
     this.form = this.formBuilder.group({
-      codigo_bib: [''],
-      sede_bib: ['', Validators.required],
+      codigo_caf: [''],
+      sede_caf: ['', Validators.required],
     });
   }
 
   aceptar(): void {
     if (this.form.valid) {
-      this.biblioteca.idBiblioteca = this.form.value.codigo_bib;
-      this.biblioteca.sedeBiblioteca = this.form.value.sede_bib;
+      this.cafeteria.idCafeteria = this.form.value.codigo_caf;
+      this.cafeteria.sedeCafeteria = this.form.value.sede_caf;
       if (this.edicion) {
-        this.bS.update(this.biblioteca).subscribe((data) => {
-          this.bS.list().subscribe((data) => {
-            this.bS.setList(data);
+        this.cS.update(this.cafeteria).subscribe((data) => {
+          this.cS.list().subscribe((data) => {
+            this.cS.setList(data);
           });
         });
       } else {
-        this.bS.insert(this.biblioteca).subscribe((data) => {
-          this.bS.list().subscribe((data) => {
-            this.bS.setList(data);
+        this.cS.insert(this.cafeteria).subscribe((data) => {
+          this.cS.list().subscribe((data) => {
+            this.cS.setList(data);
           });
         });
-        this.router.navigate(['biblioteca']);
+        this.router.navigate(['cafeteria']);
       }
     }
   }
   init() {
     if (this.edicion) {
-      this.bS.listId(this.id).subscribe((data) => {
+      this.cS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          codigo_bib: new FormControl(data.idBiblioteca),
-          sede_bib: new FormControl(data.sedeBiblioteca),
+          codigo_caf: new FormControl(data.idCafeteria),
+          sede_caf: new FormControl(data.sedeCafeteria),
         });
       });
     }
   }
-
 }
