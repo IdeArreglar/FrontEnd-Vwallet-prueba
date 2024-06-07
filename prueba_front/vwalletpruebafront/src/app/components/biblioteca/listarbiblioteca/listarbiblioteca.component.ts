@@ -14,7 +14,7 @@ import { Biblioteca } from '../../../models/Biblioteca';
 })
 export class ListarbibliotecaComponent implements OnInit{
 
-  displayedColumns: string[] = ['codigo_bib', 'sede_bib','accion01'];
+  displayedColumns: string[] = ['codigo_bib', 'sede_bib','accion01','accion02'];
   dataSource:MatTableDataSource<Biblioteca>=new MatTableDataSource()
   constructor(private bS:BibliotecaService){}
   ngOnInit(): void {
@@ -24,5 +24,13 @@ export class ListarbibliotecaComponent implements OnInit{
     this.bS.getList().subscribe((data)=>{
       this.dataSource=new MatTableDataSource(data)
     })
+  }
+  deletes(id:number)
+  {
+    this.bS.delete(id).subscribe((data)=>{
+      this.bS.list().subscribe((data)=>{
+        this.bS.setList(data)
+      })
+    });
   }
 }
