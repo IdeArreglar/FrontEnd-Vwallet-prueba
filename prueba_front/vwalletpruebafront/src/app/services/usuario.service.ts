@@ -3,8 +3,8 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../models/Usuario';
 import { Subject } from 'rxjs';
-const base_url=environment.base
 
+const base_url=environment.base
 
 @Injectable({
   providedIn: 'root'
