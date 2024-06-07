@@ -5,6 +5,8 @@ import { BibliotecaComponent } from './components/biblioteca/biblioteca.componen
 import { CreaeditabibliotecaComponent } from './components/biblioteca/creaeditabiblioteca/creaeditabiblioteca.component';
 import { CafeteriaComponent } from './components/cafeteria/cafeteria.component';
 import { CreaeditacafeteriaComponent } from './components/cafeteria/creaeditacafeteria/creaeditacafeteria.component';
+import { TransporteComponent } from './components/transporte/transporte.component';
+import { CreaeditatransporteComponent } from './components/transporte/creaeditatransporte/creaeditatransporte.component';
 
 export const routes: Routes = [
     {
@@ -39,6 +41,18 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id',component:CreaeditacafeteriaComponent
+            }
+
+        ]
+    },
+    {
+        path:'transporte',component:TransporteComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditatransporteComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditatransporteComponent
             }
 
         ]
