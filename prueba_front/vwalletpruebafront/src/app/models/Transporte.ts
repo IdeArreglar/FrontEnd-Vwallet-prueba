@@ -2,7 +2,7 @@ export class Transporte {
     idTransporte: number=0;
     universidadSalida: string = '';
     universidadLlegada: string = '';
-    horaSalida: Date = new Date(Date.now());
-    horaLlegada: Date = new Date(Date.now());
+    horaSalida: number = 0;
+    horaLlegada: number = 0;
     precioTransporte: number=0;
 }

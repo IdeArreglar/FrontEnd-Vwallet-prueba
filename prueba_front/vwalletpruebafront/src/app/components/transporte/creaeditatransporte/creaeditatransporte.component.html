@@ -1,1 +1,65 @@
-<p>creaeditatransporte works!</p>
+<div>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo_trans" readonly />
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field>
+        <mat-label>Sede salida</mat-label>
+        <mat-select matInput formControlName="universidad_salida">
+          <mat-error *ngIf="form.get('universidad_salida')?.hasError('required')"
+            >La sede de salida es obligatorio.</mat-error>
+          <mat-option *ngFor="let g of listaSedes" [value]="g.value">
+            {{ g.viewValue }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Sede llegada</mat-label>
+        <mat-select matInput formControlName="universidad_llegada">
+          <mat-error *ngIf="form.get('universidad_llegada')?.hasError('required')"
+            >La sede de destino es obligatorio.</mat-error>
+          <mat-option *ngFor="let g of listaSedes" [value]="g.value">
+            {{ g.viewValue }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <br />
+
+
+      <mat-form-field>
+        <mat-label>Hora salida</mat-label>
+        <input matInput formControlName="hora_salida" />
+        <mat-error *ngIf="form.get('hora_salida')?.hasError('required')"
+          >La hora de salida es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+
+
+      <mat-form-field>
+        <mat-label>Hora llegada</mat-label>
+        <input matInput formControlName="hora_llegada" />
+        <mat-error *ngIf="form.get('hora_llegada')?.hasError('required')"
+          >La hora de llegada es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+
+
+      <mat-form-field>
+        <mat-label>Precio</mat-label>
+        <input matInput formControlName="precio" />
+        <mat-error *ngIf="form.get('precio')?.hasError('required')"
+          >EL precio es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+  
+      <button mat-raised-button color="accent">Aceptar</button>
+    </form>
+  </div>
