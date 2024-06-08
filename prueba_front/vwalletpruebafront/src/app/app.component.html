@@ -2,7 +2,8 @@
   <mat-icon>menu</mat-icon>
   <button mat-button [matMenuTriggerFor]="menuUsuarios">Usuarios</button> 
   <button mat-button [matMenuTriggerFor]="menuBiblioteca">Biblioteca</button> 
-  <button mat-button [matMenuTriggerFor]="menuCafeteria">Cafeteria</button>  
+  <button mat-button [matMenuTriggerFor]="menuCafeteria">Cafeteria</button>
+  <button mat-button [matMenuTriggerFor]="menuTransporte">Transporte</button> 
 </mat-toolbar>
 
 <mat-menu #menuUsuarios="matMenu">
@@ -18,6 +19,11 @@
 <mat-menu #menuCafeteria="matMenu">
   <button mat-menu-item routerLink="/cafeteria">Listar</button>
   <button mat-menu-item routerLink="/cafeteria/nuevo">Registrar</button>
+</mat-menu>
+
+<mat-menu #menuTransporte="matMenu">
+  <button mat-menu-item routerLink="/transporte">Listar</button>
+  <button mat-menu-item routerLink="/transporte/nuevo">Registrar</button>
 </mat-menu>
 
 
