@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { Transporte } from '../../../models/Transporte';
@@ -8,7 +9,7 @@ import { TransporteService } from '../../../services/transporte.service';
 @Component({
   selector: 'app-listartransporte',
   standalone: true,
-  imports: [MatTableModule,MatButtonModule,RouterLink],
+  imports: [MatTableModule,MatButtonModule,RouterLink,MatIconModule],
   templateUrl: './listartransporte.component.html',
   styleUrl: './listartransporte.component.css'
 })
