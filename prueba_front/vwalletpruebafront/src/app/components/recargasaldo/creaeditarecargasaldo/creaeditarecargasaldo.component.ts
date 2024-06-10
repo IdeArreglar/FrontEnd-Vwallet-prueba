@@ -72,7 +72,7 @@ export class CreaeditarecargasaldoComponent implements OnInit{
       this.recargasaldo.idRecargaSaldo = this.form.value.codigo_rec;
       this.recargasaldo.montoRecarga = this.form.value.monto;
       this.recargasaldo.fechaRecarga = this.form.value.fecharecarga;
-      this.recargasaldo.usuario.nameUsuario = this.form.value.usuario_;
+      this.recargasaldo.usuario.idUsuario = this.form.value.usuario_;
   
       if (this.edicion) {
         this.rS.update(this.recargasaldo).subscribe((data) => {
