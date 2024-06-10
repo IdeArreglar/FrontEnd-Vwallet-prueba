@@ -9,6 +9,8 @@ import { TransporteComponent } from './components/transporte/transporte.componen
 import { CreaeditatransporteComponent } from './components/transporte/creaeditatransporte/creaeditatransporte.component';
 import { LibroComponent } from './components/libro/libro.component';
 import { CreaeditalibroComponent } from './components/libro/creaeditalibro/creaeditalibro.component';
+import { RecargasaldoComponent } from './components/recargasaldo/recargasaldo.component';
+import { CreaeditarecargasaldoComponent } from './components/recargasaldo/creaeditarecargasaldo/creaeditarecargasaldo.component';
 
 export const routes: Routes = [
     {
@@ -59,7 +61,6 @@ export const routes: Routes = [
 
         ]
     },
-
     {
         path:'libro',component:LibroComponent,
         children:[
@@ -68,6 +69,18 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id',component:CreaeditalibroComponent
+            }
+
+        ]
+    },
+    {
+        path:'recargasaldo',component:RecargasaldoComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditarecargasaldoComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditarecargasaldoComponent
             }
 
         ]

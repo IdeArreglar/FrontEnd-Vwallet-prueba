@@ -5,6 +5,7 @@
   <button mat-button [matMenuTriggerFor]="menuCafeteria">Cafeteria</button>
   <button mat-button [matMenuTriggerFor]="menuTransporte">Transporte</button> 
   <button mat-button [matMenuTriggerFor]="menuLibro">Libro</button> 
+  <button mat-button [matMenuTriggerFor]="menuRecargaSaldo">Recarga</button> 
 </mat-toolbar>
 
 <mat-menu #menuUsuarios="matMenu">
@@ -30,6 +31,11 @@
 <mat-menu #menuLibro="matMenu">
   <button mat-menu-item routerLink="/libro"><mat-icon>list</mat-icon>Listar</button>
   <button mat-menu-item routerLink="/libro/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuRecargaSaldo="matMenu">
+  <button mat-menu-item routerLink="/recargasaldo"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/recargasaldo/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 
