@@ -7,6 +7,8 @@ import { CafeteriaComponent } from './components/cafeteria/cafeteria.component';
 import { CreaeditacafeteriaComponent } from './components/cafeteria/creaeditacafeteria/creaeditacafeteria.component';
 import { TransporteComponent } from './components/transporte/transporte.component';
 import { CreaeditatransporteComponent } from './components/transporte/creaeditatransporte/creaeditatransporte.component';
+import { LibroComponent } from './components/libro/libro.component';
+import { CreaeditalibroComponent } from './components/libro/creaeditalibro/creaeditalibro.component';
 
 export const routes: Routes = [
     {
@@ -53,6 +55,19 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id',component:CreaeditatransporteComponent
+            }
+
+        ]
+    },
+
+    {
+        path:'libro',component:LibroComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditalibroComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditalibroComponent
             }
 
         ]
