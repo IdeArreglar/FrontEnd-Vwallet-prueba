@@ -98,7 +98,7 @@ export class CreaeditalibroComponent implements OnInit{
     if (this.edicion) {
       this.lS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          idLibro: new FormControl(data.idLibro),
+          codigo_lib: new FormControl(data.idLibro),
           titulo: new FormControl(data.titulo),
           autor: new FormControl(data.autor),
           anioPublicacion: new FormControl(data.anioPublicacion),
