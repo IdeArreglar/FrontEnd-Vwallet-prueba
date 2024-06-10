@@ -48,12 +48,12 @@
       <br />
       <mat-form-field class="example-full-width">
         <mat-label>Biblioteca</mat-label>
-        <mat-select formControlName="biblioteca">
+        <mat-select formControlName="biblioteca_">
           <mat-option *ngFor="let c of listaSedes" [value]="c.idBiblioteca">
             {{c.sedeBiblioteca}}
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="form.get('biblioteca')?.hasError('required')"
+        <mat-error *ngIf="form.get('biblioteca_')?.hasError('required')"
         >La sede es obligatoria.</mat-error>       
      
       </mat-form-field>

@@ -14,7 +14,7 @@ import { LibroService } from '../../../services/libro.service';
   styleUrl: './listarlibro.component.css'
 })
 export class ListarlibroComponent {
-  displayedColumns: string[] = ['codigo_lib','titulo','autor','anioPublicacion','genero','biblioteca','accion01', 'accion02'];//papu
+  displayedColumns: string[] = ['codigo_lib','titulo','autor','anioPublicacion','genero','biblioteca_','accion01', 'accion02'];//papu
   dataSource:MatTableDataSource<Libro>=new MatTableDataSource()
 
   constructor(private lS:LibroService){}

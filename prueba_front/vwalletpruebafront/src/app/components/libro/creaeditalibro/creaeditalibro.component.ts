@@ -61,7 +61,7 @@ export class CreaeditalibroComponent implements OnInit{
       autor: ['', Validators.required],
       anioPublicacion: ['', Validators.required],
       genero: ['', Validators.required],
-      biblioteca: ['', Validators.required],
+      biblioteca_: ['', Validators.required],
     });
  
   }
@@ -73,7 +73,7 @@ export class CreaeditalibroComponent implements OnInit{
       this.libro.autor = this.form.value.autor;
       this.libro.anioPublicacion = this.form.value.anioPublicacion;
       this.libro.genero = this.form.value.genero;
-      this.libro.biblioteca.idBiblioteca = this.form.value.biblioteca;
+      this.libro.biblioteca.idBiblioteca = this.form.value.biblioteca_;
   
       if (this.edicion) {
         this.lS.update(this.libro).subscribe((data) => {
@@ -82,25 +82,26 @@ export class CreaeditalibroComponent implements OnInit{
           });
         });
       } else {
+
         this.lS.insert(this.libro).subscribe((data) => {
           this.lS.list().subscribe((data) => {
             this.lS.setList(data);
           });
         });
-        this.router.navigate(['libro']);
       }
+      this.router.navigate(['libro']);
     }
   }
   init() {
     if (this.edicion) {
       this.lS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          idLibro: new FormControl(data.idLibro),
+          codigo_lib: new FormControl(data.idLibro),
           titulo: new FormControl(data.titulo),
           autor: new FormControl(data.autor),
           anioPublicacion: new FormControl(data.anioPublicacion),
           genero: new FormControl(data.genero),
-          biblioteca: new FormControl(data.biblioteca),
+          biblioteca_: new FormControl(data.biblioteca),
         });
       });
     }
