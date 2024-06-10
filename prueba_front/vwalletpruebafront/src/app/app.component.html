@@ -1,10 +1,10 @@
 <mat-toolbar color="warn">
-  <img src="walletweb_logo.jpg" alt="Logo" style="height: 40px;">
   <mat-icon>menu</mat-icon>
   <button mat-button [matMenuTriggerFor]="menuUsuarios">Usuarios</button> 
   <button mat-button [matMenuTriggerFor]="menuBiblioteca">Biblioteca</button> 
   <button mat-button [matMenuTriggerFor]="menuCafeteria">Cafeteria</button>
   <button mat-button [matMenuTriggerFor]="menuTransporte">Transporte</button> 
+  <button mat-button [matMenuTriggerFor]="menuMenu">Menu</button> 
 </mat-toolbar>
 
 <mat-menu #menuUsuarios="matMenu">
@@ -25,6 +25,11 @@
 <mat-menu #menuTransporte="matMenu">
   <button mat-menu-item routerLink="/transporte"><mat-icon>list</mat-icon>Listar</button>
   <button mat-menu-item routerLink="/transporte/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuMenu="matMenu">
+  <button mat-menu-item routerLink="/menu"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/menu/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 

@@ -1,0 +1,80 @@
+<div>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo_menu" readonly />
+      </mat-form-field>
+      <br />
+  
+
+      <mat-form-field>
+        <mat-label>entrada</mat-label>
+        <mat-select matInput formControlName="entrada">
+          <mat-error *ngIf="form.get('entrada')?.hasError('required')"
+            >La Sede es obligatorio.</mat-error>
+          <mat-option *ngFor="let g of listaentradas" [value]="g.value">
+            {{ g.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>platoprincipal</mat-label>
+        <mat-select matInput formControlName="platoprincipal">
+          <mat-error *ngIf="form.get('platoprincipal')?.hasError('required')"
+            >La Sede es obligatorio.</mat-error>
+          <mat-option *ngFor="let g of listaplatos" [value]="g.value">
+            {{ g.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+
+
+      <mat-form-field>
+        <mat-label>postre</mat-label>
+        <mat-select matInput formControlName="postre">
+          <mat-error *ngIf="form.get('postre')?.hasError('required')"
+            >La Sede es obligatorio.</mat-error>
+          <mat-option *ngFor="let g of listapostres" [value]="g.value">
+            {{ g.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+
+
+      <mat-form-field>
+        <mat-label>refresco</mat-label>
+        <mat-select matInput formControlName="refresco">
+          <mat-error *ngIf="form.get('refresco')?.hasError('required')"
+            >La Sede es obligatorio.</mat-error>
+          <mat-option *ngFor="let g of listabebidas" [value]="g.value">
+            {{ g.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>preciomenu</mat-label>
+        <input matInput formControlName="preciomenu" />
+        <mat-error *ngIf="form.get('preciomenu')?.hasError('required')"
+          >El precio del menu es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Cafeteria</mat-label>
+        <mat-select formControlName="cafeteriaMenu">
+          <mat-option *ngFor="let c of listaSedes" [value]="c.idCafeteria">
+            {{c.sedeCafeteria}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('cafeteriaMenu')?.hasError('required')"
+        >cafeteriaMenu es obligatorio.</mat-error>       
+      </mat-form-field>
+  
+      <button mat-raised-button color="accent">Aceptar</button>
+    </form>
+  </div>
+

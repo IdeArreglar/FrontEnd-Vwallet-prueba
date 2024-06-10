@@ -7,6 +7,8 @@ import { CafeteriaComponent } from './components/cafeteria/cafeteria.component';
 import { CreaeditacafeteriaComponent } from './components/cafeteria/creaeditacafeteria/creaeditacafeteria.component';
 import { TransporteComponent } from './components/transporte/transporte.component';
 import { CreaeditatransporteComponent } from './components/transporte/creaeditatransporte/creaeditatransporte.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { CreaeditamenuComponent } from './components/menu/creaeditamenu/creaeditamenu.component';
 
 export const routes: Routes = [
     {
@@ -53,6 +55,18 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id',component:CreaeditatransporteComponent
+            }
+
+        ]
+    },
+    {
+        path:'menu',component:MenuComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditamenuComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditamenuComponent
             }
 
         ]
