@@ -1,29 +1,53 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="warn">
   <mat-icon>menu</mat-icon>
   <button mat-button [matMenuTriggerFor]="menuUsuarios">Usuarios</button> 
   <button mat-button [matMenuTriggerFor]="menuBiblioteca">Biblioteca</button> 
   <button mat-button [matMenuTriggerFor]="menuCafeteria">Cafeteria</button>
   <button mat-button [matMenuTriggerFor]="menuTransporte">Transporte</button> 
+  <button mat-button [matMenuTriggerFor]="menuLibro">Libro</button> 
+  <button mat-button [matMenuTriggerFor]="menuRecargaSaldo">Recarga</button> 
+  <button mat-button [matMenuTriggerFor]="menuTypeUser">Tipo Usuario</button> 
+  <button mat-button [matMenuTriggerFor]="menuReservas">Reservas</button> 
 </mat-toolbar>
 
 <mat-menu #menuUsuarios="matMenu">
-  <button mat-menu-item routerLink="/usuarios">Listar</button>
-  <button mat-menu-item routerLink="/usuarios/nuevo">Registrar</button>
+  <button mat-menu-item routerLink="/usuarios"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/usuarios/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <mat-menu #menuBiblioteca="matMenu">
-  <button mat-menu-item routerLink="/biblioteca">Listar</button>
-  <button mat-menu-item routerLink="/biblioteca/nuevo">Registrar</button>
+  <button mat-menu-item routerLink="/biblioteca"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/biblioteca/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <mat-menu #menuCafeteria="matMenu">
-  <button mat-menu-item routerLink="/cafeteria">Listar</button>
-  <button mat-menu-item routerLink="/cafeteria/nuevo">Registrar</button>
+  <button mat-menu-item routerLink="/cafeteria"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/cafeteria/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <mat-menu #menuTransporte="matMenu">
-  <button mat-menu-item routerLink="/transporte">Listar</button>
-  <button mat-menu-item routerLink="/transporte/nuevo">Registrar</button>
+  <button mat-menu-item routerLink="/transporte"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/transporte/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuLibro="matMenu">
+  <button mat-menu-item routerLink="/libro"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/libro/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuRecargaSaldo="matMenu">
+  <button mat-menu-item routerLink="/recargasaldo"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/recargasaldo/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuTypeUser="matMenu">
+  <button mat-menu-item routerLink="/typeusers"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/typeusers/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuReservas="matMenu">
+  <button mat-menu-item routerLink="/reservas"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/reservas/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 
