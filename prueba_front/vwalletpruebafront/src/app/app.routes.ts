@@ -11,6 +11,8 @@ import { LibroComponent } from './components/libro/libro.component';
 import { CreaeditalibroComponent } from './components/libro/creaeditalibro/creaeditalibro.component';
 import { RecargasaldoComponent } from './components/recargasaldo/recargasaldo.component';
 import { CreaeditarecargasaldoComponent } from './components/recargasaldo/creaeditarecargasaldo/creaeditarecargasaldo.component';
+import { TypeuserComponent } from './components/typeuser/typeuser.component';
+import { CreaeditatypeuserComponent } from './components/typeuser/creaeditatypeuser/creaeditatypeuser.component';
 
 export const routes: Routes = [
     {
@@ -81,6 +83,18 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id',component:CreaeditarecargasaldoComponent
+            }
+
+        ]
+    },
+    {
+        path:'typeusers',component:TypeuserComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditatypeuserComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditatypeuserComponent
             }
 
         ]

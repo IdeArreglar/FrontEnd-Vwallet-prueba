@@ -6,6 +6,7 @@
   <button mat-button [matMenuTriggerFor]="menuTransporte">Transporte</button> 
   <button mat-button [matMenuTriggerFor]="menuLibro">Libro</button> 
   <button mat-button [matMenuTriggerFor]="menuRecargaSaldo">Recarga</button> 
+  <button mat-button [matMenuTriggerFor]="menuTypeUser">Tipo Usuario</button> 
 </mat-toolbar>
 
 <mat-menu #menuUsuarios="matMenu">
@@ -38,7 +39,10 @@
   <button mat-menu-item routerLink="/recargasaldo/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
-
+<mat-menu #menuTypeUser="matMenu">
+  <button mat-menu-item routerLink="/typeusers"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/typeusers/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
 
 
 <router-outlet></router-outlet>
