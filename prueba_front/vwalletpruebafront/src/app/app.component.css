@@ -5,12 +5,12 @@
     align-items: center;
 }
 .home-icon {
-    cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
-    transition: color 0.3s ease; /* Transición suave del color */
+    cursor: pointer; 
+    transition: color 0.3s ease; 
 }
   
 .home-icon:hover {
-    color: #000000; /* Cambia al color que prefieras para el hover */
+    color: #000000; 
   }
   
 
