@@ -20,7 +20,7 @@ import { NgIf } from '@angular/common';
 export class AppComponent {
   title = 'vwalletpruebafront';
 
-  role: string = '';
+  tipousuario: string = '';
   constructor(private loginService: LoginService) {}
 
   cerrar() {
@@ -28,18 +28,18 @@ export class AppComponent {
   }
 
   verificar() {
-    this.role = this.loginService.showRole();
+    this.tipousuario = this.loginService.showRole();
     return this.loginService.verificar();
   }
   isAdmin() {
-    return this.role === 'ADMIN';
+    return this.tipousuario === 'ADMIN';
   }
 
   isEstudiante() {
-    return this.role === 'ESTUDIANTE';
+    return this.tipousuario === 'ESTUDIANTE';
   }
 
   isPadre() {
-    return this.role === 'PADRE';
+    return this.tipousuario === 'PADRE';
   }
 }
