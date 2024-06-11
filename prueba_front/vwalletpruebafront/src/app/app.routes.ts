@@ -17,6 +17,7 @@ import { ReservasComponent } from './components/reservas/reservas.component';
 import { CreaeditareservasComponent } from './components/reservas/creaeditareservas/creaeditareservas.component';
 import { LoginComponent } from './components/login/login.component';
 import { segGuard } from './guard/seguridad.guard';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
     {
@@ -133,5 +134,10 @@ export const routes: Routes = [
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
+    {
+        path: 'homes',
+        component: HomeComponent,
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+      },
     
 ];

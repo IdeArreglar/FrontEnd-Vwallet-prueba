@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {}
   login() {
     let request = new JwtRequest();
-    request.username = this.username;
-    request.password = this.password;
+    request.nameUsuario = this.username;
+    request.passwordUsuario = this.password;
     this.loginService.login(request).subscribe(
       (data: any) => {
         sessionStorage.setItem('token', data.jwttoken);
