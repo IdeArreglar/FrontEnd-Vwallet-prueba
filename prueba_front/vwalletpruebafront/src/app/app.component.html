@@ -1,17 +1,20 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="verificar()">
+  <button mat-button [routerLink]="['/homes']">
+    <mat-icon>home</mat-icon>Home
+  </button>
   <div class="forma">
     <div>
-      <mat-icon class="home-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="home" routerLink="/"></mat-icon>
-      <button mat-button [matMenuTriggerFor]="menuUsuarios">Usuarios</button>
-      <button mat-button [matMenuTriggerFor]="menuBiblioteca">Biblioteca</button> 
-      <button mat-button [matMenuTriggerFor]="menuCafeteria">Cafeteria</button> 
-      <button mat-button [matMenuTriggerFor]="menuTransporte">Transporte</button> 
-      <button mat-button [matMenuTriggerFor]="menuLibro">Libro</button> 
-      <button mat-button [matMenuTriggerFor]="menuRecargaSaldo">Recarga</button> 
-      <button mat-button [matMenuTriggerFor]="menuTypeUser">Tipo Usuario</button> 
-      <button mat-button [matMenuTriggerFor]="menuReservas">Reservas</button>
+      <button mat-button [matMenuTriggerFor]="menuUsuarios" *ngIf="isAdmin()">Usuarios</button>
+      <button mat-button [matMenuTriggerFor]="menuBiblioteca"*ngIf="isAdmin()" >Biblioteca</button> 
+      <button mat-button [matMenuTriggerFor]="menuCafeteria" *ngIf="isAdmin()">Cafeteria</button> 
+      <button mat-button [matMenuTriggerFor]="menuTransporte" *ngIf="isAdmin()">Transporte</button> 
+      <button mat-button [matMenuTriggerFor]="menuLibro" *ngIf="isAdmin()">Libro</button> 
+      <button mat-button [matMenuTriggerFor]="menuRecargaSaldo" *ngIf="isAdmin()">Recarga</button> 
+      <button mat-button [matMenuTriggerFor]="menuTypeUser" *ngIf="isAdmin()">Tipo Usuario</button> 
+      <button mat-button [matMenuTriggerFor]="menuReservas" *ngIf="isAdmin()">Reservas</button>
       <button mat-button>Menu</button>
       <button mat-button>Detalle Reserva</button>
+      <button mat-button [matMenuTriggerFor]="menuSalir">Usuario</button>
     </div>
     <img src="https://i.ibb.co/YcqH8z1/vwalletweb-logo.jpg" alt="Logo" style="height: 50px;">
   </div>
@@ -58,5 +61,15 @@
   <button mat-menu-item routerLink="/reservas/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
+<mat-menu #menuSalir="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+  <button mat-menu-item>
+    Rol:
+    <span>{{ role }}</span>
+  </button>
+</mat-menu>
 
 <router-outlet></router-outlet>
