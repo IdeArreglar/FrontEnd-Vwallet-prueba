@@ -1,0 +1,37 @@
+<div>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo_typ" readonly />
+      </mat-form-field>
+      <br />
+      <br />
+
+      <mat-form-field>
+        <mat-label>Tipo Usuario</mat-label>
+        <mat-select matInput formControlName="tipousuario">
+          <mat-error *ngIf="form.get('tipousuario')?.hasError('required')"
+            >El Tipo Usuario es obligatorio.</mat-error>
+          <mat-option *ngFor="let g of listaTipos" [value]="g.value">
+            {{ g.viewValue }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre Usuario</mat-label>
+        <mat-select formControlName="usuario_">
+          <mat-option *ngFor="let c of listaNombres" [value]="c.idUsuario">
+            {{c.nameUsuario}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('usuario_')?.hasError('required')"
+        >El nombre es obligatorio.</mat-error>       
+     
+      </mat-form-field>
+      <br />
+
+      <button mat-raised-button color="accent">Aceptar</button>
+    </form>
+  </div>
