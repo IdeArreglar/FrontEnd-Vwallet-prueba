@@ -7,6 +7,7 @@
   <button mat-button [matMenuTriggerFor]="menuLibro">Libro</button> 
   <button mat-button [matMenuTriggerFor]="menuRecargaSaldo">Recarga</button> 
   <button mat-button [matMenuTriggerFor]="menuTypeUser">Tipo Usuario</button> 
+  <button mat-button [matMenuTriggerFor]="menuReservas">Reservas</button> 
 </mat-toolbar>
 
 <mat-menu #menuUsuarios="matMenu">
@@ -42,6 +43,11 @@
 <mat-menu #menuTypeUser="matMenu">
   <button mat-menu-item routerLink="/typeusers"><mat-icon>list</mat-icon>Listar</button>
   <button mat-menu-item routerLink="/typeusers/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuReservas="matMenu">
+  <button mat-menu-item routerLink="/reservas"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/reservas/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 

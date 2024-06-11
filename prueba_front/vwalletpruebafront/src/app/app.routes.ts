@@ -13,6 +13,8 @@ import { RecargasaldoComponent } from './components/recargasaldo/recargasaldo.co
 import { CreaeditarecargasaldoComponent } from './components/recargasaldo/creaeditarecargasaldo/creaeditarecargasaldo.component';
 import { TypeuserComponent } from './components/typeuser/typeuser.component';
 import { CreaeditatypeuserComponent } from './components/typeuser/creaeditatypeuser/creaeditatypeuser.component';
+import { ReservasComponent } from './components/reservas/reservas.component';
+import { CreaeditareservasComponent } from './components/reservas/creaeditareservas/creaeditareservas.component';
 
 export const routes: Routes = [
     {
@@ -88,13 +90,25 @@ export const routes: Routes = [
         ]
     },
     {
-        path:'typeusers',component:TypeuserComponent,
+        path:'typeusers',component:ReservasComponent,
         children:[
             {
                 path:'nuevo',component:CreaeditatypeuserComponent
             },
             {
                 path:'ediciones/:id',component:CreaeditatypeuserComponent
+            }
+
+        ]
+    },
+    {
+        path:'reservas',component:ReservasComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditareservasComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditareservasComponent
             }
 
         ]
