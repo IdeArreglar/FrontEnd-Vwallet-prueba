@@ -143,7 +143,7 @@ export class CreaeditadetallereservasComponent implements OnInit {
           });
         });
       }
-      this.router.navigate(["detallereservas/nuevo"]);
+      this.router.navigate(["detallereservas"]);
     }
   }
 
