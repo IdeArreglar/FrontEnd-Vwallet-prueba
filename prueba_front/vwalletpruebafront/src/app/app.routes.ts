@@ -125,7 +125,7 @@ export const routes: Routes = [
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     {
-        path:'typeusers',component:ReservasComponent,
+        path:'typeusers',component:TypeuserComponent,
         children:[
             {
                 path:'nuevo',component:CreaeditatypeuserComponent
