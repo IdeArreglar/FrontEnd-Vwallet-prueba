@@ -9,7 +9,12 @@ import { LibroService } from '../../../services/libro.service';
 @Component({
   selector: 'app-listarlibro',
   standalone: true,
-  imports: [MatTableModule,MatButtonModule,RouterLink,MatIconModule],
+  imports: [
+    MatTableModule,
+    MatButtonModule,
+    RouterLink,
+    MatIconModule
+  ],
   templateUrl: './listarlibro.component.html',
   styleUrl: './listarlibro.component.css'
 })
