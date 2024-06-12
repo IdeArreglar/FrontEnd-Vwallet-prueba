@@ -20,6 +20,8 @@ import { segGuard } from './guard/seguridad.guard';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { CreaeditamenuComponent } from './components/menu/creaeditamenu/creaeditamenu.component';
+import { DetallereservasComponent } from './components/detallereservas/detallereservas.component';
+import { CreaeditadetallereservasComponent } from './components/detallereservas/creaeditadetallereservas/creaeditadetallereservas.component';
 
 export const routes: Routes = [
     {
@@ -145,6 +147,20 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id',component:CreaeditareservasComponent
+            }
+
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+    },
+
+    {
+        path:'detallereservas',component:DetallereservasComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditadetallereservasComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditadetallereservasComponent
             }
 
         ],

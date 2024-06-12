@@ -1,0 +1,60 @@
+<div>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo_detalle" readonly />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Reserva</mat-label>
+        <mat-select formControlName="reservas_detalle">
+          <mat-option *ngFor="let c of listaReservas" [value]="c.idReservas">
+            {{c.idReservas}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('reservas_detalle')?.hasError('required')"
+        >La reserva es obligatorio</mat-error>       
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Menu</mat-label>
+        <mat-select formControlName="menu_detalle">
+          <mat-option *ngFor="let c of listaMenus" [value]="c.idMenu">
+            {{c.idMenu}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('menu_detalle')?.hasError('required')"
+        >El menu es obligatorio</mat-error>       
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Transporte</mat-label>
+        <mat-select formControlName="transporte_detalle">
+          <mat-option *ngFor="let c of listaTransporte" [value]="c.idTransporte">
+            {{c.idTransporte}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('transporte_detalle')?.hasError('required')"
+        >El transporte es obligatorio</mat-error>       
+      </mat-form-field>
+      <br />
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Libro</mat-label>
+        <mat-select formControlName="libro_detalle">
+          <mat-option *ngFor="let c of listaLibros" [value]="c.idLibro">
+            {{c.idLibro}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('libro_detalle')?.hasError('required')"
+        >El libro es obligatorio</mat-error>       
+      </mat-form-field>
+      <br />
+
+      <button mat-raised-button color="accent">Aceptar</button>
+    </form>
+  </div>

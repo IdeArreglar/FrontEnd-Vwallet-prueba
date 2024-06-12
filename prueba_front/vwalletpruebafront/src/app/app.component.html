@@ -13,7 +13,7 @@
       <button mat-button [matMenuTriggerFor]="menuRecargaSaldo" *ngIf="isAdmin()">Recarga</button> 
       <button mat-button [matMenuTriggerFor]="menuTypeUser" *ngIf="isAdmin()">Tipo Usuario</button> 
       <button mat-button [matMenuTriggerFor]="menuReservas" *ngIf="isAdmin()">Reservas</button>
-      <button mat-button>Detalle Reserva</button>
+      <button mat-button [matMenuTriggerFor]="menuDetalleReservas" *ngIf="isAdmin()">Detalle Reserva</button>
       <button mat-button [matMenuTriggerFor]="menuSalir">Usuario</button>
     </div>
     <img src="https://i.ibb.co/YcqH8z1/vwalletweb-logo.jpg" alt="Logo" style="height: 50px;">
@@ -64,6 +64,11 @@
 <mat-menu #menuReservas="matMenu">
   <button mat-menu-item routerLink="/reservas"><mat-icon>list</mat-icon>Listar</button>
   <button mat-menu-item routerLink="/reservas/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuDetalleReservas="matMenu">
+  <button mat-menu-item routerLink="/detallereservas"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/detallereservas/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <mat-menu #menuSalir="matMenu">
