@@ -2,7 +2,7 @@
   <button mat-button [routerLink]="['/homes']">
     <mat-icon>home</mat-icon>Home
   </button>
-  <div class="forma">
+  <div class="forma"> <!--hola-->
     <div>
       <button mat-button [matMenuTriggerFor]="menuUsuarios" *ngIf="isAdmin()">Usuarios</button>
       <button mat-button [matMenuTriggerFor]="menuBiblioteca"*ngIf="isAdmin()" >Biblioteca</button> 
@@ -65,7 +65,6 @@
   <button mat-menu-item routerLink="/reservas"><mat-icon>list</mat-icon>Listar</button>
   <button mat-menu-item routerLink="/reservas/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
-
 <mat-menu #menuSalir="matMenu">
   <button mat-menu-item routerLink="/login" (click)="cerrar()">
     <mat-icon>logout</mat-icon>
