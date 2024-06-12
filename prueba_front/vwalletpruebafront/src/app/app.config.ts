@@ -10,7 +10,9 @@ export function tokenGetter() {
   return sessionStorage.getItem('token');
 }
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(),
+  providers: [
+    provideRouter(routes), 
+    provideClientHydration(),
     provideHttpClient(withInterceptorsFromDi()),
     importProvidersFrom(
       JwtModule.forRoot({

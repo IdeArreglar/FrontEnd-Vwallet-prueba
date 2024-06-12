@@ -18,6 +18,8 @@ import { CreaeditareservasComponent } from './components/reservas/creaeditareser
 import { LoginComponent } from './components/login/login.component';
 import { segGuard } from './guard/seguridad.guard';
 import { HomeComponent } from './components/home/home.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { CreaeditamenuComponent } from './components/menu/creaeditamenu/creaeditamenu.component';
 
 export const routes: Routes = [
     {
@@ -57,6 +59,19 @@ export const routes: Routes = [
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno 
     },
     {
+        path:'libro',component:LibroComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditalibroComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditalibroComponent
+            }
+
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+    },
+    {
         path:'cafeteria',component:CafeteriaComponent,
         children:[
             {
@@ -64,6 +79,19 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id',component:CreaeditacafeteriaComponent
+            }
+
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+    },
+    {
+        path:'menu',component:MenuComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditamenuComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditamenuComponent
             }
 
         ],
@@ -82,19 +110,7 @@ export const routes: Routes = [
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
-    {
-        path:'libro',component:LibroComponent,
-        children:[
-            {
-                path:'nuevo',component:CreaeditalibroComponent
-            },
-            {
-                path:'ediciones/:id',component:CreaeditalibroComponent
-            }
-
-        ],
-        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
-    },
+   
     {
         path:'recargasaldo',component:RecargasaldoComponent,
         children:[

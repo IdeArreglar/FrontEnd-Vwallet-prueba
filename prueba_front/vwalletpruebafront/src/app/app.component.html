@@ -6,13 +6,13 @@
     <div>
       <button mat-button [matMenuTriggerFor]="menuUsuarios" *ngIf="isAdmin()">Usuarios</button>
       <button mat-button [matMenuTriggerFor]="menuBiblioteca"*ngIf="isAdmin()" >Biblioteca</button> 
-      <button mat-button [matMenuTriggerFor]="menuCafeteria" *ngIf="isAdmin()">Cafeteria</button> 
-      <button mat-button [matMenuTriggerFor]="menuTransporte" *ngIf="isAdmin()">Transporte</button> 
       <button mat-button [matMenuTriggerFor]="menuLibro" *ngIf="isAdmin()">Libro</button> 
+      <button mat-button [matMenuTriggerFor]="menuCafeteria" *ngIf="isAdmin()">Cafeteria</button>
+      <button mat-button [matMenuTriggerFor]="menuMenu" *ngIf="isAdmin()">Menu</button> 
+      <button mat-button [matMenuTriggerFor]="menuTransporte" *ngIf="isAdmin()">Transporte</button> 
       <button mat-button [matMenuTriggerFor]="menuRecargaSaldo" *ngIf="isAdmin()">Recarga</button> 
       <button mat-button [matMenuTriggerFor]="menuTypeUser" *ngIf="isAdmin()">Tipo Usuario</button> 
       <button mat-button [matMenuTriggerFor]="menuReservas" *ngIf="isAdmin()">Reservas</button>
-      <button mat-button>Menu</button>
       <button mat-button>Detalle Reserva</button>
       <button mat-button [matMenuTriggerFor]="menuSalir">Usuario</button>
     </div>
@@ -31,19 +31,24 @@
   <button mat-menu-item routerLink="/biblioteca/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
+<mat-menu #menuLibro="matMenu">
+  <button mat-menu-item routerLink="/libro"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/libro/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
 <mat-menu #menuCafeteria="matMenu">
   <button mat-menu-item routerLink="/cafeteria"><mat-icon>list</mat-icon>Listar</button>
   <button mat-menu-item routerLink="/cafeteria/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
+<mat-menu #menuMenu="matMenu">
+  <button mat-menu-item routerLink="/menu"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/menu/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
 <mat-menu #menuTransporte="matMenu">
   <button mat-menu-item routerLink="/transporte"><mat-icon>list</mat-icon>Listar</button>
   <button mat-menu-item routerLink="/transporte/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
-</mat-menu>
-
-<mat-menu #menuLibro="matMenu">
-  <button mat-menu-item routerLink="/libro"><mat-icon>list</mat-icon>Listar</button>
-  <button mat-menu-item routerLink="/libro/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <mat-menu #menuRecargaSaldo="matMenu">
