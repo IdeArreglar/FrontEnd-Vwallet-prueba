@@ -94,7 +94,7 @@ export class CreaeditareservasComponent implements OnInit {
         this.form = new FormGroup({
           codigo_res: new FormControl(data.idReservas),
           fechareserva: new FormControl(data.fechaReserva),
-          usuario_res: new FormControl(data.usuario),//cuidado aca cambiar
+          usuario_res: new FormControl(data.usuario),//cuidado 
         });
       });
     }
