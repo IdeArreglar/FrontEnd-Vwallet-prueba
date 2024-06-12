@@ -98,11 +98,37 @@ export class CreaeditadetallereservasComponent implements OnInit {
 
   aceptar(): void {
     if (this.form.valid) {
-      this.detalleReservas.idDetalleReserva = this.form.value.codigo; //.
-      this.detalleReservas.reservas = this.form.value.reserva;
-      this.detalleReservas.menu = this.form.value.menu;
-      this.detalleReservas.transporte = this.form.value.transporte;
-      this.detalleReservas.libro = this.form.value.libro;
+      this.detalleReservas.idDetalleReserva = this.form.value.codigo;
+
+      this.rS.listId(this.form.value.reserva).subscribe((data) => {
+        this.detalleReservas.reservas.idReservas = data.idReservas;
+        this.detalleReservas.reservas.usuario.idUsuario =
+          data.usuario.idUsuario;
+      });
+
+      if (this.form.value.menu) {
+        this.detalleReservas.menu = new Menu();
+        this.detalleReservas.menu.idMenu = this.form.value.menu;
+      } else {
+        this.detalleReservas.menu = undefined;
+      }
+
+      if (this.form.value.transporte) {
+        this.detalleReservas.transporte = new Transporte();
+        this.detalleReservas.transporte.idTransporte =
+          this.form.value.transporte;
+      } else {
+        this.detalleReservas.transporte = undefined;
+      }
+
+      if (this.form.value.libro) {
+        this.detalleReservas.libro = new Libro();
+        this.detalleReservas.libro.idLibro = this.form.value.libro;
+      } else {
+        this.detalleReservas.libro = undefined;
+      }
+
+      console.log(this.detalleReservas);
 
       if (this.edicion) {
         this.drS.update(this.detalleReservas).subscribe((data) => {
@@ -117,7 +143,7 @@ export class CreaeditadetallereservasComponent implements OnInit {
           });
         });
       }
-      this.router.navigate(["detallereservas"]);
+      this.router.navigate(["detallereservas/nuevo"]);
     }
   }
 
