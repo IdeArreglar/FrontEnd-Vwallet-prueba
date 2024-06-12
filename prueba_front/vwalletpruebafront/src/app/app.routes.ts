@@ -15,8 +15,22 @@ import { TypeuserComponent } from './components/typeuser/typeuser.component';
 import { CreaeditatypeuserComponent } from './components/typeuser/creaeditatypeuser/creaeditatypeuser.component';
 import { ReservasComponent } from './components/reservas/reservas.component';
 import { CreaeditareservasComponent } from './components/reservas/creaeditareservas/creaeditareservas.component';
+import { LoginComponent } from './components/login/login.component';
+import { segGuard } from './guard/seguridad.guard';
+import { HomeComponent } from './components/home/home.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { CreaeditamenuComponent } from './components/menu/creaeditamenu/creaeditamenu.component';
 
 export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
     {
         path:'usuarios',component:UsuarioComponent,
         children:[
@@ -27,7 +41,9 @@ export const routes: Routes = [
                 path:'ediciones/:id',component:CreaeditausuarioComponent
             }
 
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+        
     },
     {
         path:'biblioteca',component:BibliotecaComponent,
@@ -39,31 +55,8 @@ export const routes: Routes = [
                 path:'ediciones/:id',component:CreaeditabibliotecaComponent
             }
 
-        ]
-    },
-    {
-        path:'cafeteria',component:CafeteriaComponent,
-        children:[
-            {
-                path:'nuevo',component:CreaeditacafeteriaComponent
-            },
-            {
-                path:'ediciones/:id',component:CreaeditacafeteriaComponent
-            }
-
-        ]
-    },
-    {
-        path:'transporte',component:TransporteComponent,
-        children:[
-            {
-                path:'nuevo',component:CreaeditatransporteComponent
-            },
-            {
-                path:'ediciones/:id',component:CreaeditatransporteComponent
-            }
-
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno 
     },
     {
         path:'libro',component:LibroComponent,
@@ -75,8 +68,49 @@ export const routes: Routes = [
                 path:'ediciones/:id',component:CreaeditalibroComponent
             }
 
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
+    {
+        path:'cafeteria',component:CafeteriaComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditacafeteriaComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditacafeteriaComponent
+            }
+
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+    },
+    {
+        path:'menu',component:MenuComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditamenuComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditamenuComponent
+            }
+
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+    },
+    {
+        path:'transporte',component:TransporteComponent,
+        children:[
+            {
+                path:'nuevo',component:CreaeditatransporteComponent
+            },
+            {
+                path:'ediciones/:id',component:CreaeditatransporteComponent
+            }
+
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+    },
+   
     {
         path:'recargasaldo',component:RecargasaldoComponent,
         children:[
@@ -87,7 +121,8 @@ export const routes: Routes = [
                 path:'ediciones/:id',component:CreaeditarecargasaldoComponent
             }
 
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     {
         path:'typeusers',component:ReservasComponent,
@@ -99,7 +134,8 @@ export const routes: Routes = [
                 path:'ediciones/:id',component:CreaeditatypeuserComponent
             }
 
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     {
         path:'reservas',component:ReservasComponent,
@@ -111,7 +147,13 @@ export const routes: Routes = [
                 path:'ediciones/:id',component:CreaeditareservasComponent
             }
 
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
+    {
+        path: 'homes',
+        component: HomeComponent,
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+      },
     
 ];

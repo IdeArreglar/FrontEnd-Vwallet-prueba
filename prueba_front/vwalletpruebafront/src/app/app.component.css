@@ -1,0 +1,17 @@
+.forma {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.home-icon {
+    cursor: pointer; 
+    transition: color 0.3s ease; 
+}
+  
+.home-icon:hover {
+    color: #000000; 
+  }
+  
+
+  

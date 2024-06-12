@@ -41,7 +41,7 @@ export class CreaeditatypeuserComponent implements OnInit{
   listaTipos: { value: string; viewValue: string }[] = [
     { value: 'ADMIN', viewValue: 'ADMIN' },
     { value: 'PADRE', viewValue: 'PADRE' },
-    { value: 'HIJO', viewValue: 'HIJO' },
+    { value: 'ESTUDIANTE', viewValue: 'ESTUDIANTE' },
   ];
   constructor(
     private formBuilder: FormBuilder,
