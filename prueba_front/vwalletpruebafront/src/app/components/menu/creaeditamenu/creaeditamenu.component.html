@@ -1,0 +1,63 @@
+<div>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo_menu" readonly />
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field>
+        <mat-label>Entrada</mat-label>
+        <input matInput formControlName="entrada" />
+        <mat-error *ngIf="form.get('entrada')?.hasError('required')"
+          >La entrada es obligatorio.</mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Plato Principal</mat-label>
+        <input matInput formControlName="platoPrincipal" />
+        <mat-error *ngIf="form.get('platoPrincipal')?.hasError('required')"
+          >EL plato principal es obligatorio.</mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Postre</mat-label>
+        <input matInput formControlName="postre" />
+        <mat-error *ngIf="form.get('postre')?.hasError('required')"
+          >EL postre es obligatorio.</mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Refresco</mat-label>
+        <input matInput formControlName="refresco" />
+        <mat-error *ngIf="form.get('refresco')?.hasError('required')"
+          >EL refresco es obligatorio.</mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Precio Menu</mat-label>
+        <input matInput formControlName="precioMenu" />
+        <mat-error *ngIf="form.get('precioMenu')?.hasError('required')"
+          >EL precio menu es obligatorio.</mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Cafeteria</mat-label>
+        <mat-select formControlName="cafeteria_">
+          <mat-option *ngFor="let c of listaSedes" [value]="c.idCafeteria">
+            {{c.sedeCafeteria}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('cafeteria_')?.hasError('required')"
+        >La sede es obligatoria.</mat-error>       
+      </mat-form-field>
+      <br />
+
+      <button mat-raised-button color="warn">Aceptar</button>
+    </form>
+  </div>

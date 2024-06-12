@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ListartransporteComponent } from './listartransporte/listartransporte.component';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 @Component({
   selector: 'app-transporte',
   standalone: true,
-  imports: [RouterOutlet,ListartransporteComponent],
+  imports: [RouterOutlet,ListartransporteComponent,MatIconModule],
   templateUrl: './transporte.component.html',
   styleUrl: './transporte.component.css'
 })
