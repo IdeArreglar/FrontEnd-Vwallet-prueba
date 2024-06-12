@@ -4,16 +4,22 @@ import { Usuario } from '../../../models/Usuario';
 import { UsuarioService } from '../../../services/usuario.service';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-listarusuario',
   standalone: true,
-  imports: [MatTableModule,MatButtonModule,RouterLink],
+  imports: [
+    MatTableModule,
+    MatButtonModule,
+    RouterLink,
+    MatIconModule,
+  ],
   templateUrl: './listarusuario.component.html',
   styleUrl: './listarusuario.component.css'
 })
 export class ListarusuarioComponent implements OnInit {
-  displayedColumns: string[] = ['codigo', 'email', 'nombre','password','accion01','accion02'];
+  displayedColumns: string[] = ['codigo', 'email', 'nombre','accion01','accion02'];
   dataSource:MatTableDataSource<Usuario>=new MatTableDataSource()
 
   constructor(private uS:UsuarioService){}
