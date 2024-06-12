@@ -1,9 +1,9 @@
-import { Usuario } from "./Usuario";
+import { Users } from "./Users";
 
-export class Reservas
-{
+export class Reservas{
+    
     idReservas:number=0;
-    fechaReserva:Date=new Date(Date.now());
-    usuario: Usuario = new Usuario();
+    fechaReserva:string="";
+    user:Users =new Users();
 
 }

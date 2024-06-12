@@ -3,7 +3,7 @@
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   
 
-          <ng-container matColumnDef="codigo_rec">
+          <ng-container matColumnDef="codigo_reca">
             <th mat-header-cell *matHeaderCellDef> Código </th>
             <td mat-cell *matCellDef="let element"> {{element.idRecargaSaldo}} </td>
           </ng-container>
@@ -13,14 +13,14 @@
             <td mat-cell *matCellDef="let element"> {{element.montoRecarga}} </td>
         </ng-container>
         
-        <ng-container matColumnDef="fecharecarga">
-            <th mat-header-cell *matHeaderCellDef> FechaRecarga </th>
+        <ng-container matColumnDef="fechaRecarga">
+            <th mat-header-cell *matHeaderCellDef> Fecha Recarga </th>
             <td mat-cell *matCellDef="let element"> {{element.fechaRecarga}} </td>
           </ng-container>
-
-          <ng-container matColumnDef="usuario_">
+          
+          <ng-container matColumnDef="usuario_reca">
             <th mat-header-cell *matHeaderCellDef> Usuario </th>
-            <td mat-cell *matCellDef="let element"> {{element.usuario.nameUsuario}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.user.username}} </td>
           </ng-container>
 
           
@@ -44,4 +44,3 @@
         </table>
     
   </div>
-

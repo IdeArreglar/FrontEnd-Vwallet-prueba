@@ -1,0 +1,39 @@
+<div>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo" readonly />
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error *ngIf="form.get('nombre')?.hasError('required')"
+          >EL Nombre es obligatorio.</mat-error>
+      </mat-form-field>
+      <br />
+
+      
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+        <mat-error *ngIf="form.get('email')?.hasError('required')"
+          >EL email es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" />
+        <mat-error *ngIf="form.get('password')?.hasError('required')"
+          >EL password es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+
+
+      <button mat-raised-button color="accent">Aceptar</button>
+    </form>
+  </div>

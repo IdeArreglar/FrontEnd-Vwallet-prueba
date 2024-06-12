@@ -6,6 +6,8 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { Reservas } from '../../../models/Reservas';
 import { ReservasService } from '../../../services/reservas.service';
 
+
+
 @Component({
   selector: 'app-listarreservas',
   standalone: true,
@@ -14,7 +16,7 @@ import { ReservasService } from '../../../services/reservas.service';
   styleUrl: './listarreservas.component.css'
 })
 export class ListarreservasComponent {
-  displayedColumns: string[] = ['codigo_res','fechareserva','usuario_res','accion01', 'accion02'];
+  displayedColumns: string[] = ['codigo_res', 'fechareserva', 'usuario_res','accion01','accion02'];
   dataSource:MatTableDataSource<Reservas>=new MatTableDataSource()
 
   constructor(private rS:ReservasService){}
@@ -26,7 +28,6 @@ export class ListarreservasComponent {
       this.dataSource=new MatTableDataSource(data)
     })
   }
-  
   deletes(id:number)
   {
     this.rS.delete(id).subscribe((data)=>{
@@ -35,4 +36,5 @@ export class ListarreservasComponent {
       })
     });
   }
+
 }

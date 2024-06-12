@@ -2,7 +2,7 @@
     <form [formGroup]="form" (submit)="aceptar()">
       <mat-form-field *ngIf="edicion">
         <mat-label>Código</mat-label>
-        <input matInput formControlName="codigo_rec" readonly />
+        <input matInput formControlName="codigo_reca" readonly />
       </mat-form-field>
       <br />
   
@@ -10,33 +10,31 @@
         <mat-label>Monto</mat-label>
         <input matInput formControlName="monto" />
         <mat-error *ngIf="form.get('monto')?.hasError('required')"
-          >EL monto es obligatorio.</mat-error>
+          >El monto es obligatorio.</mat-error>
       </mat-form-field>
       <br />
 
       <mat-form-field>
-        <mat-label>Fecha Recarga</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="fecharecarga" />
+        <mat-label>Fecha Publicacion</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaRecarga" />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="form.get('fecharecarga')?.hasError('required')">
+        <mat-error *ngIf="form.get('fechaRecarga')?.hasError('required')">
           La fecha de recarga es obligatoria.
         </mat-error>
       </mat-form-field>
-
       <br />
 
-      <br />
+
       <mat-form-field class="example-full-width">
         <mat-label>Usuario</mat-label>
-        <mat-select formControlName="usuario_">
-          <mat-option *ngFor="let c of listaUsuarios" [value]="c.idUsuario">
-            {{c.nameUsuario}}
+        <mat-select formControlName="usuario_reca">
+          <mat-option *ngFor="let c of listaUsuarios" [value]="c.id">
+            {{c.username}}
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="form.get('usuario_')?.hasError('required')"
-        >El usuario es obligatorio.</mat-error>       
-     
+        <mat-error *ngIf="form.get('usuario_reca')?.hasError('required')"
+        >El usuario es obligatorio</mat-error>       
       </mat-form-field>
       <br />
 

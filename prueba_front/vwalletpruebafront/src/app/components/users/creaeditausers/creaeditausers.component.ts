@@ -13,13 +13,12 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { Reservas } from '../../../models/Reservas';
 import { Users } from '../../../models/Users';
-import { ReservasService } from '../../../services/reservas.service';
 import { UsersService } from '../../../services/users.service';
 
+
 @Component({
-  selector: 'app-creaeditareservas',
+  selector: 'app-creaeditausers',
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -30,72 +29,69 @@ import { UsersService } from '../../../services/users.service';
     MatButtonModule,
     MatDatepickerModule,
   ],
-  templateUrl: './creaeditareservas.component.html',
-  styleUrl: './creaeditareservas.component.css'
+  templateUrl: './creaeditausers.component.html',
+  styleUrl: './creaeditausers.component.css'
 })
-export class CreaeditareservasComponent implements OnInit {
+export class CreaeditausersComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
-  reservas: Reservas = new Reservas();
+  users: Users = new Users();
   id: number = 0;
   edicion: boolean = false;
-  listaUsuarios: Users[]=[];
 
   constructor(
     private formBuilder: FormBuilder,
-    private rS: ReservasService,
     private uS: UsersService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
+
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
       this.init();
     });
-    this.uS.list().subscribe((data) => {
-      this.listaUsuarios = data;
-    });
 
     this.form = this.formBuilder.group({
-      codigo_res: [''],
-      fechareserva: ['', Validators.required],
-      usuario_res: ['', Validators.required],
+      codigo: [''],
+      nombre: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
- 
   }
 
   aceptar(): void {
     if (this.form.valid) {
-      this.reservas.idReservas = this.form.value.codigo_res;
-      this.reservas.fechaReserva = this.form.value.fechareserva;
-      this.reservas.user.id = this.form.value.usuario_res;
+      this.users.id = this.form.value.codigo;
+      this.users.username = this.form.value.nombre;
+      this.users.emailUsuario = this.form.value.email;
+      this.users.password = this.form.value.password;
   
       if (this.edicion) {
-        this.rS.update(this.reservas).subscribe((data) => {
-          this.rS.list().subscribe((data) => {
-            this.rS.setList(data);
+        this.uS.update(this.users).subscribe((data) => {
+          this.uS.list().subscribe((data) => {
+            this.uS.setList(data);
           });
         });
       } else {
-
-        this.rS.insert(this.reservas).subscribe((data) => {
-          this.rS.list().subscribe((data) => {
-            this.rS.setList(data);
+        this.uS.insert(this.users).subscribe((data) => {
+          this.uS.list().subscribe((data) => {
+            this.uS.setList(data);
           });
         });
+        this.router.navigate(['usuarios']);
       }
-      this.router.navigate(['reservas']);
     }
   }
   init() {
     if (this.edicion) {
-      this.rS.listId(this.id).subscribe((data) => {
+      this.uS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          codigo_res: new FormControl(data.idReservas),
-          fechareserva: new FormControl(data.fechaReserva),
-          usuario_res: new FormControl(data.user),
+          codigo: new FormControl(data.id),
+          nombre: new FormControl(data.username),
+          email: new FormControl(data.emailUsuario),
+          password: new FormControl(data.password),
         });
       });
     }

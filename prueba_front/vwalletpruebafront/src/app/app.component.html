@@ -4,26 +4,30 @@
   </button>
   <div class="forma">
     <div>
-      <button mat-button [matMenuTriggerFor]="menuUsuarios" *ngIf="isAdmin()">Usuarios</button>
       <button mat-button [matMenuTriggerFor]="menuBiblioteca"*ngIf="isAdmin()" >Biblioteca</button> 
+      <button mat-button [matMenuTriggerFor]="menuUsers"*ngIf="isAdmin()" >Usuarios</button>
+      <button mat-button [matMenuTriggerFor]="menuRole"*ngIf="isAdmin()" >Roles</button> 
       <button mat-button [matMenuTriggerFor]="menuLibro" *ngIf="isAdmin()">Libro</button> 
       <button mat-button [matMenuTriggerFor]="menuCafeteria" *ngIf="isAdmin()">Cafeteria</button>
       <button mat-button [matMenuTriggerFor]="menuMenu" *ngIf="isAdmin()">Menu</button> 
       <button mat-button [matMenuTriggerFor]="menuTransporte" *ngIf="isAdmin()">Transporte</button> 
-      <button mat-button [matMenuTriggerFor]="menuRecargaSaldo" *ngIf="isAdmin()">Recarga</button> 
-      <button mat-button [matMenuTriggerFor]="menuTypeUser" *ngIf="isAdmin()">Tipo Usuario</button> 
       <button mat-button [matMenuTriggerFor]="menuReservas" *ngIf="isAdmin()">Reservas</button>
-      <button mat-button>Detalle Reserva</button>
+      <button mat-button [matMenuTriggerFor]="menuRecargaSaldo" *ngIf="isAdmin()">Recarga Saldo</button> 
+      <button mat-button [matMenuTriggerFor]="menuDetalleReservas" *ngIf="isAdmin()">Detalle Reservas</button>
       <button mat-button [matMenuTriggerFor]="menuSalir">Usuario</button>
     </div>
     <img src="https://i.ibb.co/YcqH8z1/vwalletweb-logo.jpg" alt="Logo" style="height: 50px;">
   </div>
 </mat-toolbar>
 
-
-<mat-menu #menuUsuarios="matMenu">
+<mat-menu #menuUsers="matMenu">
   <button mat-menu-item routerLink="/usuarios"><mat-icon>list</mat-icon>Listar</button>
   <button mat-menu-item routerLink="/usuarios/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuRole="matMenu">
+  <button mat-menu-item routerLink="/roles"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/roles/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <mat-menu #menuBiblioteca="matMenu">
@@ -51,20 +55,23 @@
   <button mat-menu-item routerLink="/transporte/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
+<mat-menu #menuReservas="matMenu">
+  <button mat-menu-item routerLink="/reservas"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/reservas/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+</mat-menu>
+
+
 <mat-menu #menuRecargaSaldo="matMenu">
   <button mat-menu-item routerLink="/recargasaldo"><mat-icon>list</mat-icon>Listar</button>
   <button mat-menu-item routerLink="/recargasaldo/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
-<mat-menu #menuTypeUser="matMenu">
-  <button mat-menu-item routerLink="/typeusers"><mat-icon>list</mat-icon>Listar</button>
-  <button mat-menu-item routerLink="/typeusers/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+<mat-menu #menuDetalleReservas="matMenu">
+  <button mat-menu-item routerLink="/detallereservas"><mat-icon>list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/detallereservas/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
-<mat-menu #menuReservas="matMenu">
-  <button mat-menu-item routerLink="/reservas"><mat-icon>list</mat-icon>Listar</button>
-  <button mat-menu-item routerLink="/reservas/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
-</mat-menu>
+
 
 <mat-menu #menuSalir="matMenu">
   <button mat-menu-item routerLink="/login" (click)="cerrar()">
@@ -73,7 +80,7 @@
   </button>
   <button mat-menu-item>
     Rol:
-    <span>{{ tipousuario }}</span>
+    <span>{{ role }}</span>
   </button>
 </mat-menu>
 

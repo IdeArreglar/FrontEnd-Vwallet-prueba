@@ -1,37 +1,36 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { DetalleReservas } from '../models/DetalleReservas';
 import { Subject } from 'rxjs';
-import { RecargaSaldo } from '../models/RecargaSaldo';
-
+import { HttpClient } from '@angular/common/http';
 const base_url=environment.base
 
 @Injectable({
   providedIn: 'root'
 })
-export class RecargasaldoService {
+export class DetallereservasService {
 
-  private url=`${base_url}/recargasaldo`// cambiar dsp
-  private listaCambio = new Subject<RecargaSaldo[]>();
+  private url=`${base_url}/detallereservas`
+  private listaCambio = new Subject<DetalleReservas[]>();
 
 
   constructor(private http:HttpClient) { }
   list(){
-    return this.http.get<RecargaSaldo[]>(this.url);
+    return this.http.get<DetalleReservas[]>(this.url);
   }
-  insert(u:RecargaSaldo){
+  insert(u:DetalleReservas){
     return this.http.post(this.url,u);
   }
-  setList(listaNueva:RecargaSaldo[]){
+  setList(listaNueva:DetalleReservas[]){
     this.listaCambio.next(listaNueva);
   }
   getList(){
     return this.listaCambio.asObservable();
   }
   listId(id:number){
-    return this.http.get<RecargaSaldo>(`${this.url}/${id}`)
+    return this.http.get<DetalleReservas>(`${this.url}/${id}`)
   }
-  update(m:RecargaSaldo){
+  update(m:DetalleReservas){
     return this.http.put(this.url,m);
   }
   delete(id:number)

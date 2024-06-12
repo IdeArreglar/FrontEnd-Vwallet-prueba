@@ -6,13 +6,13 @@ import {MatIconModule} from '@angular/material/icon';
 @Component({
   selector: 'app-reservas',
   standalone: true,
-  imports: [RouterOutlet,MatIconModule,ListarreservasComponent],
+  imports: [RouterOutlet,ListarreservasComponent,MatIconModule],
   templateUrl: './reservas.component.html',
   styleUrl: './reservas.component.css'
 })
-export class ReservasComponent implements OnInit {
-  constructor(public route:ActivatedRoute){}
+export class ReservasComponent implements OnInit{
 
+  constructor(public route:ActivatedRoute){}
   ngOnInit(): void {
     
   }

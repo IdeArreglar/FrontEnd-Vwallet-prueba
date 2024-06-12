@@ -1,0 +1,18 @@
+import { Component, OnInit } from '@angular/core';
+import { ListardetallereservasComponent } from './listardetallereservas/listardetallereservas.component';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+
+@Component({
+  selector: 'app-detallereservas',
+  standalone: true,
+  imports: [RouterOutlet,MatIconModule,ListardetallereservasComponent],
+  templateUrl: './detallereservas.component.html',
+  styleUrl: './detallereservas.component.css'
+})
+export class DetallereservasComponent implements OnInit {
+  constructor(public route:ActivatedRoute){}
+  ngOnInit(): void {
+    
+  }
+}

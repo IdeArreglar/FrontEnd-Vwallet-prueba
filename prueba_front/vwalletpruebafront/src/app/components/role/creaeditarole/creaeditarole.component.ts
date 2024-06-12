@@ -13,14 +13,13 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
-import { RecargaSaldo } from '../../../models/RecargaSaldo';
-import { Users } from '../../../models/Users';
-import { RecargasaldoService } from '../../../services/recargasaldo.service';
+import { Role } from '../../../models/Role';
+import { RoleService } from '../../../services/role.service';
 import { UsersService } from '../../../services/users.service';
+import { Users } from '../../../models/Users';
 
 @Component({
-  selector: 'app-creaeditarecargasaldo',
+  selector: 'app-creaeditarole',
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -31,22 +30,23 @@ import { UsersService } from '../../../services/users.service';
     MatButtonModule,
     MatDatepickerModule,
   ],
-  templateUrl: './creaeditarecargasaldo.component.html',
-  styleUrl: './creaeditarecargasaldo.component.css'
+  templateUrl: './creaeditarole.component.html',
+  styleUrl: './creaeditarole.component.css'
 })
-export class CreaeditarecargasaldoComponent implements OnInit{
+export class CreaeditaroleComponent implements OnInit{
+
   form: FormGroup = new FormGroup({});
-  recargasaldo: RecargaSaldo = new RecargaSaldo();
+  role: Role = new Role();
   id: number = 0;
   edicion: boolean = false;
   listaUsuarios: Users[]=[];
 
   constructor(
     private formBuilder: FormBuilder,
-    private rS: RecargasaldoService,
+    private rS: RoleService,
+    private uS: UsersService,
     private router: Router,
-    private route: ActivatedRoute,
-    private uS: UsersService
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -58,49 +58,45 @@ export class CreaeditarecargasaldoComponent implements OnInit{
     this.uS.list().subscribe((data) => {
       this.listaUsuarios = data;
     });
-  
-    this.form = this.formBuilder.group({
-      codigo_reca: [''],
-      monto: ['', Validators.required],
-      fechaRecarga: ['', Validators.required],
-      usuario_reca: ['', Validators.required],
-    });
-  }
 
+    this.form = this.formBuilder.group({
+      codigo_rol: [''],
+      rol: ['', Validators.required],
+      usuario_: ['', Validators.required],
+    });
+ 
+  }
 
   aceptar(): void {
     if (this.form.valid) {
-      this.recargasaldo.idRecargaSaldo = this.form.value.codigo_reca;
-      this.recargasaldo.montoRecarga = this.form.value.monto;
-      this.recargasaldo.fechaRecarga = this.form.value.fechaRecarga;
-      this.recargasaldo.user.id = this.form.value.usuario_reca;
+      this.role.id = this.form.value.codigo_rol;
+      this.role.rol = this.form.value.rol;
+      this.role.user.id = this.form.value.usuario_;
   
       if (this.edicion) {
-        this.rS.update(this.recargasaldo).subscribe((data) => {
+        this.rS.update(this.role).subscribe((data) => {
           this.rS.list().subscribe((data) => {
             this.rS.setList(data);
           });
         });
       } else {
 
-        this.rS.insert(this.recargasaldo).subscribe((data) => {
+        this.rS.insert(this.role).subscribe((data) => {
           this.rS.list().subscribe((data) => {
             this.rS.setList(data);
           });
         });
       }
-      this.router.navigate(['recargasaldo']);
+      this.router.navigate(['role']);
     }
   }
-
   init() {
     if (this.edicion) {
       this.rS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          codigo_reca: new FormControl(data.idRecargaSaldo),
-          monto: new FormControl(data.montoRecarga),
-          fechaRecarga: new FormControl(data.fechaRecarga),
-          usuario_reca: new FormControl(data.user),
+          codigo_rol: new FormControl(data.id),
+          rol: new FormControl(data.rol),
+          usuario_: new FormControl(data.user),
         });
       });
     }

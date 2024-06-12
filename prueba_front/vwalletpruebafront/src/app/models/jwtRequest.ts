@@ -1,4 +1,4 @@
 export class JwtRequest {
-    nameUsuario: string = "";
-    passwordUsuario: string = "";
+    username: string = "";
+    password: string = "";
 }

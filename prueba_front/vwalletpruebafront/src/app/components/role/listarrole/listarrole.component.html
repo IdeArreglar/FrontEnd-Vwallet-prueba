@@ -1,35 +1,36 @@
 <div class="container">
-    <div class="title-container"><h1 class="title">Lista de Tipos de Usuario</h1></div>
+    <div class="title-container"><h1 class="title">Lista de Roles</h1></div>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   
 
-          <ng-container matColumnDef="codigo_typ">
+          <ng-container matColumnDef="codigo_rol">
             <th mat-header-cell *matHeaderCellDef> Código </th>
-            <td mat-cell *matCellDef="let element"> {{element.idTyperUser}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
           </ng-container>
         
-          <ng-container matColumnDef="tipousuario">
-            <th mat-header-cell *matHeaderCellDef class="header-icon">Tipo Usuario</th>
-            <td mat-cell *matCellDef="let element"> {{element.typeTypeUser}} </td>
+          <ng-container matColumnDef="rol">
+            <th mat-header-cell *matHeaderCellDef class="header-icon">Rol </th>
+            <td mat-cell *matCellDef="let element"> {{element.rol}} </td>
         </ng-container>
+    
           
           <ng-container matColumnDef="usuario_">
-            <th mat-header-cell *matHeaderCellDef> Nombre Usuario </th>
-            <td mat-cell *matCellDef="let element"> {{element.usuario.nameUsuario}} </td>
+            <th mat-header-cell *matHeaderCellDef> Usuario </th>
+            <td mat-cell *matCellDef="let element"> {{element.user.username}} </td>
           </ng-container>
 
           
           <ng-container matColumnDef="accion01">
             <th mat-header-cell *matHeaderCellDef> Editar </th>
             <td mat-cell *matCellDef="let element">
-              <button mat-raised-button color="warn" [routerLink]="['ediciones',element.idTyperUser]">Actualizar</button>
+              <button mat-raised-button color="warn" [routerLink]="['ediciones',element.id]">Actualizar</button>
             </td>
           </ng-container>
           
           <ng-container matColumnDef="accion02">
             <th mat-header-cell *matHeaderCellDef class="header-icon"> Eliminar </th>
             <td mat-cell *matCellDef="let element">
-              <button mat-raised-button color="warn" (click)="deletes(element.idTyperUser)" >
+              <button mat-raised-button color="warn" (click)="deletes(element.id)" >
                 Eliminar <mat-icon class="header-icon">delete</mat-icon></button>
                </td>
           </ng-container>

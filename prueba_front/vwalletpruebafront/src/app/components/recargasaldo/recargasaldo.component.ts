@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
-import {MatIconModule} from '@angular/material/icon';
 import { ListarrecargasaldoComponent } from './listarrecargasaldo/listarrecargasaldo.component';
+import {MatIconModule} from '@angular/material/icon';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-recargasaldo',
@@ -12,7 +12,8 @@ import { ListarrecargasaldoComponent } from './listarrecargasaldo/listarrecargas
 })
 export class RecargasaldoComponent implements OnInit {
   constructor(public route:ActivatedRoute){}
-ngOnInit(): void {
-  
-}
+  ngOnInit(): void {
+    
+  }
+
 }

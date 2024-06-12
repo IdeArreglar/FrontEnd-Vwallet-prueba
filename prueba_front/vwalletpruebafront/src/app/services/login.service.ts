@@ -25,6 +25,6 @@ export class LoginService {
     }
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
-    return decodedToken?.tipousuario;
+    return decodedToken?.role;
   }
 }

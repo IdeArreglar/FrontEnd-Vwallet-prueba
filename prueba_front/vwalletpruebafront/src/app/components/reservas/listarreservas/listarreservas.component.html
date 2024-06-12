@@ -8,17 +8,18 @@
             <td mat-cell *matCellDef="let element"> {{element.idReservas}} </td>
           </ng-container>
         
+   
           <ng-container matColumnDef="fechareserva">
-            <th mat-header-cell *matHeaderCellDef class="header-icon">Monto </th>
+            <th mat-header-cell *matHeaderCellDef class="header-icon">Fecha </th>
             <td mat-cell *matCellDef="let element"> {{element.fechaReserva}} </td>
         </ng-container>
-
-          <ng-container matColumnDef="usuario_res">
+        
+           
+        <ng-container matColumnDef="usuario_res">
             <th mat-header-cell *matHeaderCellDef> Usuario </th>
-            <td mat-cell *matCellDef="let element"> {{element.usuario.nameUsuario}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.user.username}} </td>
           </ng-container>
 
-          
           <ng-container matColumnDef="accion01">
             <th mat-header-cell *matHeaderCellDef> Editar </th>
             <td mat-cell *matCellDef="let element">
@@ -34,9 +35,9 @@
                </td>
           </ng-container>
 
+        
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     
   </div>
-
