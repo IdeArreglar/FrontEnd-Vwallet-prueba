@@ -99,36 +99,10 @@ export class CreaeditadetallereservasComponent implements OnInit {
   aceptar(): void {
     if (this.form.valid) {
       this.detalleReservas.idDetalleReserva = this.form.value.codigo;
-
-      this.rS.listId(this.form.value.reserva).subscribe((data) => {
-        this.detalleReservas.reservas.idReservas = data.idReservas;
-        this.detalleReservas.reservas.usuario.idUsuario =
-          data.usuario.idUsuario;
-      });
-
-      if (this.form.value.menu) {
-        this.detalleReservas.menu = new Menu();
-        this.detalleReservas.menu.idMenu = this.form.value.menu;
-      } else {
-        this.detalleReservas.menu = undefined;
-      }
-
-      if (this.form.value.transporte) {
-        this.detalleReservas.transporte = new Transporte();
-        this.detalleReservas.transporte.idTransporte =
-          this.form.value.transporte;
-      } else {
-        this.detalleReservas.transporte = undefined;
-      }
-
-      if (this.form.value.libro) {
-        this.detalleReservas.libro = new Libro();
-        this.detalleReservas.libro.idLibro = this.form.value.libro;
-      } else {
-        this.detalleReservas.libro = undefined;
-      }
-
-      console.log(this.detalleReservas);
+      this.detalleReservas.reservas.idReservas=this.form.value.reserva;
+      this.detalleReservas.menu.idMenu=this.form.value.menu;
+      this.detalleReservas.transporte.idTransporte=this.form.value.transporte;
+      this.detalleReservas.libro.idLibro=this.form.value.libro;
 
       if (this.edicion) {
         this.drS.update(this.detalleReservas).subscribe((data) => {
