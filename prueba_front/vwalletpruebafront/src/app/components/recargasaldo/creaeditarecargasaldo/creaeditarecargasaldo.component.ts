@@ -1,44 +1,44 @@
-import { Component, OnInit } from '@angular/core';
-import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { Component, OnInit } from "@angular/core";
+import { MatSelectModule } from "@angular/material/select";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { RecargaSaldo } from '../../../models/RecargaSaldo';
-import { Usuario } from '../../../models/Usuario';
-import { UsuarioService } from '../../../services/usuario.service';
-import { RecargasaldoService } from '../../../services/recargasaldo.service';
-
+} from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { MatButtonModule } from "@angular/material/button";
+import { ActivatedRoute, Params, Router } from "@angular/router";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { RecargaSaldo } from "../../../models/RecargaSaldo";
+import { Usuario } from "../../../models/Usuario";
+import { UsuarioService } from "../../../services/usuario.service";
+import { RecargasaldoService } from "../../../services/recargasaldo.service";
 
 @Component({
-  selector: 'app-creaeditarecargasaldo',
+  selector: "app-creaeditarecargasaldo",
   standalone: true,
-  imports: [MatFormFieldModule,
+  imports: [
+    MatFormFieldModule,
     ReactiveFormsModule,
     MatSelectModule,
     CommonModule,
     MatInputModule,
     MatButtonModule,
-    MatDatepickerModule,],
-  templateUrl: './creaeditarecargasaldo.component.html',
-  styleUrl: './creaeditarecargasaldo.component.css'
+    MatDatepickerModule,
+  ],
+  templateUrl: "./creaeditarecargasaldo.component.html",
+  styleUrl: "./creaeditarecargasaldo.component.css",
 })
-export class CreaeditarecargasaldoComponent implements OnInit{
-
+export class CreaeditarecargasaldoComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   recargasaldo: RecargaSaldo = new RecargaSaldo();
   id: number = 0;
   edicion: boolean = false;
-  listaUsuarios: Usuario[]=[];
+  listaUsuarios: Usuario[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,8 +50,8 @@ export class CreaeditarecargasaldoComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
-      this.id = data['id'];
-      this.edicion = data['id'] != null;
+      this.id = data["id"];
+      this.edicion = data["id"] != null;
       this.init();
     });
     this.uS.list().subscribe((data) => {
@@ -59,12 +59,11 @@ export class CreaeditarecargasaldoComponent implements OnInit{
     });
 
     this.form = this.formBuilder.group({
-      codigo_rec: [''],
-      monto: ['', Validators.required],
-      fecharecarga: ['', Validators.required],
-      usuario_: ['', Validators.required],
+      codigo_rec: [""],
+      monto: ["", Validators.required],
+      fecharecarga: ["", Validators.required],
+      usuario_: ["", Validators.required],
     });
- 
   }
 
   aceptar(): void {
@@ -73,7 +72,9 @@ export class CreaeditarecargasaldoComponent implements OnInit{
       this.recargasaldo.montoRecarga = this.form.value.monto;
       this.recargasaldo.fechaRecarga = this.form.value.fecharecarga;
       this.recargasaldo.usuario.idUsuario = this.form.value.usuario_;
-  
+
+      console.log(this.recargasaldo);
+
       if (this.edicion) {
         this.rS.update(this.recargasaldo).subscribe((data) => {
           this.rS.list().subscribe((data) => {
@@ -81,14 +82,13 @@ export class CreaeditarecargasaldoComponent implements OnInit{
           });
         });
       } else {
-
         this.rS.insert(this.recargasaldo).subscribe((data) => {
           this.rS.list().subscribe((data) => {
             this.rS.setList(data);
           });
         });
       }
-      this.router.navigate(['recargasaldo']);
+      this.router.navigate(["recargasaldo"]);
     }
   }
   init() {
@@ -103,5 +103,4 @@ export class CreaeditarecargasaldoComponent implements OnInit{
       });
     }
   }
-
 }

@@ -1,0 +1,58 @@
+<div>
+  <form [formGroup]="form" (submit)="aceptar()">
+    <mat-form-field *ngIf="edicion">
+      <mat-label>Código</mat-label>
+      <input matInput formControlName="codigo" readonly />
+    </mat-form-field>
+    <br />
+
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Número de reserva</mat-label>
+      <mat-select formControlName="reserva">
+        <mat-option *ngFor="let c of listaReservas" [value]="c.idReservas">
+          {{ c.idReservas }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('reserva')?.hasError('required')"
+        >La reserva es obligatoria.</mat-error
+      >
+    </mat-form-field>
+    <br />
+
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Número de menu</mat-label>
+      <mat-select formControlName="menu">
+        <mat-option *ngFor="let c of listaMenus" [value]="c.idMenu">
+          {{ c.idMenu }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Número de transporte</mat-label>
+      <mat-select formControlName="transporte">
+        <mat-option *ngFor="let c of listaTransportes" [value]="c.idTransporte">
+          {{ c.idTransporte }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Número del libro</mat-label>
+      <mat-select formControlName="libro">
+        <mat-option *ngFor="let c of listaLibros" [value]="c.idLibro">
+          {{ c.idLibro }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+
+    <button mat-raised-button color="warn">Aceptar</button>
+  </form>
+</div>
