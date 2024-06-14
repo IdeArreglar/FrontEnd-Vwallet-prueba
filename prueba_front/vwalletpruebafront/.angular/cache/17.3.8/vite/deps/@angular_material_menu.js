@@ -4,10 +4,17 @@ import {
   OverlayConfig,
   OverlayModule,
   TemplatePortal
+<<<<<<< Updated upstream
 } from "./chunk-EQTAVPA6.js";
 import {
   CdkScrollableModule
 } from "./chunk-O4QU3O5Y.js";
+=======
+} from "./chunk-FFLDXXGO.js";
+import {
+  CdkScrollableModule
+} from "./chunk-BYJ57JHZ.js";
+>>>>>>> Stashed changes
 import {
   animate,
   state,
@@ -33,7 +40,11 @@ import {
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader,
   normalizePassiveListenerOptions
+<<<<<<< Updated upstream
 } from "./chunk-2ZPDH4FC.js";
+=======
+} from "./chunk-X7KDM6O5.js";
+>>>>>>> Stashed changes
 import {
   CommonModule,
   DOCUMENT
