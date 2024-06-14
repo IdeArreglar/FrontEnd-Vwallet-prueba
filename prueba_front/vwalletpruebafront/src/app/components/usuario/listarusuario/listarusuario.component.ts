@@ -5,6 +5,7 @@ import { UsuarioService } from '../../../services/usuario.service';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginator} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-listarusuario',
@@ -14,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     RouterLink,
     MatIconModule,
+    MatPaginator,
   ],
   templateUrl: './listarusuario.component.html',
   styleUrl: './listarusuario.component.css'

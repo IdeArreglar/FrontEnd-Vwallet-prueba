@@ -7,6 +7,9 @@
       <button mat-button [matMenuTriggerFor]="menuUsuarios" *ngIf="isAdmin()">
         Usuarios
       </button>
+      <button mat-button [matMenuTriggerFor]="menuTypeUser" *ngIf="isAdmin()">
+        Tipo Usuario
+      </button>
       <button mat-button [matMenuTriggerFor]="menuBiblioteca" *ngIf="isAdmin()">
         Biblioteca
       </button>
@@ -22,24 +25,13 @@
       <button mat-button [matMenuTriggerFor]="menuTransporte" *ngIf="isAdmin()">
         Transporte
       </button>
-      <button
-        mat-button
-        [matMenuTriggerFor]="menuRecargaSaldo"
-        *ngIf="isAdmin()"
-      >
+      <button mat-button [matMenuTriggerFor]="menuRecargaSaldo" *ngIf="isAdmin()">
         Recarga
-      </button>
-      <button mat-button [matMenuTriggerFor]="menuTypeUser" *ngIf="isAdmin()">
-        Tipo Usuario
       </button>
       <button mat-button [matMenuTriggerFor]="menuReservas" *ngIf="isAdmin()">
         Reservas
       </button>
-      <button
-        mat-button
-        [matMenuTriggerFor]="menuDetalleReservas"
-        *ngIf="isAdmin()"
-      >
+      <button mat-button [matMenuTriggerFor]="menuDetalleReservas" *ngIf="isAdmin()">
         Detalle Reserva
       </button>
       <button mat-button [matMenuTriggerFor]="menuSalir">Usuario</button>
@@ -57,6 +49,15 @@
     <mat-icon>list</mat-icon>Listar
   </button>
   <button mat-menu-item routerLink="/usuarios/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+</mat-menu>
+
+<mat-menu #menuTypeUser="matMenu">
+  <button mat-menu-item routerLink="/typeusers">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+  <button mat-menu-item routerLink="/typeusers/nuevo">
     <mat-icon>add_circle</mat-icon>Registrar
   </button>
 </mat-menu>
@@ -115,14 +116,7 @@
   </button>
 </mat-menu>
 
-<mat-menu #menuTypeUser="matMenu">
-  <button mat-menu-item routerLink="/typeusers">
-    <mat-icon>list</mat-icon>Listar
-  </button>
-  <button mat-menu-item routerLink="/typeusers/nuevo">
-    <mat-icon>add_circle</mat-icon>Registrar
-  </button>
-</mat-menu>
+
 
 <mat-menu #menuReservas="matMenu">
   <button mat-menu-item routerLink="/reservas">

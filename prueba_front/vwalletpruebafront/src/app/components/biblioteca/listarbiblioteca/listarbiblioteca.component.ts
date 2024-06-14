@@ -4,11 +4,19 @@ import {MatButtonModule} from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { BibliotecaService } from '../../../services/biblioteca.service';
 import { Biblioteca } from '../../../models/Biblioteca';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginator} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-listarbiblioteca',
   standalone: true,
-  imports: [MatTableModule,MatButtonModule,RouterLink],
+  imports: [
+    MatTableModule,
+    MatButtonModule,
+    RouterLink,
+    MatIconModule,
+    MatPaginator,
+  ],
   templateUrl: './listarbiblioteca.component.html',
   styleUrl: './listarbiblioteca.component.css'
 })

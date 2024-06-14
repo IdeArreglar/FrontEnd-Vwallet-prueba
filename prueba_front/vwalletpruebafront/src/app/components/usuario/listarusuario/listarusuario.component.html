@@ -28,7 +28,7 @@
            -->
 
           <ng-container matColumnDef="accion01">
-            <th mat-header-cell *matHeaderCellDef> Actualizar </th>
+            <th mat-header-cell *matHeaderCellDef> Editar </th>
             <td mat-cell *matCellDef="let element">
               <button mat-raised-button color="primary" [routerLink]="['ediciones',element.idUsuario]"><mat-icon>edit</mat-icon></button>
             </td>
@@ -45,5 +45,6 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <mat-paginator [length]="dataSource.data.length" [pageSize]="2" [pageSizeOptions]="[2, 4, 8]"></mat-paginator>
     
   </div>

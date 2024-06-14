@@ -5,10 +5,18 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { TypeUser } from '../../../models/TypeUser';
 import { TypeuserService } from '../../../services/typeuser.service';
+import { MatPaginator} from '@angular/material/paginator';
+
 @Component({
   selector: 'app-listartypeuser',
   standalone: true,
-  imports: [MatTableModule,MatButtonModule,RouterLink,MatIconModule],
+  imports: [
+    MatTableModule,
+    MatButtonModule,
+    RouterLink,
+    MatIconModule,
+    MatPaginator,
+  ],
   templateUrl: './listartypeuser.component.html',
   styleUrl: './listartypeuser.component.css'
 })
