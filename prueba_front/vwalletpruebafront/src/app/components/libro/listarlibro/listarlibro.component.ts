@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { Libro } from '../../../models/Libro';
 import { LibroService } from '../../../services/libro.service';
+import { MatPaginator} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-listarlibro',
@@ -13,7 +14,8 @@ import { LibroService } from '../../../services/libro.service';
     MatTableModule,
     MatButtonModule,
     RouterLink,
-    MatIconModule
+    MatIconModule,
+    MatPaginator
   ],
   templateUrl: './listarlibro.component.html',
   styleUrl: './listarlibro.component.css'
