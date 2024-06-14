@@ -8,20 +8,20 @@ body {
   }
   
   .title-container {
-    text-align: center; /* Centra el texto del título */
-    margin-bottom: 20px; /* Agrega un margen inferior */
+    text-align: center; 
+    margin-bottom: 20px;
   }
   
   .title {
-    margin: 0; /* Elimina el margen por defecto del h1 */
-    font-size: 24px; /* Ajusta el tamaño de fuente */
-    font-weight: bold; /* Hace el texto en negrita */
-    color: #333; /* Establece el color del texto */
+    margin: 0; 
+    font-size: 24px; 
+    font-weight: bold;
+    color: #333; 
   }
   
   table {
-    width: 80%; /* Ajusta el ancho de la tabla */
-    margin-bottom: 20px; /* Agrega un margen inferior a la tabla */
+    width: 80%; 
+    margin-bottom: 20px; 
   }
   
   .mat-paginator {
