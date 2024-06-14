@@ -1,18 +1,19 @@
-<div>
+<div class="container">
+  <div class="title-container">
+    <h1 class="title">Registro de Menu</h1>
+  </div>
     <form [formGroup]="form" (submit)="aceptar()">
       <mat-form-field *ngIf="edicion">
         <mat-label>Código</mat-label>
         <input matInput formControlName="codigo_menu" readonly />
       </mat-form-field>
-      <br />
-  
+
       <mat-form-field>
         <mat-label>Entrada</mat-label>
         <input matInput formControlName="entrada" />
         <mat-error *ngIf="form.get('entrada')?.hasError('required')"
           >La entrada es obligatorio.</mat-error>
       </mat-form-field>
-      <br />
 
       <mat-form-field>
         <mat-label>Plato Principal</mat-label>
@@ -20,7 +21,6 @@
         <mat-error *ngIf="form.get('platoPrincipal')?.hasError('required')"
           >EL plato principal es obligatorio.</mat-error>
       </mat-form-field>
-      <br />
 
       <mat-form-field>
         <mat-label>Postre</mat-label>
@@ -28,7 +28,6 @@
         <mat-error *ngIf="form.get('postre')?.hasError('required')"
           >EL postre es obligatorio.</mat-error>
       </mat-form-field>
-      <br />
 
       <mat-form-field>
         <mat-label>Refresco</mat-label>
@@ -36,7 +35,6 @@
         <mat-error *ngIf="form.get('refresco')?.hasError('required')"
           >EL refresco es obligatorio.</mat-error>
       </mat-form-field>
-      <br />
 
       <mat-form-field>
         <mat-label>Precio Menu</mat-label>
@@ -44,7 +42,6 @@
         <mat-error *ngIf="form.get('precioMenu')?.hasError('required')"
           >EL precio menu es obligatorio.</mat-error>
       </mat-form-field>
-      <br />
 
       <mat-form-field class="example-full-width">
         <mat-label>Cafeteria</mat-label>
@@ -56,7 +53,6 @@
         <mat-error *ngIf="form.get('cafeteria_')?.hasError('required')"
         >La sede es obligatoria.</mat-error>       
       </mat-form-field>
-      <br />
 
       <button mat-raised-button color="warn">Aceptar</button>
     </form>
