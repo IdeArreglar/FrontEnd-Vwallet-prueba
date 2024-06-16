@@ -1,19 +1,20 @@
-<div>
+<div class="container">
+  <div class="title-container">
+    <h1 class="title">Registro de Recarga</h1>
+  </div>
     <form [formGroup]="form" (submit)="aceptar()">
       <mat-form-field *ngIf="edicion">
         <mat-label>Código</mat-label>
         <input matInput formControlName="codigo_rec" readonly />
       </mat-form-field>
-      <br />
-  
+  <br>
       <mat-form-field>
         <mat-label>Monto</mat-label>
         <input matInput formControlName="monto" />
         <mat-error *ngIf="form.get('monto')?.hasError('required')"
           >EL monto es obligatorio.</mat-error>
       </mat-form-field>
-      <br />
-
+      
       <mat-form-field>
         <mat-label>Fecha Recarga</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="fecharecarga" />
@@ -24,9 +25,6 @@
         </mat-error>
       </mat-form-field>
 
-      <br />
-
-      <br />
       <mat-form-field class="example-full-width">
         <mat-label>Usuario</mat-label>
         <mat-select formControlName="usuario_">

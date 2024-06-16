@@ -41,20 +41,20 @@
           <ng-container matColumnDef="accion01">
             <th mat-header-cell *matHeaderCellDef> Editar </th>
             <td mat-cell *matCellDef="let element">
-              <button mat-raised-button color="warn" [routerLink]="['ediciones',element.idLibro]">Actualizar</button>
+              <button mat-raised-button color="primary" [routerLink]="['ediciones',element.idLibro]"><mat-icon>edit</mat-icon></button>
             </td>
           </ng-container>
           
           <ng-container matColumnDef="accion02">
             <th mat-header-cell *matHeaderCellDef class="header-icon"> Eliminar </th>
             <td mat-cell *matCellDef="let element">
-              <button mat-raised-button color="warn" (click)="deletes(element.idLibro)" >
-                Eliminar <mat-icon class="header-icon">delete</mat-icon></button>
+              <button mat-raised-button color="warn" (click)="deletes(element.idLibro)"><mat-icon>deletes</mat-icon></button>
                </td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <mat-paginator [pageSizeOptions]="[2, 4, 8]" showFirstLastButtons></mat-paginator>
     
   </div>

@@ -5221,6 +5221,7 @@ export {
   Breakpoints,
   addAriaReferencedId,
   removeAriaReferencedId,
+  AriaDescriber,
   ActiveDescendantKeyManager,
   FocusKeyManager,
   CdkTrapFocus,
@@ -5278,4 +5279,4 @@ export {
   MatRippleLoader,
   _MatInternalFormField
 };
-//# sourceMappingURL=chunk-2ZPDH4FC.js.map
+//# sourceMappingURL=chunk-WZV6CBWO.js.map

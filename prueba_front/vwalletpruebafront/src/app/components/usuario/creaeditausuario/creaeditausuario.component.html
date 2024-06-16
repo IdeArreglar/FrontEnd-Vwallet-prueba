@@ -1,37 +1,34 @@
-<div>
+<div class="container">
+  <div class="title-container"><h1 class="title">Registro de Usuario</h1></div>
   <form [formGroup]="form" (submit)="aceptar()">
     <mat-form-field *ngIf="edicion">
       <mat-label>Código</mat-label>
       <input matInput formControlName="codigo" readonly />
     </mat-form-field>
-    <br />
 
     <mat-form-field>
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" />
-      <mat-error *ngIf="form.get('email')?.hasError('required')"
-        >El email es obligatorio.</mat-error
-      >
+      <mat-error *ngIf="form.get('email')?.hasError('required')">
+        El email es obligatorio.
+      </mat-error>
     </mat-form-field>
-    <br />
 
     <mat-form-field>
       <mat-label>Nombre</mat-label>
       <input matInput formControlName="nombre" />
-      <mat-error *ngIf="form.get('nombre')?.hasError('required')"
-        >El nombre es obligatorio.</mat-error
-      >
+      <mat-error *ngIf="form.get('nombre')?.hasError('required')">
+        El nombre es obligatorio.
+      </mat-error>
     </mat-form-field>
-    <br />
 
     <mat-form-field>
       <mat-label>Contraseña</mat-label>
-      <input matInput formControlName="password" />
-      <mat-error *ngIf="form.get('password')?.hasError('required')"
-        >La contraseña nombre es obligatorio.</mat-error
-      >
+      <input matInput formControlName="password" type="password" />
+      <mat-error *ngIf="form.get('password')?.hasError('required')">
+        La contraseña es obligatoria.
+      </mat-error>
     </mat-form-field>
-    <br />
 
     <button mat-raised-button color="warn">Aceptar</button>
   </form>
