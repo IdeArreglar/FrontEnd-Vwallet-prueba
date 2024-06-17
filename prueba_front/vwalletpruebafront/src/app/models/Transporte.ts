@@ -1,8 +1,8 @@
 export class Transporte {
-    idTransporte: number=0;
-    universidadSalida: string = '';
-    universidadLlegada: string = '';
-    horaSalida: number = 0;
-    horaLlegada: number = 0;
-    precioTransporte: number=0;
+  idTransporte: number = 0;
+  universidadSalida: string = "";
+  universidadLlegada: string = "";
+  horaSalida: string = "";
+  horaLlegada: string = "";
+  precioTransporte: number = 0;
 }

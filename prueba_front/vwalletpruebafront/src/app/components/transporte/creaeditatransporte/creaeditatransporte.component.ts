@@ -91,8 +91,8 @@ export class CreaeditatransporteComponent implements OnInit{
             this.tS.setList(data);
           });
         });
-        this.router.navigate(['transporte']);
       }
+      this.router.navigate(['transporte']);
     }
   }
   init() {

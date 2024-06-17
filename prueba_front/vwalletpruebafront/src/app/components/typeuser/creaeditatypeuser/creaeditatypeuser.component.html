@@ -1,12 +1,13 @@
-<div>
+<div class="container">
+  <div class="title-container">
+    <h1 class="title">Registro de Tipo Usuario</h1>
+  </div>
     <form [formGroup]="form" (submit)="aceptar()">
       <mat-form-field *ngIf="edicion">
         <mat-label>Código</mat-label>
         <input matInput formControlName="codigo_typ" readonly />
       </mat-form-field>
-      <br />
-      <br />
-
+      <br>
       <mat-form-field>
         <mat-label>Tipo Usuario</mat-label>
         <mat-select matInput formControlName="tipousuario">
@@ -32,6 +33,6 @@
       </mat-form-field>
       <br />
 
-      <button mat-raised-button color="accent">Aceptar</button>
+      <button mat-raised-button color="warn">Aceptar</button>
     </form>
   </div>
