@@ -7,11 +7,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { JwtRequest } from '../../models/jwtRequest';
+import { MatIcon } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatButtonModule, MatInputModule],
+  imports: [
+    FormsModule, 
+    MatFormFieldModule, 
+    MatButtonModule, 
+    MatInputModule,
+    MatIcon
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -26,6 +34,7 @@ export class LoginComponent implements OnInit{
   username: string = '';
   password: string = '';
   mensaje: string = '';
+  hide: boolean = true; // nuevo 
 
   ngOnInit(): void {}
   login() {
@@ -42,5 +51,8 @@ export class LoginComponent implements OnInit{
         this.snackBar.open(this.mensaje, 'Aviso', { duration: 2000 });
       }
     );
+  }
+  togglePasswordVisibility() {
+    this.hide = !this.hide; // nuevo
   }
 }

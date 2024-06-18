@@ -1,8 +1,7 @@
 h1,
 h2,
 h3,
-p,
-button {
+p {
   font-family: "Sen", sans-serif;
 }
 
@@ -35,6 +34,15 @@ p {
 button {
   font-size: 1.2rem;
   padding: 2rem;
+}
+
+.custom-button {
+  background-color: #EE7200 !important;  /* Utilizamos !important para sobrescribir los estilos predeterminados */
+  color: white !important;               /* Utilizamos !important para sobrescribir los estilos predeterminados */
+}
+
+.custom-button:hover {
+  background-color: #d65f00 !important;  /* Un color más oscuro para el efecto hover */
 }
 
 section {
@@ -132,14 +140,14 @@ section {
 
 .testimonies-carousel p {
   font-style: italic;
-  color: #f1c40f;
+  color: #EE7200;
 }
 
 .testimonies-carousel p::before,
 .testimonies-carousel p::after {
   content: '"';
   font-size: 1.4rem;
-  color: #f1c40f;
+  color: #EE7200;
 }
 
 .cta-section h3 {
@@ -157,7 +165,7 @@ section {
 footer {
   height: 25vh;
   background-color: black;
-  color: #f1c40f;
+  color: #EE7200;
   display: flex;
   justify-content: center;
   align-items: center;

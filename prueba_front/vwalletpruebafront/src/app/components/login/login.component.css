@@ -1,8 +1,8 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap');
 html, body {
     height: 100%;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Sen', sans-serif;
 }
 
 .background {
@@ -10,8 +10,17 @@ html, body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-color: #ff7043; /* Naranja tipo warn */
+    background-color: #EE7200; 
 }
+
+.custom-warn-button {
+    background-color: #EE7200 !important;
+    color: black !important;
+  }
+  
+  .custom-warn-button:hover {
+    background-color: #d65f00 !important;  /* Un color más oscuro para el efecto hover */
+  }
 
 .container {
     background: #fff;
@@ -36,11 +45,15 @@ mat-form-field {
 
 h2 {
     margin-bottom: 1rem;
-    color: #333;
+    color:black;
+    font-weight: 1000;
 }
 
 button {
     width: 100%;
     margin-top: 1rem;
 }
-  
+
+body, p, h1, h2, h3, h4, h5, h6, button, input, mat-form-field {
+    font-family: 'Sen', sans-serif !important;
+}
