@@ -19,7 +19,7 @@ html, body {
   }
   
   .custom-warn-button:hover {
-    background-color: #d65f00 !important;  /* Un color más oscuro para el efecto hover */
+    background-color: #d65f00 !important;  
   }
 
 .container {
