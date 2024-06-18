@@ -55,4 +55,8 @@ export class LoginComponent implements OnInit{
   togglePasswordVisibility() {
     this.hide = !this.hide; // nuevo
   }
+
+  goBack() {
+    this.router.navigate(['/homes']); // Navegar hacia la ruta '/homes'
+  }
 }

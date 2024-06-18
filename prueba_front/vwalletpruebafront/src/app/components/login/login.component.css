@@ -39,6 +39,13 @@ html, body {
     margin-bottom: 1rem;
 }
 
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100; 
+  }
+
 mat-form-field {
     width: 100%;
 }
