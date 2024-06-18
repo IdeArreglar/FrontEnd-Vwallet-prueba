@@ -9,9 +9,7 @@ import { RouterLink } from "@angular/router";
   standalone: true,
   imports: [
     MatButtonModule,
-
     NgFor,
-
     RouterLink,
   ],
   templateUrl: "./home.component.html",

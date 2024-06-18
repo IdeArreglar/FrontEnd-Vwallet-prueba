@@ -26,13 +26,19 @@ import { CreaeditadetallereservasComponent } from "./components/detallereservas/
 export const routes: Routes = [
   {
     path: "",
-    redirectTo: "login",
+    redirectTo: "homes",
     pathMatch: "full",
   },
   {
     path: "login",
     component: LoginComponent,
   },
+  {
+    path: "register",
+    component: CreaeditausuarioComponent,
+  },
+
+
   {
     path: "usuarios",
     component: UsuarioComponent,
@@ -187,6 +193,6 @@ export const routes: Routes = [
   {
     path: "homes",
     component: HomeComponent,
-    canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+   // solo construcciones, se debe agregar a cada uno
   },
 ];
