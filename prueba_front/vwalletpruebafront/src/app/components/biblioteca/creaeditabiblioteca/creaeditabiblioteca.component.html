@@ -1,4 +1,7 @@
-<div>
+<div class="container">
+  <div class="title-container">
+    <h1 class="title">Registro de Biblioteca</h1>
+  </div>
   <form [formGroup]="form" (submit)="aceptar()">
     <mat-form-field *ngIf="edicion">
       <mat-label>Código</mat-label>
@@ -8,18 +11,15 @@
 
     <mat-form-field>
       <mat-label>Sede</mat-label>
-
       <mat-select matInput formControlName="sede_bib">
-        <mat-error *ngIf="form.get('sede_bib')?.hasError('required')"
-          >La Sede es obligatorio.</mat-error
-        >
+        <mat-error *ngIf="form.get('sede_bib')?.hasError('required')">La Sede es obligatorio.</mat-error>
         <mat-option *ngFor="let g of listaSedes" [value]="g.value">
-          {{ g.viewValue }}</mat-option
-        >
+          {{ g.viewValue }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <br />
 
-    <button mat-raised-button color="accent">Aceptar</button>
+    <button mat-raised-button class="custom-warn-button">Aceptar</button>
   </form>
 </div>
