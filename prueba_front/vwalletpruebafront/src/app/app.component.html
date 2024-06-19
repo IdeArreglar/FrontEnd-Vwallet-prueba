@@ -1,7 +1,7 @@
 <mat-toolbar class="mat-toolbar-custom" *ngIf="verificar()">
-  <button mat-button [routerLink]="['/homes']">
+<!--<button mat-button [routerLink]="['/homes']">  
     <mat-icon>home</mat-icon>Home
-  </button>
+  </button>--> <!--esto podemos considerar cambiarlo por otro homes para que la vista al usuario sea diferente-->
   <div class="forma">
     <div>
       <button mat-button [matMenuTriggerFor]="menuUsuarios" *ngIf="isAdmin()">

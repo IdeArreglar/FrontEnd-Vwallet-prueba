@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit{
     this.loginService.login(request).subscribe(
       (data: any) => {
         sessionStorage.setItem('token', data.jwttoken);
-        this.router.navigate(['homes']);
+        this.router.navigate(['usuarios']);// aca fue el cambio para que no se redireccione al homes cuando se inicia sesion
       },
       (error) => {
         this.mensaje = 'Credenciales incorrectas!!!';
