@@ -22,6 +22,11 @@ import { MenuComponent } from "./components/menu/menu.component";
 import { CreaeditamenuComponent } from "./components/menu/creaeditamenu/creaeditamenu.component";
 import { DetallereservasComponent } from "./components/detallereservas/detallereservas.component";
 import { CreaeditadetallereservasComponent } from "./components/detallereservas/creaeditadetallereservas/creaeditadetallereservas.component";
+import { ReportsComponent } from "./components/reports/reports.component";
+import { ReportLibroDisponiblexSedeComponent } from "./components/reports/report-libro-disponiblex-sede/report-libro-disponiblex-sede.component";
+import { ReportMenuMasCarosComponent } from "./components/reports/report-menu-mas-caros/report-menu-mas-caros.component";
+import { ReportMenuMasEconomicosComponent } from "./components/reports/report-menu-mas-economicos/report-menu-mas-economicos.component";
+import { ReportPlatosMasPedidosComponent } from "./components/reports/report-platos-mas-pedidos/report-platos-mas-pedidos.component";
 
 export const routes: Routes = [
   {
@@ -189,6 +194,20 @@ export const routes: Routes = [
       },
     ],
     canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+  },
+  {
+    path: 'reportes',component: ReportsComponent,
+    children: [
+      {
+        path: 'reporte02', component: ReportMenuMasCarosComponent,
+      },
+      {
+        path: 'reporte03', component: ReportMenuMasEconomicosComponent,
+      },
+      {
+        path: 'reporte04', component: ReportPlatosMasPedidosComponent,
+      },
+    ],
   },
   {
     path: "homes",

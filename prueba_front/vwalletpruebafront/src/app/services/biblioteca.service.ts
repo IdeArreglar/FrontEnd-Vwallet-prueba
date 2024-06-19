@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Biblioteca } from '../models/Biblioteca';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { LibroDisponiblePorSedeDTO } from '../models/libroDisponiblePorSedeDTO';
 const base_url=environment.base
 
 @Injectable({
@@ -34,5 +35,8 @@ export class BibliotecaService {
   delete(id:number)
   {
     return this.http.delete(`${this.url}/${id}`)
+  }
+  getBookxCampus():Observable<LibroDisponiblePorSedeDTO[]>{
+    return this.http.get<LibroDisponiblePorSedeDTO[]>(`${this.url}/librodisponibleporsede`);
   }
 }

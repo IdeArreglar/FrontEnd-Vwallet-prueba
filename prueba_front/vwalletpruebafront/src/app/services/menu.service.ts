@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Menu } from '../models/Menu';
+import { MenusCarosDTO } from '../models/menusCarosDTO';
+import { MenusEconomicosDTO } from '../models/menusEconomicosDTO';
+import { PlatosMasPedidosDTO } from '../models/platosMasPedidosDTO';
+
 
 const base_url=environment.base
 
@@ -35,5 +39,14 @@ export class MenuService {
   delete(id:number)
   {
     return this.http.delete(`${this.url}/${id}`)
+  }
+  getMostExpensiveMenu():Observable<MenusCarosDTO[]>{
+    return this.http.get<MenusCarosDTO[]>(`${this.url}/menucaros`);
+  }
+  getMostCheapMenu():Observable<MenusEconomicosDTO[]>{
+    return this.http.get<MenusEconomicosDTO[]>(`${this.url}/economicos`);
+  }
+  getMostRequestedDish():Observable<PlatosMasPedidosDTO[]>{
+    return this.http.get<PlatosMasPedidosDTO[]>(`${this.url}/platomaspedidos`);
   }
 }
