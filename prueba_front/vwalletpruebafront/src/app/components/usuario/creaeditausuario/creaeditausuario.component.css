@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap');
+
 html, body {
   height: 100%;
   margin: 0;
@@ -7,10 +8,27 @@ html, body {
 
 .background {
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh; /* 100% del alto de la pantalla */
   background-color: #EE7200; /* Color de fondo */
+}
+
+.image-container {
+  flex: 1; 
+  position: relative; 
+}
+
+.image-container img {
+  width: 80%;
+  height: 100%;
+  object-fit: cover; 
+  opacity: 0.7; 
+}
+
+.registro-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -18,12 +36,16 @@ html, body {
   padding: 2rem; /* Espaciado interior */
   border-radius: 10px; /* Borde redondeado */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-  text-align: center; /* Alineación de texto al centro */
-  width: 300px; /* Ancho del contenedor */
+  text-align: center;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative; /* Posición relativa para el botón de retroceso */
+}
+
+.logo-container img {
+  width: 100px;
+  margin-bottom: 1rem;
 }
 
 .title-container {
@@ -44,37 +66,33 @@ html, body {
 }
 
 .custom-warn-button:hover {
-  background-color: #d65f00 !important;  
+  background-color: #d65f00 !important;
 }
 
 mat-form-field {
-  width: 100%; 
-  margin-bottom: 16px; 
+  width: 100%;
 }
-
 
 button {
-  width: 100%; 
-  margin-top: 1rem; 
+  width: 100%;
+  margin-top: 1rem;
 }
-
 
 .back-button {
-  position: absolute; 
-  top: 20px; 
+  position: absolute;
+  top: 20px;
   right: 20px;
-  z-index: 100; 
+  z-index: 100;
 }
 
-
 h2 {
-  margin-bottom: 1rem; 
-  color: black; 
-  font-weight: 1000; 
+  margin-bottom: 1rem;
+  color: black;
+  font-weight: 1000;
 }
 
 mat-icon-button {
-  color: #666; 
+  color: #666;
 }
 
 body, p, h1, h2, h3, h4, h5, h6, button, input, mat-form-field {
@@ -83,11 +101,11 @@ body, p, h1, h2, h3, h4, h5, h6, button, input, mat-form-field {
 
 @media (max-width: 600px) {
   .container {
-    padding: 10px; 
-    max-width: 100%; 
+    padding: 10px;
+    max-width: 100%;
   }
 
   button {
-    width: 100%; 
+    width: 100%;
   }
 }
