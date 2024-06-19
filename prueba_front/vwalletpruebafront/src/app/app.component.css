@@ -1,0 +1,25 @@
+.forma {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.home-icon {
+    cursor: pointer; 
+    transition: color 0.3s ease; 
+}
+  
+.home-icon:hover {
+    color: #000000; 
+  }
+  
+  .mat-toolbar-custom {
+    background-color: #EE7200;
+    color: white; /* Color de texto blanco */
+  }
+  
+  .mat-toolbar-custom button {
+    color: white; /* Color de texto blanco para el botón dentro de la barra de herramientas */
+  }
+
+  

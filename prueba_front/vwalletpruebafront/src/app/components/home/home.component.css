@@ -1,0 +1,181 @@
+h1,
+h2,
+h3,
+p {
+  font-family: "Sen", sans-serif;
+}
+
+h1,
+h2,
+p {
+  text-align: center;
+  line-height: 1.2;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 2rem;
+}
+
+.custom-button {
+  background-color: #EE7200 !important;  /* Utilizamos !important para sobrescribir los estilos predeterminados */
+  color: white !important;               /* Utilizamos !important para sobrescribir los estilos predeterminados */
+}
+
+.custom-button:hover {
+  background-color: #d65f00 !important;  /* Un color más oscuro para el efecto hover */
+}
+
+section {
+  min-height: 100vh;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem;
+}
+
+.no-background {
+  background-color: #e3e3e3;
+}
+
+.with-background-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.75);
+}
+
+.with-background-img h1,
+.with-background-img h2,
+.with-background-img p {
+  color: white;
+}
+
+.hero-section {
+  background-image: url("https://previews.123rf.com/images/andersonrise/andersonrise1602/andersonrise160200707/52482829-business-collage-made-of-many-different-pictures-about-finances-time-money.jpg");
+}
+
+.benefits-section p {
+  max-width: 780px;
+  text-align: center;
+}
+
+.benefits-section .benefits-list {
+  margin-block: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  color: white;
+}
+
+.benefits-section .benefit-div {
+  width: 200px;
+  height: 200px;
+  font-size: 1rem;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.safe-section {
+  background-image: url("https://www.upc.edu.pe/en/nosotros/campus/campus-monterrico/img/monterrico-2.jpg");
+}
+
+.services-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.services-list .service-div {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.services-list .service-div img {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.testimonies-section {
+  background-color: black;
+}
+
+.testimonies-carousel p {
+  font-style: italic;
+  color: #EE7200;
+}
+
+.testimonies-carousel p::before,
+.testimonies-carousel p::after {
+  content: '"';
+  font-size: 1.4rem;
+  color: #EE7200;
+}
+
+.cta-section h3 {
+  color: #ee7200;
+}
+
+.cta-section .download-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+footer {
+  height: 25vh;
+  background-color: black;
+  color: #EE7200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .testimonies-carousel h3,
+  .testimonies-carousel p {
+    font-size: 100%;
+  }
+}

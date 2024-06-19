@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="title-container">
+    <h1 class="title">Registro de Libro</h1>
+  </div>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo_lib" readonly />
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>titulo</mat-label>
+        <input matInput formControlName="titulo" />
+        <mat-error *ngIf="form.get('titulo')?.hasError('required')"
+          >EL titulo es obligatorio.</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>autor</mat-label>
+        <input matInput formControlName="autor" />
+        <mat-error *ngIf="form.get('autor')?.hasError('required')"
+          >EL autor es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      
+
+      <mat-form-field>
+        <mat-label>Fecha Publicacion</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="anioPublicacion" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('anioPublicacion')?.hasError('required')">
+          La fecha de publicacion es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>genero</mat-label>
+        <input matInput formControlName="genero" />
+        <mat-error *ngIf="form.get('genero')?.hasError('required')"
+          >EL genero es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Biblioteca</mat-label>
+        <mat-select formControlName="biblioteca_">
+          <mat-option *ngFor="let c of listaSedes" [value]="c.idBiblioteca">
+            {{c.sedeBiblioteca}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('biblioteca_')?.hasError('required')"
+        >La sede es obligatoria.</mat-error>       
+      </mat-form-field>
+
+      <button mat-raised-button class="custom-warn-button">Aceptar</button>
+    </form>
+  </div>

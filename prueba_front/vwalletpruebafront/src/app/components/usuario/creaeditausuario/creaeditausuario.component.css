@@ -1,37 +1,93 @@
-form {
-    display: flex; /* Utiliza un diseño de caja flexible para organizar los elementos hijos */
-    flex-direction: column; /* Alinea los elementos hijos en una columna vertical */
-    max-width: 400px; /* Establece el ancho máximo del formulario */
-    margin: auto; /* Centra el formulario horizontalmente en la página */
-    padding: 20px; /* Agrega un relleno interior de 20 píxeles alrededor del contenido del formulario */
-    border: 1px solid #ccc; /* Aplica un borde de 1 píxel con color gris claro */
-    border-radius: 8px; /* Redondea las esquinas del borde con un radio de 8 píxeles */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Aplica una sombra sutil para darle profundidad */
-    background-color: #f9f9f9; /* Establece un color de fondo gris claro */
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap');
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Sen', sans-serif;
+}
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% del alto de la pantalla */
+  background-color: #EE7200; /* Color de fondo */
+}
+
+.container {
+  background: #fff; /* Fondo blanco */
+  padding: 2rem; /* Espaciado interior */
+  border-radius: 10px; /* Borde redondeado */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  text-align: center; /* Alineación de texto al centro */
+  width: 300px; /* Ancho del contenedor */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Posición relativa para el botón de retroceso */
+}
+
+.title-container {
+  text-align: center; /* Alineación de texto al centro */
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+.title {
+  margin: 0; /* Eliminar margen */
+  font-size: 24px; /* Tamaño de fuente */
+  font-weight: bold; /* Negrita */
+  color: #333; /* Color de texto */
+}
+
+.custom-warn-button {
+  background-color: #EE7200 !important;
+  color: black !important;
+}
+
+.custom-warn-button:hover {
+  background-color: #d65f00 !important;  
+}
+
+mat-form-field {
+  width: 100%; 
+  margin-bottom: 16px; 
+}
+
+
+button {
+  width: 100%; 
+  margin-top: 1rem; 
+}
+
+
+.back-button {
+  position: absolute; 
+  top: 20px; 
+  right: 20px;
+  z-index: 100; 
+}
+
+
+h2 {
+  margin-bottom: 1rem; 
+  color: black; 
+  font-weight: 1000; 
+}
+
+mat-icon-button {
+  color: #666; 
+}
+
+body, p, h1, h2, h3, h4, h5, h6, button, input, mat-form-field {
+  font-family: 'Sen', sans-serif !important;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px; 
+    max-width: 100%; 
   }
-  
-  /* Aplica estilos a los campos del formulario */
-  mat-form-field {
-    width: 100%; /* Hace que los campos del formulario ocupen el 100% del ancho del contenedor */
-    margin-bottom: 16px; /* Agrega un margen inferior de 16 píxeles para separar los campos */
-  }
-  
-  /* Aplica estilos al botón */
+
   button {
-    align-self: center; /* Centra el botón horizontalmente dentro del formulario */
-    width: 100px; /* Establece un ancho fijo de 100 píxeles para el botón */
+    width: 100%; 
   }
-  
-  /* Estilos específicos para pantallas pequeñas (responsive design) */
-  @media (max-width: 600px) {
-    form {
-      padding: 10px; /* Reduce el relleno interior a 10 píxeles para pantallas pequeñas */
-      max-width: 100%; /* Permite que el formulario ocupe el 100% del ancho disponible */
-    }
-  
-    button {
-      width: 100%; /* Hace que el botón ocupe el 100% del ancho del contenedor en pantallas pequeñas */
-    }
-  }
-  
-  
+}

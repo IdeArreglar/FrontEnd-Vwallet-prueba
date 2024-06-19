@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="title-container"><h1 class="title">Lista de Menús</h1></div>
+    <div class="title-container"><h1 class="title">Lista de Menus</h1></div>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   
 
@@ -8,61 +8,54 @@
             <td mat-cell *matCellDef="let element"> {{element.idMenu}} </td>
           </ng-container>
         
-   
           <ng-container matColumnDef="entrada">
             <th mat-header-cell *matHeaderCellDef class="header-icon"> Entrada </th>
             <td mat-cell *matCellDef="let element"> {{element.entrada}} </td>
         </ng-container>
         
-  
-          <ng-container matColumnDef="platoprincipal">
-            <th mat-header-cell *matHeaderCellDef> PlatoPrincipal </th>
+        <ng-container matColumnDef="platoPrincipal">
+            <th mat-header-cell *matHeaderCellDef> Plato Principal </th>
             <td mat-cell *matCellDef="let element"> {{element.platoPrincipal}} </td>
-          </ng-container>
+        </ng-container>
         
-
-          <ng-container matColumnDef="postre">
-            <th mat-header-cell *matHeaderCellDef>Postre </th>
+        <ng-container matColumnDef="postre">
+            <th mat-header-cell *matHeaderCellDef> Postre </th>
             <td mat-cell *matCellDef="let element"> {{element.postre}} </td>
-          </ng-container>
+        </ng-container>
 
-          
-          <ng-container matColumnDef="refresco">
+        <ng-container matColumnDef="refresco">
             <th mat-header-cell *matHeaderCellDef> Refresco </th>
             <td mat-cell *matCellDef="let element"> {{element.refresco}} </td>
-          </ng-container>
+        </ng-container>
 
-             
-          <ng-container matColumnDef="preciomenu">
-            <th mat-header-cell *matHeaderCellDef> Precio </th>
-            <td mat-cell *matCellDef="let element"> {{element.precioMenu}} </td>
-          </ng-container>
-
-                   
-          <ng-container matColumnDef="cafeteriaMenu">
+        <ng-container matColumnDef="precioMenu">
+          <th mat-header-cell *matHeaderCellDef> Precio Menu </th>
+          <td mat-cell *matCellDef="let element"> {{element.precioMenu}} </td>
+      </ng-container>
+    
+          <ng-container matColumnDef="cafeteria_">
             <th mat-header-cell *matHeaderCellDef> Cafeteria </th>
             <td mat-cell *matCellDef="let element"> {{element.cafeteria.sedeCafeteria}} </td>
           </ng-container>
 
-
+          
           <ng-container matColumnDef="accion01">
             <th mat-header-cell *matHeaderCellDef> Editar </th>
             <td mat-cell *matCellDef="let element">
-              <button mat-raised-button color="warn" [routerLink]="['ediciones',element.idMenu]">Actualizar</button>
+              <button mat-raised-button color="primary" [routerLink]="['ediciones',element.idMenu]"><mat-icon>edit</mat-icon></button>
             </td>
           </ng-container>
-
+          
           <ng-container matColumnDef="accion02">
-            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+            <th mat-header-cell *matHeaderCellDef class="header-icon"> Eliminar </th>
             <td mat-cell *matCellDef="let element">
-              <button mat-raised-button color="warn" (click)="deletes(element.idMenu)">
-                Eliminar</button>
+              <button mat-raised-button color="warn" (click)="deletes(element.idMenu)"><mat-icon>deletes</mat-icon></button>
                </td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <mat-paginator [pageSizeOptions]="[2, 4, 8]" showFirstLastButtons></mat-paginator>
     
   </div>
-

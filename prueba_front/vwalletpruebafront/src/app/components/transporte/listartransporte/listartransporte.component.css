@@ -1,10 +1,30 @@
-.delete-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-  }
-  
-  .delete-button mat-icon {
-    margin-left: 8px; /* Ajusta este valor según la separación deseada */
-  }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+.title-container {
+  text-align: center; 
+  margin-bottom: 20px;
+}
+
+.title {
+  margin: 0; 
+  font-size: 24px; 
+  font-weight: bold;
+  color: #333; 
+}
+
+table {
+  width: 80%; 
+  margin-bottom: 20px; 
+}
+
+.mat-paginator {
+  display: flex;
+  justify-content: center;
+}

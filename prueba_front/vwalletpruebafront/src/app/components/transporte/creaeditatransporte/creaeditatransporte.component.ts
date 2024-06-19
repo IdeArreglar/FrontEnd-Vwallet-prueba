@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+
+
 import { TransporteService } from '../../../services/transporte.service';
 import { Transporte } from '../../../models/Transporte';
 
@@ -89,8 +91,8 @@ export class CreaeditatransporteComponent implements OnInit{
             this.tS.setList(data);
           });
         });
-        this.router.navigate(['transporte']);
       }
+      this.router.navigate(['transporte']);
     }
   }
   init() {
