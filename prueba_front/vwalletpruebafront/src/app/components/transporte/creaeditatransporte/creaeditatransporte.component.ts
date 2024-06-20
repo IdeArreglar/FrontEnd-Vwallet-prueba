@@ -1,25 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { Component, OnInit } from "@angular/core";
+import { MatSelectModule } from "@angular/material/select";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+} from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { MatButtonModule } from "@angular/material/button";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 
-
-import { TransporteService } from '../../../services/transporte.service';
-import { Transporte } from '../../../models/Transporte';
+import { TransporteService } from "../../../services/transporte.service";
+import { Transporte } from "../../../models/Transporte";
 
 @Component({
-  selector: 'app-creaeditatransporte',
+  selector: "app-creaeditatransporte",
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -28,22 +26,21 @@ import { Transporte } from '../../../models/Transporte';
     CommonModule,
     MatInputModule,
     MatButtonModule,
-    MatDatepickerModule,],
-  templateUrl: './creaeditatransporte.component.html',
-  styleUrl: './creaeditatransporte.component.css'
+  ],
+  templateUrl: "./creaeditatransporte.component.html",
+  styleUrl: "./creaeditatransporte.component.css",
 })
-export class CreaeditatransporteComponent implements OnInit{
-
+export class CreaeditatransporteComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   transporte: Transporte = new Transporte();
   id: number = 0;
   edicion: boolean = false;
 
   listaSedes: { value: string; viewValue: string }[] = [
-    { value: 'San Miguel', viewValue: 'San Miguel' },
-    { value: 'San Isidro', viewValue: 'San Isidro' },
-    { value: 'Villa', viewValue: 'Villa' },
-    { value: 'Monterrico', viewValue: 'Monterrico' },
+    { value: "San Miguel", viewValue: "San Miguel" },
+    { value: "San Isidro", viewValue: "San Isidro" },
+    { value: "Villa", viewValue: "Villa" },
+    { value: "Monterrico", viewValue: "Monterrico" },
   ];
 
   constructor(
@@ -55,18 +52,18 @@ export class CreaeditatransporteComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
-      this.id = data['id'];
-      this.edicion = data['id'] != null;
+      this.id = data["id"];
+      this.edicion = data["id"] != null;
       this.init();
     });
 
     this.form = this.formBuilder.group({
-      codigo_trans: [''],
-      universidad_salida: ['', Validators.required],
-      universidad_llegada: ['', Validators.required],
-      hora_salida: ['', Validators.required],
-      hora_llegada: ['', Validators.required],
-      precio: ['', Validators.required],
+      codigo_trans: [""],
+      universidad_salida: ["", Validators.required],
+      universidad_llegada: ["", Validators.required],
+      hora_salida: ["", Validators.required, Validators.pattern("^d+$")],
+      hora_llegada: ["", Validators.required, Validators.pattern("^d+$")],
+      precio: ["", Validators.required],
     });
   }
 
@@ -78,7 +75,7 @@ export class CreaeditatransporteComponent implements OnInit{
       this.transporte.horaSalida = this.form.value.hora_salida;
       this.transporte.horaLlegada = this.form.value.hora_llegada;
       this.transporte.precioTransporte = this.form.value.precio;
-  
+
       if (this.edicion) {
         this.tS.update(this.transporte).subscribe((data) => {
           this.tS.list().subscribe((data) => {
@@ -92,7 +89,7 @@ export class CreaeditatransporteComponent implements OnInit{
           });
         });
       }
-      this.router.navigate(['transporte']);
+      this.router.navigate(["transporte"]);
     }
   }
   init() {
@@ -109,5 +106,4 @@ export class CreaeditatransporteComponent implements OnInit{
       });
     }
   }
-
 }
