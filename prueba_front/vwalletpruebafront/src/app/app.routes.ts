@@ -27,6 +27,8 @@ import { ReportLibroDisponiblexSedeComponent } from "./components/reports/report
 import { ReportMenuMasCarosComponent } from "./components/reports/report-menu-mas-caros/report-menu-mas-caros.component";
 import { ReportMenuMasEconomicosComponent } from "./components/reports/report-menu-mas-economicos/report-menu-mas-economicos.component";
 import { ReportPlatosMasPedidosComponent } from "./components/reports/report-platos-mas-pedidos/report-platos-mas-pedidos.component";
+import { ReportTransportesUniversidadesComponent } from "./components/reports/report-transportes-universidades/report-transportes-universidades.component";
+import { ReportFechaRecargaComponent } from "./components/reports/report-fecha-recarga/report-fecha-recarga.component";
 
 export const routes: Routes = [
   {
@@ -42,7 +44,6 @@ export const routes: Routes = [
     path: "register",
     component: CreaeditausuarioComponent,
   },
-
 
   {
     path: "usuarios",
@@ -196,22 +197,34 @@ export const routes: Routes = [
     canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
   },
   {
-    path: 'reportes',component: ReportsComponent,
+    path: "reportes",
+    component: ReportsComponent,
     children: [
       {
-        path: 'reporte02', component: ReportMenuMasCarosComponent,
+        path: "reporte02",
+        component: ReportMenuMasCarosComponent,
       },
       {
-        path: 'reporte03', component: ReportMenuMasEconomicosComponent,
+        path: "reporte03",
+        component: ReportMenuMasEconomicosComponent,
       },
       {
-        path: 'reporte04', component: ReportPlatosMasPedidosComponent,
+        path: "reporte04",
+        component: ReportPlatosMasPedidosComponent,
+      },
+      {
+        path: "reporte09",
+        component: ReportTransportesUniversidadesComponent,
+      },
+      {
+        path: "reporte10",
+        component: ReportFechaRecargaComponent,
       },
     ],
   },
   {
     path: "homes",
     component: HomeComponent,
-   // solo construcciones, se debe agregar a cada uno
+    // solo construcciones, se debe agregar a cada uno
   },
 ];

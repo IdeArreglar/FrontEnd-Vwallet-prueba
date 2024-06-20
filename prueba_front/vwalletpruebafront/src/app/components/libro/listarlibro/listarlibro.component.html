@@ -1,60 +1,69 @@
 <div class="container">
-    <div class="title-container"><h1 class="title">Lista de Libros</h1></div>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  
+  <div class="title-container"><h1 class="title">Lista de Libros</h1></div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="codigo_lib">
+      <th mat-header-cell *matHeaderCellDef>Código</th>
+      <td mat-cell *matCellDef="let element">{{ element.idLibro }}</td>
+    </ng-container>
 
-          <ng-container matColumnDef="codigo_lib">
-            <th mat-header-cell *matHeaderCellDef> Código </th>
-            <td mat-cell *matCellDef="let element"> {{element.idLibro}} </td>
-          </ng-container>
-        
-          <ng-container matColumnDef="titulo">
-            <th mat-header-cell *matHeaderCellDef class="header-icon">
-                titulo 
-            </th>
-            <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
-        </ng-container>
-        
-        <ng-container matColumnDef="autor">
-            <th mat-header-cell *matHeaderCellDef> autor </th>
-            <td mat-cell *matCellDef="let element"> {{element.autor}} </td>
-          </ng-container>
-        
-          <ng-container matColumnDef="anioPublicacion">
-            <th mat-header-cell *matHeaderCellDef> anioPublicacion </th>
-            <td mat-cell *matCellDef="let element"> {{element.anioPublicacion}} </td>
-          </ng-container>
-        
+    <ng-container matColumnDef="titulo">
+      <th mat-header-cell *matHeaderCellDef class="header-icon">titulo</th>
+      <td mat-cell *matCellDef="let element">{{ element.titulo }}</td>
+    </ng-container>
 
-          <ng-container matColumnDef="genero">
-            <th mat-header-cell *matHeaderCellDef>genero </th>
-            <td mat-cell *matCellDef="let element"> {{element.genero}} </td>
-          </ng-container>
+    <ng-container matColumnDef="autor">
+      <th mat-header-cell *matHeaderCellDef>autor</th>
+      <td mat-cell *matCellDef="let element">{{ element.autor }}</td>
+    </ng-container>
 
-          
-          <ng-container matColumnDef="biblioteca_">
-            <th mat-header-cell *matHeaderCellDef> biblioteca </th>
-            <td mat-cell *matCellDef="let element"> {{element.biblioteca.sedeBiblioteca}} </td>
-          </ng-container>
+    <ng-container matColumnDef="anioPublicacion">
+      <th mat-header-cell *matHeaderCellDef>anioPublicacion</th>
+      <td mat-cell *matCellDef="let element">{{ element.anioPublicacion }}</td>
+    </ng-container>
 
-          
-          <ng-container matColumnDef="accion01">
-            <th mat-header-cell *matHeaderCellDef> Editar </th>
-            <td mat-cell *matCellDef="let element">
-              <button mat-raised-button class="custom-primary-button" [routerLink]="['ediciones',element.idLibro]"><mat-icon>edit</mat-icon></button>
-            </td>
-          </ng-container>
-          
-          <ng-container matColumnDef="accion02">
-            <th mat-header-cell *matHeaderCellDef class="header-icon"> Eliminar </th>
-            <td mat-cell *matCellDef="let element">
-              <button mat-raised-button color="warn" (click)="deletes(element.idLibro)"><mat-icon>deletes</mat-icon></button>
-               </td>
-          </ng-container>
+    <ng-container matColumnDef="genero">
+      <th mat-header-cell *matHeaderCellDef>genero</th>
+      <td mat-cell *matCellDef="let element">{{ element.genero }}</td>
+    </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        <mat-paginator [pageSizeOptions]="[2, 4, 8]" showFirstLastButtons></mat-paginator>
-    
-  </div>
+    <ng-container matColumnDef="biblioteca_">
+      <th mat-header-cell *matHeaderCellDef>biblioteca</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.biblioteca.sedeBiblioteca }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accion01">
+      <th mat-header-cell *matHeaderCellDef>Editar</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          class="custom-primary-button"
+          [routerLink]="['ediciones', element.idLibro]"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accion02">
+      <th mat-header-cell *matHeaderCellDef class="header-icon">Eliminar</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="deletes(element.idLibro)"
+        >
+          <mat-icon>deletes</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [pageSizeOptions]="[8, 10, 12]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

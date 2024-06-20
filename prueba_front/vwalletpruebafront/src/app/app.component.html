@@ -25,16 +25,24 @@
       <button mat-button [matMenuTriggerFor]="menuTransporte" *ngIf="isAdmin()">
         Transporte
       </button>
-      <button mat-button [matMenuTriggerFor]="menuRecargaSaldo" *ngIf="isAdmin()">
+      <button
+        mat-button
+        [matMenuTriggerFor]="menuRecargaSaldo"
+        *ngIf="isAdmin()"
+      >
         Recarga
       </button>
       <button mat-button [matMenuTriggerFor]="menuReservas" *ngIf="isAdmin()">
         Reservas
       </button>
-      <button mat-button [matMenuTriggerFor]="menuDetalleReservas" *ngIf="isAdmin()">
+      <button
+        mat-button
+        [matMenuTriggerFor]="menuDetalleReservas"
+        *ngIf="isAdmin()"
+      >
         Detalle Reserva
       </button>
-      <button mat-button [matMenuTriggerFor]="menuReport">
+      <button mat-button [matMenuTriggerFor]="menuReport" *ngIf="isAdmin()">
         <mat-icon>file_copy</mat-icon>Reportes
       </button>
       <button mat-button [matMenuTriggerFor]="menuSalir">Usuario</button>
@@ -120,11 +128,13 @@
 </mat-menu>
 
 <mat-menu #menuMenu="matMenu">
-  <button mat-menu-item routerLink="/menu"><mat-icon>list</mat-icon>Listar</button>
-  <button mat-menu-item routerLink="/menu/nuevo"><mat-icon>add_circle</mat-icon>Registrar</button>
+  <button mat-menu-item routerLink="/menu">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+  <button mat-menu-item routerLink="/menu/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
 </mat-menu>
-
-
 
 <mat-menu #menuReservas="matMenu">
   <button mat-menu-item routerLink="/reservas">
@@ -145,10 +155,12 @@
 </mat-menu>
 
 <mat-menu #menuReport="matMenu">
-  <button mat-menu-item routerLink="/reportes">Reporte01</button>
-  <button mat-menu-item routerLink="/reportes/reporte02">Reporte02</button>
-  <button mat-menu-item routerLink="/reportes/reporte03">Reporte03</button>
-  <button mat-menu-item routerLink="/reportes/reporte04">Reporte04</button>
+  <button mat-menu-item routerLink="/reportes">Reporte 1</button>
+  <button mat-menu-item routerLink="/reportes/reporte02">Reporte 2</button>
+  <button mat-menu-item routerLink="/reportes/reporte03">Reporte 3</button>
+  <button mat-menu-item routerLink="/reportes/reporte04">Reporte 4</button>
+  <button mat-menu-item routerLink="/reportes/reporte09">Reporte 9</button>
+  <button mat-menu-item routerLink="/reportes/reporte10">Reporte 10</button>
 </mat-menu>
 
 <mat-menu #menuSalir="matMenu">
