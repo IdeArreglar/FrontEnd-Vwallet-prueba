@@ -99,10 +99,27 @@ export class CreaeditadetallereservasComponent implements OnInit {
   aceptar(): void {
     if (this.form.valid) {
       this.detalleReservas.idDetalleReserva = this.form.value.codigo;
-      this.detalleReservas.reservas.idReservas=this.form.value.reserva;
-      this.detalleReservas.menu.idMenu=this.form.value.menu;
-      this.detalleReservas.transporte.idTransporte=this.form.value.transporte;
-      this.detalleReservas.libro.idLibro=this.form.value.libro;
+      this.detalleReservas.reservas.idReservas = this.form.value.reserva;
+      if (this.form.value.menu && this.detalleReservas.menu) {
+        this.detalleReservas.menu.idMenu = this.form.value.menu;
+      } else {
+        this.detalleReservas.menu = null;
+      }
+
+      if (this.form.value.transporte && this.detalleReservas.transporte) {
+        this.detalleReservas.transporte.idTransporte =
+          this.form.value.transporte;
+      } else {
+        this.detalleReservas.transporte = null;
+      }
+
+      if (this.form.value.libro && this.detalleReservas.libro) {
+        this.detalleReservas.libro.idLibro = this.form.value.libro;
+      } else {
+        this.detalleReservas.libro = null;
+      }
+
+      console.log(this.detalleReservas);
 
       if (this.edicion) {
         this.drS.update(this.detalleReservas).subscribe((data) => {
@@ -117,7 +134,7 @@ export class CreaeditadetallereservasComponent implements OnInit {
           });
         });
       }
-      this.router.navigate(["detallereservas"]);
+      this.router.navigate(["detallereservas/nuevo"]);
     }
   }
 
@@ -126,7 +143,7 @@ export class CreaeditadetallereservasComponent implements OnInit {
       this.drS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           codigo: new FormControl(data.idDetalleReserva),
-          reserva: new FormControl(data.reservas),
+          reserva: new FormControl(data?.reservas),
           menu: new FormControl(data.menu),
           transporte: new FormControl(data.transporte),
           libro: new FormControl(data.libro),
