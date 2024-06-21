@@ -108,7 +108,7 @@
   <button mat-menu-item routerLink="/libro">
     <mat-icon>list</mat-icon>Listar
   </button>
-  <button mat-menu-item routerLink="/libro/nuevo">
+  <button mat-menu-item routerLink="/libro/nuevo" *ngIf="isAdmin()">
     <mat-icon>add_circle</mat-icon>Registrar
   </button>
 </mat-menu>
@@ -126,7 +126,7 @@
   <button mat-menu-item routerLink="/menu">
     <mat-icon>list</mat-icon>Listar
   </button>
-  <button mat-menu-item routerLink="/menu/nuevo">
+  <button mat-menu-item routerLink="/menu/nuevo" *ngIf="isAdmin()">
     <mat-icon>add_circle</mat-icon>Registrar
   </button>
 </mat-menu>
@@ -135,7 +135,7 @@
   <button mat-menu-item routerLink="/transporte">
     <mat-icon>list</mat-icon>Listar
   </button>
-  <button mat-menu-item routerLink="/transporte/nuevo">
+  <button mat-menu-item routerLink="/transporte/nuevo" *ngIf="isAdmin()">
     <mat-icon>add_circle</mat-icon>Registrar
   </button>
 </mat-menu>
