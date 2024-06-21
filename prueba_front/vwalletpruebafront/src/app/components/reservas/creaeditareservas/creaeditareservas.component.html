@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="verificar()">
   <div class="title-container">
     <h1 class="title">Registro de Reserva</h1>
   </div>
@@ -22,7 +22,7 @@
       <br />
 
       <br />
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" *ngIf="isAdmin()">
         <mat-label>Usuario</mat-label>
         <mat-select formControlName="usuario_res">
           <mat-option *ngFor="let c of listaUsuarios" [value]="c.idUsuario">
@@ -35,7 +35,7 @@
       </mat-form-field>
       <br />
 
-      <button mat-raised-button class="custom-warn-button">Aceptar</button>
+      <button mat-raised-button class="custom-warn-button" >Aceptar</button>
     </form>
   </div>
 

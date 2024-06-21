@@ -13,25 +13,48 @@
       <button mat-button [matMenuTriggerFor]="menuBiblioteca" *ngIf="isAdmin()">
         Biblioteca
       </button>
+      <button mat-button [matMenuTriggerFor]="menuBiblioteca" *ngIf="isEstudiante()">
+        Biblioteca
+      </button>
+
       <button mat-button [matMenuTriggerFor]="menuLibro" *ngIf="isAdmin()">
+        Libro
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuLibro" *ngIf="isEstudiante()">
         Libro
       </button>
       <button mat-button [matMenuTriggerFor]="menuCafeteria" *ngIf="isAdmin()">
         Cafeteria
       </button>
+
       <button mat-button [matMenuTriggerFor]="menuMenu" *ngIf="isAdmin()">
+        Menu
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuMenu" *ngIf="isEstudiante()">
         Menu
       </button>
       <button mat-button [matMenuTriggerFor]="menuTransporte" *ngIf="isAdmin()">
         Transporte
       </button>
+      <button mat-button [matMenuTriggerFor]="menuTransporte" *ngIf="isEstudiante()">
+        Transporte
+      </button>
       <button mat-button [matMenuTriggerFor]="menuRecargaSaldo" *ngIf="isAdmin()">
+        Recarga
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuRecargaSaldo" *ngIf="isPadre()">
         Recarga
       </button>
       <button mat-button [matMenuTriggerFor]="menuReservas" *ngIf="isAdmin()">
         Reservas
       </button>
+      <button mat-button [matMenuTriggerFor]="menuReservas" *ngIf="isEstudiante()">
+        Reservas
+      </button>
       <button mat-button [matMenuTriggerFor]="menuDetalleReservas" *ngIf="isAdmin()">
+        Detalle Reserva
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuDetalleReservas" *ngIf="isEstudiante()">
         Detalle Reserva
       </button>
       <button mat-button [matMenuTriggerFor]="menuReport">
@@ -60,34 +83,34 @@
   <button mat-menu-item routerLink="/typeusers">
     <mat-icon>list</mat-icon>Listar
   </button>
-  <button mat-menu-item routerLink="/typeusers/nuevo">
+  <button mat-menu-item routerLink="/typeusers/nuevo" >
     <mat-icon>add_circle</mat-icon>Registrar
   </button>
 </mat-menu>
 
 <mat-menu #menuBiblioteca="matMenu">
-  <button mat-menu-item routerLink="/biblioteca">
+  <button mat-menu-item routerLink="/biblioteca" >
     <mat-icon>list</mat-icon>Listar
   </button>
-  <button mat-menu-item routerLink="/biblioteca/nuevo">
+  <button mat-menu-item routerLink="/biblioteca/nuevo" *ngIf="isAdmin()">
     <mat-icon>add_circle</mat-icon>Registrar
   </button>
 </mat-menu>
 
 <mat-menu #menuLibro="matMenu">
-  <button mat-menu-item routerLink="/libro">
+  <button mat-menu-item routerLink="/libro" >
     <mat-icon>list</mat-icon>Listar
   </button>
-  <button mat-menu-item routerLink="/libro/nuevo">
+  <button mat-menu-item routerLink="/libro/nuevo"*ngIf="isAdmin()">
     <mat-icon>add_circle</mat-icon>Registrar
   </button>
 </mat-menu>
 
 <mat-menu #menuCafeteria="matMenu">
-  <button mat-menu-item routerLink="/cafeteria">
+  <button mat-menu-item routerLink="/cafeteria" *ngIf="isAdmin()">
     <mat-icon>list</mat-icon>Listar
   </button>
-  <button mat-menu-item routerLink="/cafeteria/nuevo">
+  <button mat-menu-item routerLink="/cafeteria/nuevo"*ngIf="isAdmin()">
     <mat-icon>add_circle</mat-icon>Registrar
   </button>
 </mat-menu>
@@ -96,7 +119,7 @@
   <button mat-menu-item routerLink="/menu">
     <mat-icon>list</mat-icon>Listar
   </button>
-  <button mat-menu-item routerLink="/menu/nuevo">
+  <button mat-menu-item routerLink="/menu/nuevo" *ngIf="isAdmin()">
     <mat-icon>add_circle</mat-icon>Registrar
   </button>
 </mat-menu>
@@ -105,7 +128,7 @@
   <button mat-menu-item routerLink="/transporte">
     <mat-icon>list</mat-icon>Listar
   </button>
-  <button mat-menu-item routerLink="/transporte/nuevo">
+  <button mat-menu-item routerLink="/transporte/nuevo" *ngIf="isAdmin()">
     <mat-icon>add_circle</mat-icon>Registrar
   </button>
 </mat-menu>

@@ -3,6 +3,6 @@ export class Usuario {
     nameUsuario: string = '';
     passwordUsuario: string = '';
     emailUsuario: string = '';
-    enabledUsuario: boolean = false;
+    enabledUsuario: boolean = true;//modificar a true
   }
   

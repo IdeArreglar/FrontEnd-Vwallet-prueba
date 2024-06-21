@@ -6,6 +6,8 @@ import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { LoginService } from "../../../services/login.service";
+import { NgIf } from "@angular/common";
 
 @Component({
   selector: "app-listardetallereservas",
@@ -16,11 +18,13 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
     RouterLink, 
     MatIconModule,
     MatPaginatorModule,
+    NgIf
   ],
   templateUrl: "./listardetallereservas.component.html",
   styleUrl: "./listardetallereservas.component.css",
 })
 export class ListardetallereservasComponent implements OnInit {
+  tipousuario: string = "";//importante
   displayedColumns: string[] = [
     "codigo",
     "reserva",
@@ -33,16 +37,25 @@ export class ListardetallereservasComponent implements OnInit {
   dataSource: MatTableDataSource<DetalleReservas> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private drS: DetallereservasService) {}
+  constructor(private drS: DetallereservasService, private loginService: LoginService )   {}
   ngOnInit(): void {
-    this.drS.list().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-    });
-    this.drS.getList().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-    });
+    this.tipousuario = this.loginService.showRole();
+    if(!this.isAdmin()){
+      this.drS.listdetallebyuser(Number(sessionStorage.getItem("id"))).subscribe((data:any) => {
+        console.log(data)
+    
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+      });
+
+    }else{
+      this.drS.list().subscribe((data:any) => {
+        console.log(data)
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+      })
+    }
+    
   }
   deletes(id: number) {
     this.drS.delete(id).subscribe((data) => {
@@ -51,4 +64,20 @@ export class ListardetallereservasComponent implements OnInit {
       });
     });
   }
+
+  verificar() {
+    this.tipousuario = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+
+
+  isAdmin() {
+    console.log(this.tipousuario)
+    return this.tipousuario === "ADMIN";
+
+  }
+
+
+
+
 }

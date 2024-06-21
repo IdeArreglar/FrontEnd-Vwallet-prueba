@@ -17,6 +17,11 @@ import {
   OverlayModule
 } from "./chunk-DFC2ELET.js";
 import {
+  CdkScrollableModule,
+  SelectionModel,
+  ViewportRuler
+} from "./chunk-SN3LUSCF.js";
+import {
   animate,
   animateChild,
   query,
@@ -25,11 +30,6 @@ import {
   transition,
   trigger
 } from "./chunk-RWOWEL3K.js";
-import {
-  CdkScrollableModule,
-  SelectionModel,
-  ViewportRuler
-} from "./chunk-SN3LUSCF.js";
 import {
   A,
   ActiveDescendantKeyManager,
@@ -1502,4 +1502,4 @@ export {
   MatSelectTrigger,
   MatSelectModule
 };
-//# sourceMappingURL=chunk-4J76OCJP.js.map
+//# sourceMappingURL=chunk-BFH3VPSH.js.map

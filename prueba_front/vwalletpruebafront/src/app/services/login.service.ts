@@ -27,4 +27,6 @@ export class LoginService {
     const decodedToken = helper.decodeToken(token);
     return decodedToken?.tipousuario;
   }
+
+  
 }

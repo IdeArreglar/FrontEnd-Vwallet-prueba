@@ -35,4 +35,7 @@ export class DetallereservasService {
   delete(id: number) {
     return this.http.delete(`${this.url}/${id}`);
   }
+  listdetallebyuser(id:number){
+    return this.http.get<DetalleReservas>(`${this.url}/usuario/${id}`)
+  }
 }
