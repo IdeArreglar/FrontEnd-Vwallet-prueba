@@ -10,30 +10,48 @@
 
       <mat-form-field>
         <mat-label>Entrada</mat-label>
-        <input matInput formControlName="entrada" />
-        <mat-error *ngIf="form.get('entrada')?.hasError('required')"
-          >La entrada es obligatorio.</mat-error>
+        <mat-select matInput formControlName="entrada">
+          <mat-error *ngIf="form.get('entrada')?.hasError('required')"
+            >La entrada es obligatorio.</mat-error>
+          <mat-option *ngFor="let g of listaentradas" [value]="g.value">
+            {{ g.viewValue }}</mat-option
+          >
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Plato Principal</mat-label>
-        <input matInput formControlName="platoPrincipal" />
-        <mat-error *ngIf="form.get('platoPrincipal')?.hasError('required')"
-          >EL plato principal es obligatorio.</mat-error>
+        <mat-select matInput formControlName="platoPrincipal">
+          <mat-error *ngIf="form.get('platoPrincipal')?.hasError('required')"
+            >EL plato principal es obligatorio.</mat-error>
+          <mat-option *ngFor="let g of listaplatos" [value]="g.value">
+            {{ g.viewValue }}</mat-option
+          >
+        </mat-select>
       </mat-form-field>
+
 
       <mat-form-field>
         <mat-label>Postre</mat-label>
-        <input matInput formControlName="postre" />
-        <mat-error *ngIf="form.get('postre')?.hasError('required')"
-          >EL postre es obligatorio.</mat-error>
+        <mat-select matInput formControlName="postre">
+          <mat-error *ngIf="form.get('postre')?.hasError('required')"
+            >El postre es obligatorio.</mat-error>
+          <mat-option *ngFor="let g of listapostres" [value]="g.value">
+            {{ g.viewValue }}</mat-option
+          >
+        </mat-select>
       </mat-form-field>
+
 
       <mat-form-field>
         <mat-label>Refresco</mat-label>
-        <input matInput formControlName="refresco" />
-        <mat-error *ngIf="form.get('refresco')?.hasError('required')"
-          >EL refresco es obligatorio.</mat-error>
+        <mat-select matInput formControlName="refresco">
+          <mat-error *ngIf="form.get('refresco')?.hasError('required')"
+            >El refresco es obligatorio.</mat-error>
+          <mat-option *ngFor="let g of listabebidas" [value]="g.value">
+            {{ g.viewValue }}</mat-option
+          >
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field>

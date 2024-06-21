@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { RecargaSaldo } from '../models/RecargaSaldo';
+import { TotalRecargadoUsuarioDTO } from '../models/totalRecargadoUsuarioDTO';
 const base_url=environment.base
 
 @Injectable({
@@ -35,5 +36,8 @@ export class RecargasaldoService {
   delete(id:number)
   {
     return this.http.delete(`${this.url}/${id}`)
+  }
+  getTotalRechargedByUser():Observable<TotalRecargadoUsuarioDTO[]>{
+    return this.http.get<TotalRecargadoUsuarioDTO[]>(`${this.url}/totalrecargado`);
   }
 }

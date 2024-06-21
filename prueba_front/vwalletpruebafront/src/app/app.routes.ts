@@ -30,6 +30,7 @@ import { ReportPlatosMasPedidosComponent } from "./components/reports/report-pla
 import { ReportTotalViajesRealizadosXTransporteComponent } from "./components/reports/report-total-viajes-realizados-xtransporte/report-total-viajes-realizados-xtransporte.component";
 import { ReportTotalGastoxUsuarioComponent } from "./components/reports/report-total-gastox-usuario/report-total-gastox-usuario.component";
 import { ReportCantidadDeMenuxSedeComponent } from "./components/reports/report-cantidad-de-menux-sede/report-cantidad-de-menux-sede.component";
+import { ReportTotalRecargadoUsuarioComponent } from "./components/reports/report-total-recargado-usuario/report-total-recargado-usuario.component";
 
 export const routes: Routes = [
   {
@@ -218,6 +219,9 @@ export const routes: Routes = [
       },
       {
         path: 'reporte07', component: ReportCantidadDeMenuxSedeComponent,
+      },
+      {
+        path: 'reporte08', component: ReportTotalRecargadoUsuarioComponent,
       },
     ],
   },

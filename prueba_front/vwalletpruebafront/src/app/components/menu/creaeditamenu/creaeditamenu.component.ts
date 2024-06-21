@@ -50,6 +50,33 @@ export class CreaeditamenuComponent implements OnInit {
     private cS: CafeteriaService
   ) {}
 
+  listaentradas: { value: string; viewValue: string }[] = [
+    { value: 'Sopa', viewValue: 'Sopa' },
+    { value: 'Causa', viewValue: 'Causa' },
+    { value: 'Papa Rellena', viewValue: 'Papa Rellena' },
+    { value: 'Tequenio', viewValue: 'Tequenio' },
+  ];
+
+  listaplatos: { value: string; viewValue: string }[] = [
+    { value: 'Cau cau', viewValue: 'Cau cau' },
+    { value: 'Aji de gallina', viewValue: 'Aji de gallina' },
+    { value: 'Pollo frito', viewValue: 'Pollo frito' },
+    { value: 'Lentejas', viewValue: 'Lentejas' },
+  ];
+
+  listapostres: { value: string; viewValue: string }[] = [
+    { value: 'Gelatina', viewValue: 'Gelatina' },
+    { value: 'Helado', viewValue: 'Helado' },
+    { value: 'Torta', viewValue: 'Torta' },
+  ];
+
+  listabebidas: { value: string; viewValue: string }[] = [
+    { value: 'Limonada', viewValue: 'Limonada' },
+    { value: 'Maracuya', viewValue: 'Maracuya' },
+    { value: 'Gaseosa', viewValue: 'Gaseosa' },
+    { value: 'Agua mineral', viewValue: 'Agua mineral' },
+  ];
+
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
