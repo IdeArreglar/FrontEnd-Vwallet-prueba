@@ -1,47 +1,46 @@
 <div class="container">
-    <div class="title-container"><h1 class="title">Lista de Recargas</h1></div>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  
+  <div class="title-container"><h1 class="title">Lista de Recargas</h1></div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-          <ng-container matColumnDef="codigo_rec">
-            <th mat-header-cell *matHeaderCellDef> Código </th>
-            <td mat-cell *matCellDef="let element"> {{element.idRecargaSaldo}} </td>
-          </ng-container>
+
+        <ng-container matColumnDef="codigo_rec">
+          <th mat-header-cell *matHeaderCellDef> Código </th>
+          <td mat-cell *matCellDef="let element"> {{element.idRecargaSaldo}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="monto">
+          <th mat-header-cell *matHeaderCellDef class="header-icon">Monto </th>
+          <td mat-cell *matCellDef="let element"> {{element.montoRecarga}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="fecharecarga">
+          <th mat-header-cell *matHeaderCellDef> FechaRecarga </th>
+          <td mat-cell *matCellDef="let element"> {{element.fechaRecarga}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="usuario_">
+          <th mat-header-cell *matHeaderCellDef> Usuario </th>
+          <td mat-cell *matCellDef="let element"> {{element.usuario.nameUsuario}} </td>
+        </ng-container>
+
         
-          <ng-container matColumnDef="monto">
-            <th mat-header-cell *matHeaderCellDef class="header-icon">Monto </th>
-            <td mat-cell *matCellDef="let element"> {{element.montoRecarga}} </td>
+        <ng-container matColumnDef="accion01">
+          <th mat-header-cell *matHeaderCellDef> Editar </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button class="custom-primary-button" [routerLink]="['ediciones',element.idRecargaSaldo]"><mat-icon>edit</mat-icon></button>
+          </td>
         </ng-container>
         
-        <ng-container matColumnDef="fecharecarga">
-            <th mat-header-cell *matHeaderCellDef> FechaRecarga </th>
-            <td mat-cell *matCellDef="let element"> {{element.fechaRecarga}} </td>
-          </ng-container>
+        <ng-container matColumnDef="accion02">
+          <th mat-header-cell *matHeaderCellDef class="header-icon"> Eliminar </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="warn" (click)="deletes(element.idRecargaSaldo)"><mat-icon>deletes</mat-icon></button>
+             </td>
+        </ng-container>
 
-          <ng-container matColumnDef="usuario_">
-            <th mat-header-cell *matHeaderCellDef> Usuario </th>
-            <td mat-cell *matCellDef="let element"> {{element.usuario.nameUsuario}} </td>
-          </ng-container>
-
-          
-          <ng-container matColumnDef="accion01">
-            <th mat-header-cell *matHeaderCellDef> Editar </th>
-            <td mat-cell *matCellDef="let element">
-              <button mat-raised-button class="custom-primary-button" [routerLink]="['ediciones',element.idRecargaSaldo]"><mat-icon>edit</mat-icon></button>
-            </td>
-          </ng-container>
-          
-          <ng-container matColumnDef="accion02">
-            <th mat-header-cell *matHeaderCellDef class="header-icon"> Eliminar </th>
-            <td mat-cell *matCellDef="let element">
-              <button mat-raised-button color="warn" (click)="deletes(element.idRecargaSaldo)"><mat-icon>deletes</mat-icon></button>
-               </td>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        <mat-paginator [pageSizeOptions]="[2, 4, 8]" showFirstLastButtons></mat-paginator>
-    
-  </div>
-
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[2, 4, 8]" showFirstLastButtons></mat-paginator>
+  
+</div>

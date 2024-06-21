@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { RecargaSaldo } from '../models/RecargaSaldo';
 import { TotalRecargadoUsuarioDTO } from '../models/totalRecargadoUsuarioDTO';
@@ -16,10 +16,25 @@ export class RecargasaldoService {
 
   constructor(private http:HttpClient) { }
   list(){
-    return this.http.get<RecargaSaldo[]>(this.url);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<RecargaSaldo[]>(this.url,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
+
+
+    
   }
   insert(u:RecargaSaldo){
-    return this.http.post(this.url,u);
+    let token = sessionStorage.getItem('token');
+    console.log(token)
+    return this.http.post(this.url,u,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+
+    });
   }
   setList(listaNueva:RecargaSaldo[]){
     this.listaCambio.next(listaNueva);
@@ -27,17 +42,36 @@ export class RecargasaldoService {
   getList(){
     return this.listaCambio.asObservable();
   }
-  listId(id:number){
-    return this.http.get<RecargaSaldo>(`${this.url}/${id}`)
+  listId(id: number) {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<RecargaSaldo>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   update(m:RecargaSaldo){
-    return this.http.put(this.url,m);
+    let token = sessionStorage.getItem('token');
+    return this.http.put(this.url,m,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
-  delete(id:number)
-  {
-    return this.http.delete(`${this.url}/${id}`)
+  delete(id: number) {
+    let token = sessionStorage.getItem('token');
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   getTotalRechargedByUser():Observable<TotalRecargadoUsuarioDTO[]>{
-    return this.http.get<TotalRecargadoUsuarioDTO[]>(`${this.url}/totalrecargado`);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<TotalRecargadoUsuarioDTO[]>(`${this.url}/totalrecargado`,{
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 }

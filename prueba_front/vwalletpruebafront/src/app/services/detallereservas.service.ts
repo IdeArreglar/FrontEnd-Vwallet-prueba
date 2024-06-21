@@ -16,10 +16,21 @@ export class DetallereservasService {
 
   constructor(private http: HttpClient) {}
   list() {
-    return this.http.get<DetalleReservas[]>(this.url);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<DetalleReservas[]>(this.url, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
+
   insert(u: DetalleReservas) {
-    return this.http.post(this.url, u);
+    let token = sessionStorage.getItem('token');
+    return this.http.post(this.url, u, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   setList(listaNueva: DetalleReservas[]) {
     this.listaCambio.next(listaNueva);
@@ -28,20 +39,46 @@ export class DetallereservasService {
     return this.listaCambio.asObservable();
   }
   listId(id: number) {
-    return this.http.get<DetalleReservas>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<DetalleReservas>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   update(m: DetalleReservas) {
-    return this.http.put(this.url, m);
+    let token = sessionStorage.getItem('token');
+    return this.http.put(this.url, m,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
-  getMostMadeTrips():Observable<TotalViajesRealizadosPorTransporteidDTO[]>{
-    return this.http.get<TotalViajesRealizadosPorTransporteidDTO[]>(`${this.url}/viajesmasrealizados`);
+  getMostMadeTrips(): Observable<TotalViajesRealizadosPorTransporteidDTO[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<TotalViajesRealizadosPorTransporteidDTO[]>(`${this.url}/viajesmasrealizados`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
-  listdetallebyuser(id:number){
-    return this.http.get<DetalleReservas>(`${this.url}/usuario/${id}`)
+
+  listdetallebyuser(id:number){//esto podria quitarse, primero las pruebas
+    let token = sessionStorage.getItem('token');
+    return this.http.get<DetalleReservas>(`${this.url}/usuario/${id}`,{
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
 }

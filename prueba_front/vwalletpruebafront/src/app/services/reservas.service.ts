@@ -14,13 +14,12 @@ export class ReservasService {
 
 
   constructor(private http:HttpClient) { }
-  list(){
+  list() {
     let token = sessionStorage.getItem('token');
-    return this.http.get<Reservas[]>(this.url,{
+    return this.http.get<Reservas[]>(this.url, {
       headers: new HttpHeaders()
-      .set('Authorization', `Bearer ${token}`)
-      .set('Content-Type', 'application/json'),
-
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
     });
   }
   insert(u:Reservas){
@@ -32,7 +31,6 @@ export class ReservasService {
       .set('Content-Type', 'application/json'),
 
     });
-    
   }
   setList(listaNueva:Reservas[]){
     this.listaCambio.next(listaNueva);
@@ -40,14 +38,29 @@ export class ReservasService {
   getList(){
     return this.listaCambio.asObservable();
   }
-  listId(id:number){
-    return this.http.get<Reservas>(`${this.url}/${id}`)
+  listId(id: number) {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Reservas>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   update(m:Reservas){
-    return this.http.put(this.url,m);
+    let token = sessionStorage.getItem('token');
+    return this.http.put(this.url,m,{
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   delete(id:number)
   {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem('token');
+    return this.http.delete(`${this.url}/${id}`,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
 }

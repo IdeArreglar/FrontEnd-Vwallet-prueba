@@ -32,7 +32,7 @@ ngOnInit(): void {
     this.barChartData=[
       {
         data:data.map(item=>item.total_gasto),
-        label:'Cantidad de dinero gastado',
+        label:'Total dinero generado por menu',
         backgroundColor:['#8064A2','#4BACC6','#4F81BC',],
         borderColor: 'rgba(173, 216, 230, 1)',
         borderWidth: 1,

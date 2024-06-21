@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Biblioteca } from '../models/Biblioteca';
@@ -14,11 +14,21 @@ export class BibliotecaService {
   private listaCambio = new Subject<Biblioteca[]>();
 
   constructor(private http:HttpClient) { }
-  list(){
-    return this.http.get<Biblioteca[]>(this.url);
+  list() {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Biblioteca[]>(this.url, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
-  insert(u:Biblioteca){
-    return this.http.post(this.url,u);
+  insert(u: Biblioteca) {
+    let token = sessionStorage.getItem('token');
+    return this.http.post(this.url, u, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   setList(listaNueva:Biblioteca[]){
     this.listaCambio.next(listaNueva);
@@ -26,17 +36,39 @@ export class BibliotecaService {
   getList(){
     return this.listaCambio.asObservable();
   }
-  listId(id:number){
-    return this.http.get<Biblioteca>(`${this.url}/${id}`)
+  listId(id: number) {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Biblioteca>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   update(m:Biblioteca){
-    return this.http.put(this.url,m);
+    let token = sessionStorage.getItem('token');
+    return this.http.put(this.url,m,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
   delete(id:number)
   {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem('token');
+    return this.http.delete(`${this.url}/${id}`,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+
+    })
   }
   getBookxCampus():Observable<LibroDisponiblePorSedeDTO[]>{
-    return this.http.get<LibroDisponiblePorSedeDTO[]>(`${this.url}/librodisponibleporsede`);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<LibroDisponiblePorSedeDTO[]>(`${this.url}/librodisponibleporsede`,{
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+
+    });
   }
 }

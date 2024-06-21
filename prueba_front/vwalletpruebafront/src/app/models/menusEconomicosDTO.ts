@@ -1,4 +1,4 @@
 export class MenusEconomicosDTO{
-    idMenu:number=0
+    platoPrincipal:string=""
     precioMenu:number=0
 }

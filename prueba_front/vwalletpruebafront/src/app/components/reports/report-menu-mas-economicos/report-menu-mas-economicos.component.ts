@@ -18,8 +18,8 @@ export class ReportMenuMasEconomicosComponent implements OnInit{
 
   //barChartType: ChartType = 'pie';
   //barChartType: ChartType = 'doughnut';
-  barChartType: ChartType = 'line';
-  //barChartType: ChartType = 'bar';
+  //barChartType: ChartType = 'line';
+  barChartType: ChartType = 'bar';
   //barChartType: ChartType = 'polarArea';
   barchartLegend=true;
   barChartData: ChartDataset[]=[]
@@ -28,7 +28,7 @@ constructor(private mS:MenuService){}
 ngOnInit(): void {
 
   this.mS.getMostCheapMenu().subscribe(data=>{
-    //this.barChartLabels=data.map(item=>item.idMenu)
+    this.barChartLabels=data.map(item=>item.platoPrincipal)
     this.barChartData=[
       {
         data:data.map(item=>item.precioMenu),

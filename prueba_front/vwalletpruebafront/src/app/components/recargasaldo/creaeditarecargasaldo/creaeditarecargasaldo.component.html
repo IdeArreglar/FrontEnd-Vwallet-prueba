@@ -25,7 +25,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width"  >
         <mat-label>Usuario</mat-label>
         <mat-select formControlName="usuario_">
           <mat-option *ngFor="let c of listaUsuarios" [value]="c.idUsuario">
@@ -36,7 +36,9 @@
         >El usuario es obligatorio.</mat-error>       
      
       </mat-form-field>
-      <br />
+
+
+    <br />
 
       <button mat-raised-button class="custom-warn-button">Aceptar</button>
     </form>

@@ -27,7 +27,14 @@ export class UsuarioService {
     });
   }
   insert(u:Usuario){
-    return this.http.post<Usuario>(`${this.url}/registranuevo`,u)
+    let token = sessionStorage.getItem('token');
+    return this.http.post<Usuario>(`${this.url}/registranuevo`,u,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
+
+    
   }
   setList(listaNueva:Usuario[]){
     this.listaCambio.next(listaNueva);
@@ -36,18 +43,39 @@ export class UsuarioService {
     return this.listaCambio.asObservable();
   }
   listId(id:number){
-    return this.http.get<Usuario>(`${this.url}/${id}`)
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<Usuario>(`${this.url}/${id}`,{
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   update(m:Usuario){
-    return this.http.put(this.url,m);
+    let token = sessionStorage.getItem('token');
+    return this.http.put(this.url,m,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
   delete(id:number)
   {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem('token');
+    return this.http.delete(`${this.url}/${id}`,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
 
-  findByNameUsuario(nameUsuario:string){
-    return this.http.get<Usuario>(`${this.url}/nameUsuario/${nameUsuario}`)
+  findByNameUsuario(nameUsuario:string){ //verificar si es necesario para el despliegue
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Usuario>(`${this.url}/nameUsuario/${nameUsuario}`,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
 
 }
