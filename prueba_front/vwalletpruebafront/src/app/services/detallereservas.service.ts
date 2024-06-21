@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../../environments/environment";
-import { Subject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { DetalleReservas } from "../models/DetalleReservas";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { TotalViajesRealizadosPorTransporteidDTO } from "../models/totalViajesRealizadosPorTransporteidDTO";
 
 const base_url = environment.base;
 
@@ -34,5 +35,8 @@ export class DetallereservasService {
   }
   delete(id: number) {
     return this.http.delete(`${this.url}/${id}`);
+  }
+  getMostMadeTrips():Observable<TotalViajesRealizadosPorTransporteidDTO[]>{
+    return this.http.get<TotalViajesRealizadosPorTransporteidDTO[]>(`${this.url}/viajesmasrealizados`);
   }
 }

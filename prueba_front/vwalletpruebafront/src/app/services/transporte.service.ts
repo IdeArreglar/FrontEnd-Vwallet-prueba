@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 import { Transporte } from '../models/Transporte';
+import { TotalGastoxUsuarioDTO } from '../models/totalGastoxUsuarioDTO';
 
 
 const base_url=environment.base
@@ -37,5 +38,8 @@ export class TransporteService {
   delete(id:number)
   {
     return this.http.delete(`${this.url}/${id}`)
+  }
+  getTotalSpendingPerUser():Observable<TotalGastoxUsuarioDTO[]>{
+    return this.http.get<TotalGastoxUsuarioDTO[]>(`${this.url}/totalgastoxusuario`);
   }
 }

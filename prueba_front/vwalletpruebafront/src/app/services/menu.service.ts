@@ -6,6 +6,7 @@ import { Menu } from '../models/Menu';
 import { MenusCarosDTO } from '../models/menusCarosDTO';
 import { MenusEconomicosDTO } from '../models/menusEconomicosDTO';
 import { PlatosMasPedidosDTO } from '../models/platosMasPedidosDTO';
+import { CantidaddeMenusporSedeDTO } from '../models/cantidaddeMenusporSedeDTO';
 
 
 const base_url=environment.base
@@ -48,5 +49,8 @@ export class MenuService {
   }
   getMostRequestedDish():Observable<PlatosMasPedidosDTO[]>{
     return this.http.get<PlatosMasPedidosDTO[]>(`${this.url}/platomaspedidos`);
+  }
+  getQuantityofMenusperLocation():Observable<CantidaddeMenusporSedeDTO[]>{
+    return this.http.get<CantidaddeMenusporSedeDTO[]>(`${this.url}/cantidaddemenusporsede`);
   }
 }
