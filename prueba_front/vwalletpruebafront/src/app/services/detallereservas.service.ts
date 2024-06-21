@@ -39,4 +39,9 @@ export class DetallereservasService {
   getMostMadeTrips():Observable<TotalViajesRealizadosPorTransporteidDTO[]>{
     return this.http.get<TotalViajesRealizadosPorTransporteidDTO[]>(`${this.url}/viajesmasrealizados`);
   }
+
+  listdetallebyuser(id:number){
+    return this.http.get<DetalleReservas>(`${this.url}/usuario/${id}`)
+  }
+
 }
