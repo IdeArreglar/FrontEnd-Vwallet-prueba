@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Reservas } from '../models/Reservas';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CantidadReservasXUsuarioDTO } from '../models/cantidadReservasXUsuarioDTO';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -62,5 +63,9 @@ export class ReservasService {
       .set('Authorization', `Bearer ${token}`)
       .set('Content-Type', 'application/json'),
     });
+  }
+
+  getQuantityOfReservationsPerUser():Observable<CantidadReservasXUsuarioDTO[]>{
+    return this.http.get<CantidadReservasXUsuarioDTO[]>(`${this.url}/cantidadreservasxusuario`);
   }
 }

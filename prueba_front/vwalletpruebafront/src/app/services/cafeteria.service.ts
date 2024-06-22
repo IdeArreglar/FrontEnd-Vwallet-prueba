@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Cafeteria } from '../models/Cafeteria';
+import { PromedioPreciosDeMenuXCafeteriaDTO } from '../models/promedioPreciosDeMenuXCafeteriaDTO';
 const base_url=environment.base
 
 @Injectable({
@@ -60,5 +61,9 @@ export class CafeteriaService {
       .set('Authorization', `Bearer ${token}`)
       .set('Content-Type', 'application/json'),
     });
+  }
+
+  getAverageMenuPricesperCafeteria():Observable<PromedioPreciosDeMenuXCafeteriaDTO[]>{
+    return this.http.get<PromedioPreciosDeMenuXCafeteriaDTO[]>(`${this.url}/promediopreciosdemenuxcafeteria`);
   }
 }

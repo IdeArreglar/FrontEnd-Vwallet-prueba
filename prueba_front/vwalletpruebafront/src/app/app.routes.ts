@@ -31,6 +31,10 @@ import { ReportTotalViajesRealizadosXTransporteComponent } from "./components/re
 import { ReportTotalGastoxUsuarioComponent } from "./components/reports/report-total-gastox-usuario/report-total-gastox-usuario.component";
 import { ReportCantidadDeMenuxSedeComponent } from "./components/reports/report-cantidad-de-menux-sede/report-cantidad-de-menux-sede.component";
 import { ReportTotalRecargadoUsuarioComponent } from "./components/reports/report-total-recargado-usuario/report-total-recargado-usuario.component";
+import { CantidadReservasXUsuarioDTO } from "./models/cantidadReservasXUsuarioDTO";
+import { PromedioPreciosDeMenuXCafeteriaDTO } from "./models/promedioPreciosDeMenuXCafeteriaDTO";
+import { ReportCantidadReservasXUsuarioComponent } from "./components/reports/report-cantidad-reservas-xusuario/report-cantidad-reservas-xusuario.component";
+import { ReportPromedioPreciosDeMenuXCafeteriaComponent } from "./components/reports/report-promedio-precios-de-menu-xcafeteria/report-promedio-precios-de-menu-xcafeteria.component";
 
 export const routes: Routes = [
   {
@@ -203,10 +207,10 @@ export const routes: Routes = [
     path: 'reportes',component: ReportsComponent,
     children: [
       {
-        path: 'reporte02', component: ReportMenuMasCarosComponent,
+        path: 'reporte02', component: ReportCantidadReservasXUsuarioComponent,
       },
       {
-        path: 'reporte03', component: ReportMenuMasEconomicosComponent,
+        path: 'reporte03', component: ReportPromedioPreciosDeMenuXCafeteriaComponent,
       },
       {
         path: 'reporte04', component: ReportPlatosMasPedidosComponent,
