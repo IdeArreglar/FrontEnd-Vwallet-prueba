@@ -64,6 +64,11 @@ export class CafeteriaService {
   }
 
   getAverageMenuPricesperCafeteria():Observable<PromedioPreciosDeMenuXCafeteriaDTO[]>{
-    return this.http.get<PromedioPreciosDeMenuXCafeteriaDTO[]>(`${this.url}/promediopreciosdemenuxcafeteria`);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<PromedioPreciosDeMenuXCafeteriaDTO[]>(`${this.url}/promediopreciosdemenuxcafeteria`,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
 }

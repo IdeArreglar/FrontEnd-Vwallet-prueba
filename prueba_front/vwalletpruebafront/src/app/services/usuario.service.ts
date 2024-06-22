@@ -40,6 +40,7 @@ export class UsuarioService {
     this.listaCambio.next(listaNueva);
   }
   getList(){
+  
     return this.listaCambio.asObservable();
   }
   listId(id:number){

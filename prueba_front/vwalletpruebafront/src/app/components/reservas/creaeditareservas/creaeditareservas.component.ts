@@ -57,9 +57,7 @@ export class CreaeditareservasComponent implements OnInit {
       this.edicion = data["id"] != null;
       this.init();
     });
-    this.uS.list().subscribe((data) => {
-      this.listaUsuarios = data;
-    });
+    
 if(this.tipousuario === "ADMIN"){
     this.form = this.formBuilder.group({
       codigo_res: [""],

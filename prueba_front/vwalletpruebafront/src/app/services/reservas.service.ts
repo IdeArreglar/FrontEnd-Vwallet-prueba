@@ -66,6 +66,11 @@ export class ReservasService {
   }
 
   getQuantityOfReservationsPerUser():Observable<CantidadReservasXUsuarioDTO[]>{
-    return this.http.get<CantidadReservasXUsuarioDTO[]>(`${this.url}/cantidadreservasxusuario`);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<CantidadReservasXUsuarioDTO[]>(`${this.url}/cantidadreservasxusuario`,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
 }
