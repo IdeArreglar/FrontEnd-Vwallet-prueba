@@ -35,7 +35,7 @@
     <ng-container matColumnDef="accion01">
       <th mat-header-cell *matHeaderCellDef>Actualizar</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button class="custom-primary-button" [routerLink]="['ediciones', element.idDetalleReserva]">
+        <button mat-raised-button class="custom-primary-button" [routerLink]="['ediciones', element.idDetalleReserva]" >
           <mat-icon>edit</mat-icon>
         </button>
       </td>
@@ -44,7 +44,7 @@
     <ng-container matColumnDef="accion02">
       <th mat-header-cell *matHeaderCellDef>Eliminar</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="warn"(click)="deletes(element.idDetalleReserva)">
+        <button mat-raised-button color="warn"(click)="deletes(element.idDetalleReserva)" *ngIf="isAdmin()">
           <mat-icon>deletes</mat-icon>
         </button>
       </td>

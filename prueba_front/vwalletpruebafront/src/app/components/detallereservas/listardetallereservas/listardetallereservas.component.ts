@@ -31,8 +31,6 @@ export class ListardetallereservasComponent implements OnInit {
     "menu",
     "transporte",
     "libro",
-    "accion01",
-    "accion02",
   ];
   dataSource: MatTableDataSource<DetalleReservas> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -54,6 +52,8 @@ export class ListardetallereservasComponent implements OnInit {
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
       })
+
+      this.setDisplayedColumns();//importante
     }
     
   }
@@ -61,8 +61,32 @@ export class ListardetallereservasComponent implements OnInit {
     this.drS.delete(id).subscribe((data) => {
       this.drS.list().subscribe((data) => {
         this.drS.setList(data);
+        if(!this.isAdmin()){
+          this.drS.listdetallebyuser(Number(sessionStorage.getItem("id"))).subscribe((data:any) => {
+            console.log(data)
+        
+            this.dataSource = new MatTableDataSource(data);
+            this.dataSource.paginator = this.paginator;
+          });
+    
+        }else{
+          this.drS.list().subscribe((data:any) => {
+            console.log(data)
+            this.dataSource = new MatTableDataSource(data);
+            this.dataSource.paginator = this.paginator;
+          })
+        }
       });
     });
+  }
+
+  
+  setDisplayedColumns()
+  {// Importante
+    this.tipousuario = this.loginService.showRole(); 
+    if (this.isAdmin()) {
+      this.displayedColumns = [...this.displayedColumns, 'accion01', 'accion02'];
+    }
   }
 
   verificar() {
