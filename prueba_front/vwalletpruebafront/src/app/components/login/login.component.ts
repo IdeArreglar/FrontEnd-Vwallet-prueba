@@ -7,11 +7,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { JwtRequest } from '../../models/jwtRequest';
+import { MatIcon } from '@angular/material/icon';
+import { Usuario } from '../../models/Usuario';
+import { UsuarioService } from '../../services/usuario.service';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatButtonModule, MatInputModule],
+  imports: [
+    FormsModule, 
+    MatFormFieldModule, 
+    MatButtonModule, 
+    MatInputModule,
+    MatIcon
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -20,13 +30,15 @@ export class LoginComponent implements OnInit{
   constructor(
     private loginService: LoginService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private usuario:UsuarioService,
   ) {}
 
   username: string = '';
   password: string = '';
   mensaje: string = '';
-
+  hide: boolean = true; // nuevo 
+  id:string='';
   ngOnInit(): void {}
   login() {
     let request = new JwtRequest();
@@ -34,7 +46,10 @@ export class LoginComponent implements OnInit{
     request.passwordUsuario = this.password;
     this.loginService.login(request).subscribe(
       (data: any) => {
+        console.log(data)
         sessionStorage.setItem('token', data.jwttoken);
+        this.findByNameUsuario(this.username)
+        
         this.router.navigate(['homes']);
       },
       (error) => {
@@ -43,4 +58,21 @@ export class LoginComponent implements OnInit{
       }
     );
   }
+  togglePasswordVisibility() {
+    this.hide = !this.hide; // nuevo
+  }
+
+  goBack() {
+    this.router.navigate(['/homes']); // Navegar hacia la ruta '/homes'
+  }
+findByNameUsuario(nameusuario:string){
+
+  this.usuario.findByNameUsuario(nameusuario).subscribe((data:any)=>{
+    console.log(data.idUsuario)
+    this.id= data.idUsuario;
+    sessionStorage.setItem("id",this.id)
+  })
+}
+
+
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Usuario } from '../models/Usuario';
 import { Subject } from 'rxjs';
 
@@ -16,25 +16,67 @@ export class UsuarioService {
   constructor(private http:HttpClient) { }
 
   list(){
-    return this.http.get<Usuario[]>(this.url);
+
+    let token = sessionStorage.getItem('token');
+    console.log(token)
+    return this.http.get<Usuario[]>(`${this.url}/list`,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+
+    });
   }
   insert(u:Usuario){
-    return this.http.post(this.url,u);
+    let token = sessionStorage.getItem('token');
+    return this.http.post<Usuario>(`${this.url}/registranuevo`,u,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
+
+    
   }
   setList(listaNueva:Usuario[]){
     this.listaCambio.next(listaNueva);
   }
   getList(){
+  
     return this.listaCambio.asObservable();
   }
   listId(id:number){
-    return this.http.get<Usuario>(`${this.url}/${id}`)
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<Usuario>(`${this.url}/${id}`,{
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   update(m:Usuario){
-    return this.http.put(this.url,m);
+    let token = sessionStorage.getItem('token');
+    return this.http.put(this.url,m,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
   delete(id:number)
   {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem('token');
+    return this.http.delete(`${this.url}/${id}`,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
+
+  findByNameUsuario(nameUsuario:string){ //verificar si es necesario para el despliegue
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Usuario>(`${this.url}/nameUsuario/${nameUsuario}`,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
+  }
+
 }

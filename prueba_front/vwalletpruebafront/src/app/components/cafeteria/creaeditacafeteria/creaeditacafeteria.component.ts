@@ -34,6 +34,7 @@ export class CreaeditacafeteriaComponent implements OnInit{
 
   form: FormGroup = new FormGroup({});
   cafeteria: Cafeteria = new Cafeteria();
+  
   id: number = 0;
   edicion: boolean = false;
 

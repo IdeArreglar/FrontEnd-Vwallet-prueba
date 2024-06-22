@@ -17,6 +17,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { Usuario } from '../../../models/Usuario';
 import { UsuarioService } from '../../../services/usuario.service';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-creaeditausuario',
@@ -29,6 +30,7 @@ import { UsuarioService } from '../../../services/usuario.service';
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
+    MatIcon,
   ],
   templateUrl: './creaeditausuario.component.html',
   styleUrl: './creaeditausuario.component.css',
@@ -95,6 +97,10 @@ export class CreaeditausuarioComponent implements OnInit {
         });
       });
     }
+  }
+
+  goBack() {
+    this.router.navigate(['/homes']); // Navegar hacia la ruta '/homes'
   }
   
 }

@@ -22,17 +22,36 @@ import { MenuComponent } from "./components/menu/menu.component";
 import { CreaeditamenuComponent } from "./components/menu/creaeditamenu/creaeditamenu.component";
 import { DetallereservasComponent } from "./components/detallereservas/detallereservas.component";
 import { CreaeditadetallereservasComponent } from "./components/detallereservas/creaeditadetallereservas/creaeditadetallereservas.component";
+import { ReportsComponent } from "./components/reports/reports.component";
+import { ReportLibroDisponiblexSedeComponent } from "./components/reports/report-libro-disponiblex-sede/report-libro-disponiblex-sede.component";
+import { ReportMenuMasCarosComponent } from "./components/reports/report-menu-mas-caros/report-menu-mas-caros.component";
+import { ReportMenuMasEconomicosComponent } from "./components/reports/report-menu-mas-economicos/report-menu-mas-economicos.component";
+import { ReportPlatosMasPedidosComponent } from "./components/reports/report-platos-mas-pedidos/report-platos-mas-pedidos.component";
+import { ReportTotalViajesRealizadosXTransporteComponent } from "./components/reports/report-total-viajes-realizados-xtransporte/report-total-viajes-realizados-xtransporte.component";
+import { ReportTotalGastoxUsuarioComponent } from "./components/reports/report-total-gastox-usuario/report-total-gastox-usuario.component";
+import { ReportCantidadDeMenuxSedeComponent } from "./components/reports/report-cantidad-de-menux-sede/report-cantidad-de-menux-sede.component";
+import { ReportTotalRecargadoUsuarioComponent } from "./components/reports/report-total-recargado-usuario/report-total-recargado-usuario.component";
+import { CantidadReservasXUsuarioDTO } from "./models/cantidadReservasXUsuarioDTO";
+import { PromedioPreciosDeMenuXCafeteriaDTO } from "./models/promedioPreciosDeMenuXCafeteriaDTO";
+import { ReportCantidadReservasXUsuarioComponent } from "./components/reports/report-cantidad-reservas-xusuario/report-cantidad-reservas-xusuario.component";
+import { ReportPromedioPreciosDeMenuXCafeteriaComponent } from "./components/reports/report-promedio-precios-de-menu-xcafeteria/report-promedio-precios-de-menu-xcafeteria.component";
 
 export const routes: Routes = [
   {
     path: "",
-    redirectTo: "login",
+    redirectTo: "homes",
     pathMatch: "full",
   },
   {
     path: "login",
     component: LoginComponent,
   },
+  {
+    path: "register",
+    component: CreaeditausuarioComponent,
+  },
+
+
   {
     path: "usuarios",
     component: UsuarioComponent,
@@ -185,8 +204,34 @@ export const routes: Routes = [
     canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
   },
   {
+    path: 'reportes',component: ReportsComponent,
+    children: [
+      {
+        path: 'reporte02', component: ReportCantidadReservasXUsuarioComponent,
+      },
+      {
+        path: 'reporte03', component: ReportPromedioPreciosDeMenuXCafeteriaComponent,
+      },
+      {
+        path: 'reporte04', component: ReportPlatosMasPedidosComponent,
+      },
+      {
+        path: 'reporte05', component: ReportTotalViajesRealizadosXTransporteComponent,
+      },
+      {
+        path: 'reporte06', component: ReportTotalGastoxUsuarioComponent,
+      },
+      {
+        path: 'reporte07', component: ReportCantidadDeMenuxSedeComponent,
+      },
+      {
+        path: 'reporte08', component: ReportTotalRecargadoUsuarioComponent,
+      },
+    ],
+  },
+  {
     path: "homes",
     component: HomeComponent,
-    canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+   // solo construcciones, se debe agregar a cada uno
   },
 ];

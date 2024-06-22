@@ -29,6 +29,15 @@ body {
     font-weight: bold; 
     color: #333;
   }
+
+  .custom-warn-button {
+    background-color: #EE7200 !important;
+    color: black !important;
+  }
+  
+  .custom-warn-button:hover {
+    background-color: #d65f00 !important;  
+  }
   
   form {
     display: flex; 

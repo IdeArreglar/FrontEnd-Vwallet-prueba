@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="verificar()">
     <div class="title-container"><h1 class="title">Lista de Menus</h1></div>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   
@@ -42,14 +42,14 @@
           <ng-container matColumnDef="accion01">
             <th mat-header-cell *matHeaderCellDef> Editar </th>
             <td mat-cell *matCellDef="let element">
-              <button mat-raised-button color="primary" [routerLink]="['ediciones',element.idMenu]"><mat-icon>edit</mat-icon></button>
+              <button mat-raised-button class="custom-primary-button" [routerLink]="['ediciones',element.idMenu]" *ngIf="isAdmin()"><mat-icon>edit</mat-icon></button>
             </td>
           </ng-container>
           
           <ng-container matColumnDef="accion02">
             <th mat-header-cell *matHeaderCellDef class="header-icon"> Eliminar </th>
             <td mat-cell *matCellDef="let element">
-              <button mat-raised-button color="warn" (click)="deletes(element.idMenu)"><mat-icon>deletes</mat-icon></button>
+              <button mat-raised-button color="warn" (click)="deletes(element.idMenu)" *ngIf="isAdmin()"><mat-icon>deletes</mat-icon></button>
                </td>
           </ng-container>
 

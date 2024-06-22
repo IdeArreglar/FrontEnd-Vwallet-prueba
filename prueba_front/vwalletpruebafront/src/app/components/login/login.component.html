@@ -25,21 +25,33 @@
   -->
 
   <div class="background">
-    <div class="container">
-        <div class="logo-container">
-            <img src="https://i.ibb.co/YcqH8z1/vwalletweb-logo.jpg" alt="Logo de la empresa">
-        </div>
-        <h2>Inicie sesión</h2>
-        <mat-form-field class="example-full-width">
-            <mat-label>Usuario</mat-label>
-            <input matInput placeholder="Username" [(ngModel)]="username" />
-        </mat-form-field>
-        <br />
-        <mat-form-field class="example-full-width">
-            <mat-label>Password</mat-label>
-            <input type="password" matInput placeholder="Password" [(ngModel)]="password" />
-        </mat-form-field>
-        <br />
-        <button mat-raised-button color="warn" (click)="login()">Ingresar</button>
+    <div class="image-container">
+      <!-- Imagen de fondo -->
+      <img src="https://i.ibb.co/XZdv4MP/monterrico.jpg" alt="Background Image">
     </div>
-</div>
+    <div class="login-container">
+      <button mat-icon-button class="back-button" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div class="container">
+        <div class="logo-container">
+          <img src="https://i.ibb.co/YcqH8z1/vwalletweb-logo.jpg" alt="Logo de la empresa">
+        </div>
+        <h2>Iniciar sesión</h2>
+        <mat-form-field class="example-full-width">
+          <mat-label>Usuario</mat-label>
+          <input matInput placeholder="Username" [(ngModel)]="username" />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" [(ngModel)]="password" />
+          <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <br />
+        <button mat-raised-button class="custom-warn-button" (click)="login()">Ingresar</button>
+      </div>
+    </div>
+  </div>

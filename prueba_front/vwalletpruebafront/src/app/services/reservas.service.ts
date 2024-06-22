@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Reservas } from '../models/Reservas';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CantidadReservasXUsuarioDTO } from '../models/cantidadReservasXUsuarioDTO';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,23 @@ export class ReservasService {
 
 
   constructor(private http:HttpClient) { }
-  list(){
-    return this.http.get<Reservas[]>(this.url);
+  list() {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Reservas[]>(this.url, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   insert(u:Reservas){
-    return this.http.post(this.url,u);
+    let token = sessionStorage.getItem('token');
+    console.log(token)
+    return this.http.post(this.url,u,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+
+    });
   }
   setList(listaNueva:Reservas[]){
     this.listaCambio.next(listaNueva);
@@ -26,14 +39,38 @@ export class ReservasService {
   getList(){
     return this.listaCambio.asObservable();
   }
-  listId(id:number){
-    return this.http.get<Reservas>(`${this.url}/${id}`)
+  listId(id: number) {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Reservas>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   update(m:Reservas){
-    return this.http.put(this.url,m);
+    let token = sessionStorage.getItem('token');
+    return this.http.put(this.url,m,{
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   delete(id:number)
   {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem('token');
+    return this.http.delete(`${this.url}/${id}`,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
+  }
+
+  getQuantityOfReservationsPerUser():Observable<CantidadReservasXUsuarioDTO[]>{
+    let token = sessionStorage.getItem('token');
+    return this.http.get<CantidadReservasXUsuarioDTO[]>(`${this.url}/cantidadreservasxusuario`,{
+      headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+    });
   }
 }

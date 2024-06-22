@@ -29,3 +29,12 @@ body {
     display: flex;
     justify-content: center;
   }
+
+  .custom-primary-button {
+    background-color: #EE7200 ;
+    color: black ;
+  }
+  
+  .custom-primary-button:hover {
+    background-color: #d65f00 ;  
+  }
