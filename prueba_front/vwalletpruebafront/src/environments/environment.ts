@@ -1,5 +1,6 @@
 export const environment = {
     production: false,
-    base: 'https://vwalletweb-4.onrender.com',
+    base: 'http://localhost:8080',
   };
+  
   
