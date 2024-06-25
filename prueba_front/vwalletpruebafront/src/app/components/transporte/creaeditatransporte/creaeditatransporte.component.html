@@ -1,11 +1,13 @@
-<div>
+<div class="container">
+  <div class="title-container">
+    <h1 class="title">Registro de Transporte</h1>
+  </div>
     <form [formGroup]="form" (submit)="aceptar()">
       <mat-form-field *ngIf="edicion">
         <mat-label>Código</mat-label>
         <input matInput formControlName="codigo_trans" readonly />
       </mat-form-field>
-      <br />
-  
+
       <mat-form-field>
         <mat-label>Sede salida</mat-label>
         <mat-select matInput formControlName="universidad_salida">
@@ -16,7 +18,6 @@
           >
         </mat-select>
       </mat-form-field>
-      <br />
 
       <mat-form-field>
         <mat-label>Sede llegada</mat-label>
@@ -28,8 +29,6 @@
           >
         </mat-select>
       </mat-form-field>
-      <br />
-
 
       <mat-form-field>
         <mat-label>Hora salida</mat-label>
@@ -38,8 +37,6 @@
           >La hora de salida es obligatorio.</mat-error
         >
       </mat-form-field>
-      <br />
-
 
       <mat-form-field>
         <mat-label>Hora llegada</mat-label>
@@ -48,8 +45,6 @@
           >La hora de llegada es obligatorio.</mat-error
         >
       </mat-form-field>
-      <br />
-
 
       <mat-form-field>
         <mat-label>Precio</mat-label>
@@ -58,8 +53,7 @@
           >EL precio es obligatorio.</mat-error
         >
       </mat-form-field>
-      <br />
   
-      <button mat-raised-button color="warn">Aceptar</button>
+      <button mat-raised-button class="custom-warn-button">Aceptar</button>
     </form>
   </div>

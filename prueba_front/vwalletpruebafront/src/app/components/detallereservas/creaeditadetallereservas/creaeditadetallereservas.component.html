@@ -1,12 +1,13 @@
-<div>
+<div class="container">
+  <div class="title-container">
+    <h1 class="title">Registro de Detalle Reserva</h1>
+  </div>
   <form [formGroup]="form" (submit)="aceptar()">
     <mat-form-field *ngIf="edicion">
       <mat-label>Código</mat-label>
       <input matInput formControlName="codigo" readonly />
     </mat-form-field>
-    <br />
 
-    <br />
     <mat-form-field class="example-full-width">
       <mat-label>Número de reserva</mat-label>
       <mat-select formControlName="reserva">
@@ -18,9 +19,7 @@
         >La reserva es obligatoria.</mat-error
       >
     </mat-form-field>
-    <br />
 
-    <br />
     <mat-form-field class="example-full-width">
       <mat-label>Número de menu</mat-label>
       <mat-select formControlName="menu">
@@ -29,9 +28,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <br />
 
-    <br />
     <mat-form-field class="example-full-width">
       <mat-label>Número de transporte</mat-label>
       <mat-select formControlName="transporte">
@@ -40,9 +37,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <br />
 
-    <br />
     <mat-form-field class="example-full-width">
       <mat-label>Número del libro</mat-label>
       <mat-select formControlName="libro">
@@ -51,8 +46,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <br />
 
-    <button mat-raised-button color="warn">Aceptar</button>
+    <button mat-raised-button class="custom-warn-button" type="submit"> Aceptar</button>
   </form>
 </div>

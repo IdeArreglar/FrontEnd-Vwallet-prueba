@@ -17,6 +17,7 @@ import { Reservas } from "../../../models/Reservas";
 import { Usuario } from "../../../models/Usuario";
 import { ReservasService } from "../../../services/reservas.service";
 import { UsuarioService } from "../../../services/usuario.service";
+import { LoginService } from "../../../services/login.service";
 
 @Component({
   selector: "app-creaeditareservas",
@@ -34,6 +35,7 @@ import { UsuarioService } from "../../../services/usuario.service";
   styleUrl: "./creaeditareservas.component.css",
 })
 export class CreaeditareservasComponent implements OnInit {
+  tipousuario: string = "";
   form: FormGroup = new FormGroup({});
   reservas: Reservas = new Reservas();
   id: number = 0;
@@ -45,7 +47,8 @@ export class CreaeditareservasComponent implements OnInit {
     private rS: ReservasService,
     private router: Router,
     private route: ActivatedRoute,
-    private uS: UsuarioService
+    private uS: UsuarioService,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -57,20 +60,36 @@ export class CreaeditareservasComponent implements OnInit {
     this.uS.list().subscribe((data) => {
       this.listaUsuarios = data;
     });
-
+    this.verificar()
+    
+if(this.tipousuario === "ADMIN"){
     this.form = this.formBuilder.group({
       codigo_res: [""],
       fechareserva: ["", Validators.required],
       usuario_res: ["", Validators.required],
     });
   }
+  else {
+    this.form = this.formBuilder.group({
+      codigo_res: [""],
+      fechareserva: ["", Validators.required],
+
+    });
+  }
+  }
 
   aceptar(): void {
     if (this.form.valid) {
       this.reservas.idReservas = this.form.value.codigo_res;
       this.reservas.fechaReserva = this.form.value.fechareserva;
-      this.reservas.usuario.idUsuario = this.form.value.usuario_res;
+      if(this.tipousuario === "ADMIN"){
+        this.reservas.usuario.idUsuario = this.form.value.usuario_res;
 
+      }else{
+        console.log(this.listaUsuarios)
+        this.reservas.usuario.idUsuario=Number(sessionStorage.getItem("id"));
+      }
+ console.log(this.reservas)
       if (this.edicion) {
         this.rS.update(this.reservas).subscribe((data) => {
           this.rS.list().subscribe((data) => {
@@ -78,6 +97,7 @@ export class CreaeditareservasComponent implements OnInit {
           });
         });
       } else {
+        console.log(this.reservas)
         this.rS.insert(this.reservas).subscribe((data) => {
           this.rS.list().subscribe((data) => {
             this.rS.setList(data);
@@ -85,6 +105,9 @@ export class CreaeditareservasComponent implements OnInit {
         });
       }
       this.router.navigate(["reservas"]);
+    }
+    else{
+      console.log("error")
     }
   }
   init() {
@@ -98,4 +121,18 @@ export class CreaeditareservasComponent implements OnInit {
       });
     }
   }
+
+  verificar() {
+    this.tipousuario = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+
+
+  isAdmin() {
+    console.log(this.tipousuario)
+    return this.tipousuario === "ADMIN";
+
+  }
+
+
 }

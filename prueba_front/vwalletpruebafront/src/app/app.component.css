@@ -13,5 +13,13 @@
     color: #000000; 
   }
   
+  .mat-toolbar-custom {
+    background-color: #EE7200;
+    color: white; /* Color de texto blanco */
+  }
+  
+  .mat-toolbar-custom button {
+    color: white; /* Color de texto blanco para el botón dentro de la barra de herramientas */
+  }
 
   
